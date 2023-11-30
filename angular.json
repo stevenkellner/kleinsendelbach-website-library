@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kleinsendelbach-website-library": {
+    "kleinsendelbach-website-library-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kleinsendelbach-website-library",
+            "outputPath": "dist/kleinsendelbach-website-library-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "kleinsendelbach-website-library:build:production"
+              "browserTarget": "kleinsendelbach-website-library-app:build:production"
             },
             "development": {
-              "browserTarget": "kleinsendelbach-website-library:build:development"
+              "browserTarget": "kleinsendelbach-website-library-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kleinsendelbach-website-library:build"
+            "browserTarget": "kleinsendelbach-website-library-app:build"
           }
         },
         "test": {
@@ -96,6 +96,39 @@
               "src/styles.sass"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "kleinsendelbach-website-library": {
+      "projectType": "library",
+      "root": "projects/kleinsendelbach-website-library",
+      "sourceRoot": "projects/kleinsendelbach-website-library/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/kleinsendelbach-website-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/kleinsendelbach-website-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/kleinsendelbach-website-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/kleinsendelbach-website-library/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
