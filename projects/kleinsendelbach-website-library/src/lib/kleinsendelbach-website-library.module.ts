@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { KleinsendelbachWebsiteLibraryComponent } from './kleinsendelbach-website-library.component';
-
-
+import { TextSectionModule } from './text-section/text-section.module';
+import { LinkModule } from './link';
 
 @NgModule({
-  declarations: [
-    KleinsendelbachWebsiteLibraryComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    KleinsendelbachWebsiteLibraryComponent
-  ]
+    declarations: [],
+    imports: [
+        TextSectionModule,
+        LinkModule
+    ],
+    exports: [
+        TextSectionModule,
+        LinkModule
+    ]
 })
-export class KleinsendelbachWebsiteLibraryModule { }
+export class KleinsendelbachWebsiteLibraryModule {}
