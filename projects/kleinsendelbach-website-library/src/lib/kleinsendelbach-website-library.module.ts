@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { TextSectionModule } from './text-section/text-section.module';
-import { LinkModule } from './link';
+import { KlsbCommonModule } from './common';
 
 @NgModule({
     declarations: [],
     imports: [
         TextSectionModule,
-        LinkModule
+        KlsbCommonModule
     ],
     exports: [
         TextSectionModule,
-        LinkModule
+        KlsbCommonModule
     ]
 })
 export class KleinsendelbachWebsiteLibraryModule {}

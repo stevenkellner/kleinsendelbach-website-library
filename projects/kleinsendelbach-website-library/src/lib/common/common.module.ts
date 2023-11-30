@@ -13,4 +13,4 @@ import { LinkDirective } from './directives/link.directive';
         LinkDirective
     ]
 })
-export class LinkModule {}
+export class KlsbCommonModule {}

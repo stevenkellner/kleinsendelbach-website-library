@@ -1,4 +1,4 @@
-export * from './link.module';
+export * from './common.module';
 
 export * from './types';
 export * from './directives';
