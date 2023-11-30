@@ -3,13 +3,15 @@
     "version": "0.0.1",
     "peerDependencies": {
         "@angular/common": "^16.2.0",
-        "@angular/core": "^16.2.0"
-    },
-    "dependencies": {
+        "@angular/core": "^16.2.0",
         "@fortawesome/angular-fontawesome": "^0.13.0",
         "aes-ts": "^0.0.0-alpha.0",
         "js-base64": "^3.7.5",
         "sha512-crypt-ts": "^0.1.27",
+        "@angular/fire": "^16.0.0",
+        "ngx-cookie-service": "^16.1.0"
+    },
+    "dependencies": {
         "tslib": "^2.3.0"
     },
     "sideEffects": false

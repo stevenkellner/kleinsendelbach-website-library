@@ -7,12 +7,14 @@ import { KleinsendelbachWebsiteLibraryModule } from 'kleinsendelbach-website-lib
 import { LinkComponent } from './components/link/link.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TextSectionComponent } from './components/text-section/text-section.component';
+import { CookieSelectorComponent } from './components/cookie-selector/cookie-selector.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LinkComponent,
-        TextSectionComponent
+        TextSectionComponent,
+        CookieSelectorComponent
     ],
     imports: [
         BrowserModule,

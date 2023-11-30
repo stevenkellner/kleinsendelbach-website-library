@@ -5,13 +5,19 @@ import { sha512 as cryptSha512 } from 'sha512-crypt-ts';
 import { BytesToBitIterator, CombineIterator, RandomBitIterator, addPadding, bitIteratorToBytes, randomBytes, removePadding, unishortBytes, unishortString, xor } from '../types';
 import { EnvironmentService } from '../../common/services/environment.service';
 
+export interface CryptionKeys {
+    encryptionKey: Uint8Array;
+    initialisationVector: Uint8Array;
+    vernamKey: Uint8Array;
+}
+
 @Injectable({
     providedIn: 'root'
 })
 export class CrypterService {
 
     constructor(
-        private readonly environmentService: EnvironmentService<{ cryptionKeys: CrypterService.Keys }>
+        private readonly environmentService: EnvironmentService<{ cryptionKeys: CryptionKeys }>
     ) {}
 
     public encryptAes(bytes: Uint8Array): Uint8Array {
@@ -70,13 +76,5 @@ export class CrypterService {
     public sha512(value: string, key: string | null = null): string {
         const hashedValue = key === null ? cryptSha512.base64(value) : cryptSha512.base64Hmac(key, value);
         return hashedValue.replaceAll('/', '_');
-    }
-}
-
-export namespace CrypterService {
-    export interface Keys {
-        encryptionKey: Uint8Array;
-        initialisationVector: Uint8Array;
-        vernamKey: Uint8Array;
     }
 }
