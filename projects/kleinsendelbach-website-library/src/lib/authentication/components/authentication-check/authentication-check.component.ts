@@ -19,7 +19,7 @@ export class AuthenticationCheckComponent {
 
     @Output() public onAuthentication = new EventEmitter<void>();
 
-    public constructor(
+    constructor(
         private readonly authService: AuthService
     ) {}
 
@@ -44,7 +44,7 @@ export class AuthenticationCheckComponent {
 export class AuthenticationStates {
     private readonly states: Record<string, AuthenticationState> = {};
 
-    public constructor(allKeys: string[]) {
+    constructor(allKeys: string[]) {
         for (const key of allKeys)
             this.states[key] = 'loading';
     }

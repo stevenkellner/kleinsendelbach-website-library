@@ -24,7 +24,7 @@ export class DeviceTypeService {
         return this.deviceType === 'mobile';
     }
 
-    public get isTable(): boolean {
+    public get isTablet(): boolean {
         return this.deviceType === 'tablet';
     }
 

@@ -5,13 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KleinsendelbachWebsiteLibraryModule } from 'kleinsendelbach-website-library';
 import { LinkComponent } from './components/link/link.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TextSectionComponent } from './components/text-section/text-section.component';
 import { CookieSelectorComponent } from './components/cookie-selector/cookie-selector.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { AngularFireFunctionsModule, REGION } from '@angular/fire/compat/functions';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from './environment';
+import { HeaderComponent } from './components/header/header.component';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
     declarations: [
@@ -19,7 +23,8 @@ import { environment } from './environment';
         LinkComponent,
         TextSectionComponent,
         CookieSelectorComponent,
-        AuthenticationComponent
+        AuthenticationComponent,
+        HeaderComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -34,4 +39,10 @@ import { environment } from './environment';
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+    public constructor(
+        faIconLibrary: FaIconLibrary
+    ) {
+        faIconLibrary.addIconPacks(fas, far, fab);
+    }
+}

@@ -1,0 +1,8 @@
+<desktop-header
+    *ngIf="deviceType.isDesktop || deviceType.isTablet"
+    [headerData]="headerData"
+ />
+<mobile-header
+    *ngIf="deviceType.isMobile"
+    [headerData]="headerData"
+ />
