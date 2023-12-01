@@ -5,7 +5,7 @@ export class BytesToBitIterator implements Iterator<0 | 1> {
 
     private currentBitsIterator: Iterator<0 | 1> | null = null;
 
-    public constructor(bytes: Uint8Array) {
+    constructor(bytes: Uint8Array) {
         this.bytesIterator = bytes[Symbol.iterator]();
         const bytesIteratorResult = this.bytesIterator.next();
         if (!(bytesIteratorResult.done ?? false))

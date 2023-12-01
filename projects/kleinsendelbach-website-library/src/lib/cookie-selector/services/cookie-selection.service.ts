@@ -21,7 +21,7 @@ export class CookieSelectionService {
         statistics: 'unselected'
     };
 
-    public constructor(
+    constructor(
         private readonly cookieService: CookieService
     ) {}
 

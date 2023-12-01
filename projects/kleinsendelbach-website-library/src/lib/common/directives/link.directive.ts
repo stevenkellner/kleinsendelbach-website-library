@@ -8,7 +8,7 @@ import { InternalLinkService } from '../services';
 export class LinkDirective<InternalPath extends string> {
     @Input() public link!: Link | InternalPath;
 
-    public constructor(
+    constructor(
         private readonly element: ElementRef<HTMLElement>,
         private readonly internalLinkService: InternalLinkService<InternalPath>
     ) {}

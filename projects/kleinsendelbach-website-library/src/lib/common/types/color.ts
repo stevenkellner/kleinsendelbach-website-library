@@ -3,7 +3,7 @@ import { Appearance } from '../services/appearance.service';
 export class ColorComponent {
     public readonly value: number;
 
-    public constructor(value: number) {
+    constructor(value: number) {
         this.value = Math.max(0, Math.min(Math.round(value), 255));
     }
 }
@@ -29,7 +29,7 @@ export namespace ColorComponent {
 }
 
 export class Color {
-    public constructor(
+    constructor(
         private readonly red: ColorComponent,
         private readonly green: ColorComponent,
         private readonly blue: ColorComponent,
@@ -64,7 +64,7 @@ export namespace Color {
 }
 
 export class AppearanceColor {
-    public constructor(
+    constructor(
         private readonly lightColor: Color,
         private readonly darkColor: Color | null = null
     ) {}

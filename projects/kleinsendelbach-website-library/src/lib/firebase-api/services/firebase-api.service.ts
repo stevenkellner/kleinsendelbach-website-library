@@ -13,7 +13,7 @@ export class FirebaseApiService<FirebaseFunctions extends Record<string, Functio
 
     private resultMappers: { [Key in keyof FirebaseFunctions]: (value: FunctionType.FlattenReturnType<FirebaseFunctions[Key]>) => FunctionType.ReturnType<FirebaseFunctions[Key]> } | null = null;
 
-    public constructor(
+    constructor(
         private readonly crypter: CrypterService,
         private readonly angularFireFunctions: AngularFireFunctions,
         private readonly environmentService: EnvironmentService<{ databaseType: DatabaseType, callSecretKey: string, verbose: VerboseType }>
@@ -33,7 +33,7 @@ export class FirebaseApiService<FirebaseFunctions extends Record<string, Functio
 }
 
 export class FirebaseFunctionCaller<FirebaseFunction extends FunctionType<unknown, unknown, unknown>> {
-    public constructor(
+    constructor(
         private readonly crypter: CrypterService,
         private readonly angularFireFunctions: AngularFireFunctions,
         private readonly environmentService: EnvironmentService<{ databaseType: DatabaseType, callSecretKey: string, verbose: VerboseType }>,

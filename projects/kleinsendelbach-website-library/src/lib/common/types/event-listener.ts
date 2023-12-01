@@ -3,7 +3,7 @@ import { recordValues } from "./record-array";
 export class EventListener<T> {
     private listeners: Record<number | string, (newValue: T) => void>;
 
-    public constructor() {
+    constructor() {
         this.listeners = {};
     }
 

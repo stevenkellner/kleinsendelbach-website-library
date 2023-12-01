@@ -1,5 +1,5 @@
 export class Link {
-    public constructor(
+    constructor(
         public readonly title: string,
         public readonly link: string,
         private readonly openInNewTab: boolean

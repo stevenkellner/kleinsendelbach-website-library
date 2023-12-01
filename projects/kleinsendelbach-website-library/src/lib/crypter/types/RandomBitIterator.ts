@@ -6,7 +6,7 @@ export class RandomBitIterator implements Iterator<0 | 1> {
 
     private bitIterator: Iterator<0 | 1>;
 
-    public constructor(seed: Uint8Array) {
+    constructor(seed: Uint8Array) {
         this.pseudoRandom = new PseudoRandom(seed);
         this.bitIterator = new BytesToBitIterator(Uint8Array.from([this.pseudoRandom.randomByte()]));
     }

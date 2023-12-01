@@ -11,7 +11,7 @@ export class StyleConfigService implements OnDestroy {
 
     private colorConfig: Record<StyleColor, AppearanceColor> | null = null;
 
-    public constructor(
+    constructor(
         private readonly appearance: AppearanceService
     ) {
         this.appearance.listener.add('style-config', newAppearance => {

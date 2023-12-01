@@ -1,5 +1,5 @@
 export class CombineIterator<T1, T2, R> implements Iterator<R> {
-    public constructor(
+    constructor(
         private readonly iterator1: Iterator<T1>,
         private readonly iterator2: Iterator<T2>,
         private readonly combineElement: (element1: T1, element2: T2) => R

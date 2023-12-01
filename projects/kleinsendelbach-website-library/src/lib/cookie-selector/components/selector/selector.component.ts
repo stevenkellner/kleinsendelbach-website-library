@@ -17,7 +17,7 @@ export class CookieSelectorComponent {
 
     public detailsShown = false;
 
-    public constructor(
+    constructor(
         public readonly cookieSelectionService: CookieSelectionService,
         public readonly deviceType: DeviceTypeService
     ) {

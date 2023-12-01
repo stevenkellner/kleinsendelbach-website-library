@@ -12,7 +12,7 @@ export class TextSectionComponent {
 
     @Output() public collapsedChanged = new EventEmitter<boolean>();
 
-    public constructor() {}
+    constructor() {}
 
     public get titleId(): string | null {
         if (this.title === null)

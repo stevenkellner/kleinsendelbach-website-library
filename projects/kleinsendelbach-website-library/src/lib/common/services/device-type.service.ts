@@ -12,7 +12,7 @@ export class DeviceTypeService {
 
     private deviceType: DeviceType;
 
-    public constructor() {
+    constructor() {
         this.deviceType = DeviceTypeService.computeDeviceType();
     }
 

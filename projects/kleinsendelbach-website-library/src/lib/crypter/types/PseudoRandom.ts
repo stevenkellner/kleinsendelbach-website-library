@@ -8,7 +8,7 @@ export class PseudoRandom {
         constant: number;
     };
 
-    public constructor(seed: Uint8Array) {
+    constructor(seed: Uint8Array) {
         let n = this.INITIAL_MASH_N;
         let state0 = this.mashResult(n = this.mash(Uint8Array.from([32]), n));
         let state1 = this.mashResult(n = this.mash(Uint8Array.from([32]), n));

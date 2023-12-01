@@ -18,7 +18,7 @@ export namespace Result {
     export class Success<Content> implements IResult<Content, never> {
         public readonly error = null;
 
-        public constructor(
+        constructor(
             public readonly value: Content
         ) {}
 
@@ -50,7 +50,7 @@ export namespace Result {
     export class Failure<Failure = never> implements IResult<never, Failure> {
         public readonly value = null;
 
-        public constructor(
+        constructor(
             public readonly error: Failure
         ) {}
 

@@ -5,3 +5,4 @@ export * from './lib/common';
 export * from './lib/crypter';
 export * from './lib/firebase-api';
 export * from './lib/cookie-selector';
+export * from './lib/authentication';

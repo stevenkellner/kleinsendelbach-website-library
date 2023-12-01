@@ -12,7 +12,7 @@ export class AppearanceService {
 
     private appearance: Appearance | 'system' = 'system';
 
-    public constructor() {
+    constructor() {
         const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
         this.setAppearance(savedAppearance ?? 'system');
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
