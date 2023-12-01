@@ -6,6 +6,7 @@ import { CookieSelectorModule } from './cookie-selector';
 import { FirebaseApiModule } from './firebase-api';
 import { AuthenticationModule } from './authentication';
 import { HeaderModule } from './header';
+import { FooterModule } from './footer/footer.module';
 
 @NgModule({
     declarations: [],
@@ -16,7 +17,8 @@ import { HeaderModule } from './header';
         CookieSelectorModule,
         FirebaseApiModule,
         AuthenticationModule,
-        HeaderModule
+        HeaderModule,
+        FooterModule
     ],
     exports: [
         TextSectionModule,
@@ -25,7 +27,8 @@ import { HeaderModule } from './header';
         CookieSelectorModule,
         FirebaseApiModule,
         AuthenticationModule,
-        HeaderModule
+        HeaderModule,
+        FooterModule
     ]
 })
 export class KleinsendelbachWebsiteLibraryModule {}

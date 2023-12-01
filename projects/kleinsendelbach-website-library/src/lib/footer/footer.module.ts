@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LinkDirective } from './directives/link.directive';
-import { AppearanceComponent } from './components/appearance/appearance.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { KlsbCommonModule } from '../common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     declarations: [
-        LinkDirective,
-        AppearanceComponent
+        FooterComponent
     ],
     imports: [
         CommonModule,
+        KlsbCommonModule,
         FontAwesomeModule
     ],
     exports: [
-        LinkDirective,
-        AppearanceComponent
+        FooterComponent
     ]
 })
-export class KlsbCommonModule {}
+export class FooterModule {}

@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
         TextSectionComponent,
         CookieSelectorComponent,
         AuthenticationComponent,
-        HeaderComponent
+        HeaderComponent,
+        FooterComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),

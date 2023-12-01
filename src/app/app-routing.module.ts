@@ -5,13 +5,15 @@ import { TextSectionComponent } from './components/text-section/text-section.com
 import { CookieSelectorComponent } from './components/cookie-selector/cookie-selector.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
     { path: 'text-section', component: TextSectionComponent },
     { path: 'cookie-selector', component: CookieSelectorComponent },
     { path: 'authentication', component: AuthenticationComponent },
-    { path: 'header', component: HeaderComponent }
+    { path: 'header', component: HeaderComponent },
+    { path: 'footer', component: FooterComponent }
 ];
 
 @NgModule({
