@@ -7,6 +7,7 @@ import { FirebaseApiModule } from './firebase-api';
 import { AuthenticationModule } from './authentication';
 import { HeaderModule } from './header';
 import { FooterModule } from './footer/footer.module';
+import { InputFormModule } from './input-form';
 
 @NgModule({
     declarations: [],
@@ -18,7 +19,8 @@ import { FooterModule } from './footer/footer.module';
         FirebaseApiModule,
         AuthenticationModule,
         HeaderModule,
-        FooterModule
+        FooterModule,
+        InputFormModule
     ],
     exports: [
         TextSectionModule,
@@ -28,7 +30,9 @@ import { FooterModule } from './footer/footer.module';
         FirebaseApiModule,
         AuthenticationModule,
         HeaderModule,
-        FooterModule
+        FooterModule,
+        FooterModule,
+        InputFormModule
     ]
 })
 export class KleinsendelbachWebsiteLibraryModule {}

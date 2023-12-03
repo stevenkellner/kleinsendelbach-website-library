@@ -17,6 +17,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FooterComponent } from './components/footer/footer.component';
+import { InputFormComponent } from './components/input-form/input-form.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { FooterComponent } from './components/footer/footer.component';
         CookieSelectorComponent,
         AuthenticationComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        InputFormComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),

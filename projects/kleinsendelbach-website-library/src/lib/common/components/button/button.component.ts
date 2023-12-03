@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Link } from '../../types';
 
 @Component({
@@ -8,21 +8,11 @@ import { Link } from '../../types';
 })
 export class ButtonComponent {
 
-    @Input() public action!: (() => void) | Link;
+    @Input() public link: Link | null = null;
 
     @Input() public borderless: boolean = false;
 
-    public get actionType(): { type: 'function', action: () => void } | { type: 'link', link: Link } {
-        if (typeof this.action === 'function') {
-            return {
-                type: 'function',
-                action: this.action
-            };
-        } else {
-            return {
-                type: 'link',
-                link: this.action
-            };
-        }
-    }
+    @Input() public largeText: boolean = false;
+
+    @Output() public action = new EventEmitter<void>();
 }

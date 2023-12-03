@@ -6,6 +6,7 @@ import { CookieSelectorComponent } from './components/cookie-selector/cookie-sel
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { InputFormComponent } from './components/input-form/input-form.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
     { path: 'cookie-selector', component: CookieSelectorComponent },
     { path: 'authentication', component: AuthenticationComponent },
     { path: 'header', component: HeaderComponent },
-    { path: 'footer', component: FooterComponent }
+    { path: 'footer', component: FooterComponent },
+    { path: 'input-form', component: InputFormComponent }
 ];
 
 @NgModule({
