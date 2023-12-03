@@ -1,6 +1,7 @@
 import { Link } from "../../common";
 
 export type FooterData = {
+    appearanceChangerShown: boolean;
     copyright: string;
     editLink: Link | null;
     links: FooterLink[],
@@ -15,10 +16,11 @@ export type FooterLink = {
 export type FooterContact = {
     function: string;
     name: string;
-    street: string;
-    city: string;
-    telephone: {
-        number: string;
-        text: string;
-    };
+    address: {
+        street: string;
+        city: string;
+    } | null;
+    phone: string | null;
+    mobile: string | null;
+    email: string | null;
 }

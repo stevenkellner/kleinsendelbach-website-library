@@ -3,17 +3,20 @@
     [ngClass]="deviceType.current"
 >
     <div
-        id="links-copyright"
+        class="column"
     >
         <div
             id="links"
         >
-        <a
-            *ngFor="let link of footerData.links; trackBy: TrackBy.property('title')"
-            [link]="link.link"
-            class="link"
-        >{{ link.title }}</a>
+            <button
+                *ngFor="let link of footerData.links; trackBy: TrackBy.property('title')"
+                [action]="link.link"
+                [borderless]="true"
+                class="link"
+            >{{ link.title }}</button>
+        </div>
         <div
+            *ngIf="footerData.appearanceChangerShown"
             id="appearance-container"
         >
             <p
@@ -26,23 +29,22 @@
                 class="text"
             >{{ appearanceService.configDescription }}</p>
         </div>
-        </div>
         <p
             id="copyright"
         >{{ footerData.copyright }}</p>
-        <a
+        <button
             *ngIf="footerData.editLink"
-            [link]="footerData.editLink"
+            [action]="footerData.editLink"
             id="edit-link"
-        >Bearbeiten</a>
+        >Bearbeiten</button>
     </div>
 
     <div
-        class="address-card"
-        *ngFor="let contact of footerData.contacts; trackBy: TrackBy.property('name')"
+        class="column"
     >
         <div
-            class="top"
+            class="contact"
+            *ngFor="let contact of footerData.contacts; trackBy: TrackBy.property('name')"
         >
             <p
                 class="function"
@@ -50,29 +52,69 @@
             <p
                 class="name"
             >{{ contact.name }}</p>
-        </div>
-        <div
-            class="bottom"
-        >
-            <p
-                class="street"
-            >{{ contact.street }}</p>
-            <p
-                class="city"
-            >{{ contact.city }}</p>
-            <a
-                class="telephone"
-                href="tel:{{ contact.telephone.number }}"
-                [title]="contact.name"
+            <div
+                *ngIf="hasContactOptions(contact)"
+                class="contact-options"
             >
-                <fa-icon
-                    class="icon"
-                    icon="phone"
-                />
-                <p
-                    class="number"
-                >{{ contact.telephone.text }}</p>
-            </a>
+                <div
+                    *ngIf="contact.address !== null"
+                    class="contact-option"
+                >
+                    <fa-icon
+                        class="icon"
+                        icon="map"
+                    ></fa-icon>
+                    <div
+                        class="address"
+                    >
+                        <p
+                            class="text"
+                        >{{ contact.address.city }}</p>
+                        <p
+                            class="text"
+                        >{{ contact.address.street }}</p>
+                    </div>
+                </div>
+                <div
+                    *ngIf="contact.phone !== null"
+                    class="contact-option"
+                >
+                    <fa-icon
+                        class="icon"
+                        icon="phone"
+                    ></fa-icon>
+                    <a
+                        class="text"
+                        [href]="'tel:' + contact.phone"
+                    >{{ contact.phone }}</a>
+                </div>
+                <div
+                    *ngIf="contact.mobile !== null"
+                    class="contact-option"
+                >
+                    <fa-icon
+                        class="icon"
+                        icon="mobile"
+                    ></fa-icon>
+                    <a
+                        class="text"
+                        [href]="'tel:' + contact.mobile"
+                    >{{ contact.mobile }}</a>
+                </div>
+                <div
+                    *ngIf="contact.email !== null"
+                    class="contact-option"
+                >
+                    <fa-icon
+                        class="icon"
+                        icon="envelope"
+                    ></fa-icon>
+                    <a
+                        class="text"
+                        [href]="'mailto:' + contact.email"
+                    >{{ contact.email }}</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

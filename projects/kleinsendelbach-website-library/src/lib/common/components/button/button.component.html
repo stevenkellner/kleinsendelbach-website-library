@@ -1,0 +1,12 @@
+<div
+    id="button"
+    *ngIf="actionType.type === 'function'"
+    (click)="actionType.action()"
+    [class.borderless]="borderless"
+><ng-content></ng-content></div>
+<a
+    id="button"
+    *ngIf="actionType.type === 'link'"
+    [link]="actionType.link"
+    [class.borderless]="borderless"
+><ng-content></ng-content></a>

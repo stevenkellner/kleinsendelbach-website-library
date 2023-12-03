@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { LinkDirective } from './directives/link.directive';
 import { AppearanceComponent } from './components/appearance/appearance.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
     declarations: [
         LinkDirective,
-        AppearanceComponent
+        AppearanceComponent,
+        ButtonComponent
     ],
     imports: [
         CommonModule,
@@ -15,7 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ],
     exports: [
         LinkDirective,
-        AppearanceComponent
+        AppearanceComponent,
+        ButtonComponent
     ]
 })
 export class KlsbCommonModule {}

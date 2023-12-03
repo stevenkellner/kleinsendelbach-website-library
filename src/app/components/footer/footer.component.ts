@@ -8,6 +8,7 @@ import { FooterData, Link } from 'kleinsendelbach-website-library';
 })
 export class FooterComponent {
     public footerData: FooterData = {
+        appearanceChangerShown: true,
         copyright: 'Copyright text',
         editLink: Link.external('Bearbeiten', 'https://www.google.com'),
         links: [
@@ -28,12 +29,32 @@ export class FooterComponent {
             {
                 name: 'Max Mustermann',
                 function: 'Vorstand',
-                street: 'Meine Straße',
-                city: 'Meine Stadt',
-                telephone: {
-                    number: '1234',
-                    text: '1234'
-                }
+                address: {
+                    street: 'Meine Straße',
+                    city: 'Meine Stadt'
+                },
+                phone: '1234',
+                mobile: null,
+                email: 'test@mail'
+            },
+            {
+                name: 'Max Mustermann',
+                function: 'Vorstand',
+                address: {
+                    street: 'Meine Straße',
+                    city: 'Meine Stadt'
+                },
+                phone: '5678',
+                mobile: '9012',
+                email: 'my-test@mail'
+            },
+            {
+                name: 'Max Mustermann',
+                function: 'Vorstand',
+                address: null,
+                phone: null,
+                mobile: null,
+                email: null,
             }
         ]
     };

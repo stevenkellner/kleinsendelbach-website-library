@@ -1,6 +1,6 @@
 import { AppearanceService } from './../../../common/services/appearance.service';
 import { Component, Input } from '@angular/core';
-import { FooterData } from '../../types';
+import { FooterContact, FooterData } from '../../types';
 import { DeviceTypeService, TrackBy } from '../../../common';
 
 @Component({
@@ -18,4 +18,8 @@ export class FooterComponent {
         public readonly deviceType: DeviceTypeService,
         public readonly appearanceService: AppearanceService
     ) {}
+
+    public hasContactOptions(contact: FooterContact): boolean {
+        return contact.address !== null || contact.phone !== null || contact.mobile !== null || contact.email !== null;
+    }
 }
