@@ -5,7 +5,7 @@
     *ngIf="state === 'loading'"
 >
     <p
-        class="text large margin-top-large primaryColor"
+        class="text large margin-top-large color-primary"
     >Es wird überprüft, ob Sie berechtigt sind, diese Seite zu besuchen.</p>
 </text-section>
 
@@ -16,7 +16,7 @@
     *ngIf="state === 'internalError'"
 >
     <p
-        class="text large margin-top-large primaryColor"
+        class="text large margin-top-large primary-color"
     >Es konnte nicht überprüft werden, ob Sie berechtigt sind, diese Seite zu besuchen. Bitte laden Sie die Seite neu, um es erneut zu versuchen.</p>
 </text-section>
 
@@ -27,11 +27,11 @@
     *ngIf="state === 'unauthenticated'"
 >
     <p
-        class="text large margin-top-large secondaryColor"
+        class="text large margin-top-large secondary-color"
     >Sie sind nicht berechtigt, diese Seite zu besuchen.</p>
     <a
         link="bearbeiten/anmelden"
-        class="text large primaryColor"
+        class="text large primary-color"
     >Zur Anmeldung</a>
 </text-section>
 

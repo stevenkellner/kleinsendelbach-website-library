@@ -14,5 +14,9 @@ export class ButtonComponent {
 
     @Input() public largeText: boolean = false;
 
+    @Input() public prominent: boolean = false;
+
+    @Input() public selected: boolean = false;
+
     @Output() public action = new EventEmitter<void>();
 }

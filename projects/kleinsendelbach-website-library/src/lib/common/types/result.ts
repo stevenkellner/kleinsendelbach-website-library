@@ -1,4 +1,4 @@
-interface IResult<Content, Failure = never> {
+interface IResult<Content, Failure = any> {
     value: Content | null;
     error: Failure | null;
 
@@ -12,7 +12,7 @@ interface IResult<Content, Failure = never> {
     mapResult<T>(mapSuccess: (value: Content) => T, mapFailure: (error: Failure) => T): T;
 }
 
-export type Result<Content, Failure = never> = Result.Success<Content> | Result.Failure<Failure>;
+export type Result<Content, Failure = any> = Result.Success<Content> | Result.Failure<Failure>;
 
 export namespace Result {
     export class Success<Content> implements IResult<Content, never> {
@@ -47,7 +47,7 @@ export namespace Result {
         }
     }
 
-    export class Failure<Failure = never> implements IResult<never, Failure> {
+    export class Failure<Failure = any> implements IResult<never, Failure> {
         public readonly value = null;
 
         constructor(

@@ -1,3 +1,4 @@
+import { recordValues } from '../../common';
 import { InputError } from './input-error';
 import { InputField } from './input-field';
 import { ValidationResult } from './validation-result';
@@ -26,7 +27,7 @@ export class InputForm<
     public evaluate(): ValidationResult {
         this.status = 'valid';
         let result: ValidationResult = 'valid';
-        for (const field of Object.values(this.inputFields)) {
+        for (const field of recordValues(this.inputFields)) {
             if (field.evaluate() === 'invalid') {
                 this.status = 'invalidInput';
                 result = 'invalid';
@@ -37,7 +38,7 @@ export class InputForm<
 
     public reset() {
         this.status = 'valid';
-        for (const inputField of Object.values(this.inputFields))
+        for (const inputField of recordValues(this.inputFields))
             inputField.reset();
     }
 }

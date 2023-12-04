@@ -7,6 +7,7 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
+import { EventComponent } from './components/event/event.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'authentication', component: AuthenticationComponent },
     { path: 'header', component: HeaderComponent },
     { path: 'footer', component: FooterComponent },
-    { path: 'input-form', component: InputFormComponent }
+    { path: 'input-form', component: InputFormComponent },
+    { path: 'event', component: EventComponent }
 ];
 
 @NgModule({

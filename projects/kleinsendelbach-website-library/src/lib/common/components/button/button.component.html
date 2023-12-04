@@ -2,6 +2,8 @@
     id="button"
     *ngIf="!link"
     (click)="action.emit()"
+    [class.prominent]="prominent"
+    [class.selected]="selected"
     [class.borderless]="borderless"
     [class.largeText]="largeText"
 ><ng-container *ngTemplateOutlet="content"></ng-container></div>
@@ -9,6 +11,9 @@
     id="button"
     *ngIf="link"
     [link]="link"
+    (click)="action.emit()"
+    [class.prominent]="prominent"
+    [class.selected]="selected"
     [class.borderless]="borderless"
     [class.largeText]="largeText"
 ><ng-container *ngTemplateOutlet="content"></ng-container></a>

@@ -1,0 +1,64 @@
+<text-section
+    title="Kommende Termine"
+>
+    <result-display
+        [result]="eventGroupsResult"
+    >
+        <p
+            *ngIf="eventGroupsResult && eventGroupsResult.isSuccess() && eventGroupsResult.value.length === 0"
+            class="text center large color-primary"
+        >Es gibt aktuell keine Termine</p>
+        <div
+            *ngIf="eventGroupsResult && eventGroupsResult.isSuccess() && eventGroupsResult.value.length !== 0"
+            id="event-groups"
+        >
+            <event-group
+                *ngFor="let eventGroup of eventGroupsResult.value; trackBy: TrackBy.property('groupId')"
+                class="event-group"
+                [eventGroup]="eventGroup"
+                [title]="eventGroupTitle[eventGroup.groupId]"
+                [isExpanded]="expandedEventGroupId === eventGroup.groupId"
+                (expandEventGroupClicked)="expandEventGroupClicked(eventGroup.groupId)"
+            ></event-group>
+        </div>
+        <ng-container *ngTemplateOutlet="calendarSubscriptonSelection"/>
+    </result-display>
+</text-section>
+
+<ng-template #calendarSubscriptonSelection>
+    <button
+        *ngIf="eventGroupsResult && eventGroupsResult.isSuccess() && eventGroupsResult.value.length !== 0 && !isCalendarSubscriptionSeletionShown"
+        (action)="showCalendarSubscriptionSeletion()"
+    >ics-Kalender abonnieren</button>
+    <div
+        *ngIf="eventGroupsResult &&  eventGroupsResult.isSuccess() && eventGroupsResult.value.length !== 0 && isCalendarSubscriptionSeletionShown"
+        id="calendar-subscription-container"
+        [ngClass]="deviceType.current"
+    >
+        <p
+            class="text"
+        >Wähle die Kategorien aus, die du abonnieren möchtest.</p>
+        <div
+            id="selection-container"
+        >
+            <button
+                *ngFor="let eventGroup of eventGroupsDescription; trackBy: TrackBy.id"
+                [selected]="calendarSubscriptionSelection[eventGroup.id]"
+                (action)="selectEventGroupId(eventGroup.id)"
+            >{{ eventGroup.title }}</button>
+        </div>
+        <div
+            id="button-container"
+        >
+            <button
+                *ngIf="anyCalendarSubscriptionSelected"
+                [link]="calendarSubscriptionLink"
+                [prominent]="true"
+                (action)="hideCalendarSubscriptionSeletion()"
+            >Ausgewähltes abonnieren</button>
+            <button
+                (action)="hideCalendarSubscriptionSeletion()"
+            >Abbrechen</button>
+        </div>
+    </div>
+</ng-template>

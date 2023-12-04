@@ -1,0 +1,24 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#title
+    @include font-montserrat
+    @include font-size('large')
+    @include font-weight('medium')
+    color: color('text')
+    width: 100%
+    text-align: left
+
+#events
+    @include flex-column(flex-start, center)
+    width: 100%
+    margin-bottom: 10px
+
+    .event
+        border-bottom: 1px solid color('text')
+
+        &:last-child
+            border-bottom: 0

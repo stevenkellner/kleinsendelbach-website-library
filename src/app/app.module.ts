@@ -18,6 +18,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FooterComponent } from './components/footer/footer.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
+import { EventComponent } from './components/event/event.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { InputFormComponent } from './components/input-form/input-form.component
         AuthenticationComponent,
         HeaderComponent,
         FooterComponent,
-        InputFormComponent
+        InputFormComponent,
+        EventComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),

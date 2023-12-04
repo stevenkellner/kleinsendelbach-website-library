@@ -21,6 +21,10 @@ export function mapRecord<T extends Record<string, unknown>, U>(record: T, callb
     return newRecord;
 }
 
+export function mapRecordToArray<T extends Record<string, unknown>, U>(record: T, callbackFn: (value: T[keyof T], key: keyof T) => U): U[] {
+    return recordValues(mapRecord(record, callbackFn));
+}
+
 export type Element<T extends unknown[]> = T extends (infer U) ? U : never;
 
 export function includesAll<T>(array: T[], expectedElements: T[]): boolean {

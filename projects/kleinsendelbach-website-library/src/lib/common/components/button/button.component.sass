@@ -26,7 +26,11 @@
     &.largeText
         @include font-size('large')
 
-    &:hover
+    &.prominent
         color: color('primary')
+
+    &.selected
+        color: color('primary')
+
+    &:hover
         background-color: color('hoveredBackground')
-        border-color: color('primary')
