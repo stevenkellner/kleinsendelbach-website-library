@@ -1,11 +1,12 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 import { Link } from '../types';
-import { InternalLinkService } from '../services';
+import { InternalLinkService } from '../services/internal-link.service';
 
 @Directive({
-  selector: '[link]'
+    selector: '[link]'
 })
 export class LinkDirective<InternalPath extends string> {
+
     @Input() public link!: Link | InternalPath;
 
     constructor(

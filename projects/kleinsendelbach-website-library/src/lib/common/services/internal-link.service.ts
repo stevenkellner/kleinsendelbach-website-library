@@ -8,8 +8,6 @@ export class InternalLinkService<Path extends string> {
 
     private pathTitles: Record<Path, string> | null = null;
 
-    constructor() {}
-
     public setup(pathTitles: Record<Path, string>) {
         if (this.pathTitles)
             throw new Error('Internal link service is already set up.');

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { TextSectionModule } from './text-section';
 import { KlsbCommonModule } from './common';
 import { CrypterModule } from './crypter';
-import { CookieSelectorModule } from './cookie-selector';
 import { FirebaseApiModule } from './firebase-api';
 import { AuthenticationModule } from './authentication';
 import { HeaderModule } from './header';
@@ -17,7 +16,6 @@ import { ReportModule } from './report';
         TextSectionModule,
         KlsbCommonModule,
         CrypterModule,
-        CookieSelectorModule,
         FirebaseApiModule,
         AuthenticationModule,
         HeaderModule,
@@ -30,7 +28,6 @@ import { ReportModule } from './report';
         TextSectionModule,
         KlsbCommonModule,
         CrypterModule,
-        CookieSelectorModule,
         FirebaseApiModule,
         AuthenticationModule,
         HeaderModule,

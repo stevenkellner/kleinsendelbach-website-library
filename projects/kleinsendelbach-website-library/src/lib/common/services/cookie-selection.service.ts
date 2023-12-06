@@ -1,6 +1,6 @@
 import { CookieService } from 'ngx-cookie-service';
 import { Injectable } from '@angular/core';
-import { EventListener } from '../../common';
+import { EventListener } from '..';
 
 export type CookiesSelection = {
     necessary: 'selected';

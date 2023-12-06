@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { CookieSelectionService, CookiesSelection } from '../../services';
-import { DeviceTypeService } from '../../../common';
+import { CookieSelectionService, CookiesSelection, DeviceTypeService } from '../../services';
 
 @Component({
     selector: 'cookie-selector',
-    templateUrl: './selector.component.html',
-    styleUrls: ['./selector.component.sass']
+    templateUrl: './cookie-selector.component.html',
+    styleUrls: ['./cookie-selector.component.sass']
 })
 export class CookieSelectorComponent {
 

@@ -1,3 +1,4 @@
+import { GoogleMapsModule } from '@angular/google-maps';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,6 +23,7 @@ import { EventComponent } from './components/event/event.component';
 import { ReportComponent } from './components/report/report.component';
 import { LinksComponent } from './components/links/links.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { MapsComponent } from './components/maps/maps.component';
 
 @NgModule({
     declarations: [
@@ -36,7 +38,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
         EventComponent,
         ReportComponent,
         LinksComponent,
-        ContactsComponent
+        ContactsComponent,
+        MapsComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
@@ -44,7 +47,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
         AppRoutingModule,
         KleinsendelbachWebsiteLibraryModule,
         FontAwesomeModule,
-        AngularFireFunctionsModule
+        AngularFireFunctionsModule,
+        GoogleMapsModule
     ],
     providers: [
         { provide: REGION, useValue: 'europe-west1' }
