@@ -1,0 +1,39 @@
+@import '../../../styles/index'
+
+#links
+    @include flex-row(flex-start, center)
+    flex-wrap: wrap
+
+    .link
+        @include flex-column(flex-start, center)
+        border-radius: 8px
+        margin: 0 8px
+        padding: 16px
+        text-decoration: none
+
+        &:hover
+            background-color: color('hoveredBackground')
+
+        .title
+            @include font-montserrat
+            @include font-size('large')
+            @include font-weight('normal')
+            color: color('primary')
+            text-align: center
+            margin-bottom: 8px
+
+        .subtitle
+            @include font-montserrat
+            @include font-size('medium')
+            @include font-weight('small')
+            color: color('secondaryText')
+            text-align: center
+
+    &.desktop .link
+        width: calc(20% - 48px)
+
+    &.tablet .link
+        width: calc(25% - 48px)
+
+    &.mobile .link
+        width: calc(100% - 48px)

@@ -20,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
 import { EventComponent } from './components/event/event.component';
 import { ReportComponent } from './components/report/report.component';
+import { LinksComponent } from './components/links/links.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import { ReportComponent } from './components/report/report.component';
         FooterComponent,
         InputFormComponent,
         EventComponent,
-        ReportComponent
+        ReportComponent,
+        LinksComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),

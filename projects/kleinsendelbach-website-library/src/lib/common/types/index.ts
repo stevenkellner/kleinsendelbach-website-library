@@ -8,3 +8,4 @@ export * from './track-by';
 export * from './guid';
 export * from './markdown-parser';
 export * from './regex-iterator';
+export * from './links-data';

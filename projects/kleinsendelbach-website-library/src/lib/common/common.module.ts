@@ -5,13 +5,15 @@ import { AppearanceComponent } from './components/appearance/appearance.componen
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from './components/button/button.component';
 import { ResultDisplayComponent } from './components/result-display/result-display.component';
+import { LinksComponent } from './components/links/links.component';
 
 @NgModule({
     declarations: [
         LinkDirective,
         AppearanceComponent,
         ButtonComponent,
-        ResultDisplayComponent
+        ResultDisplayComponent,
+        LinksComponent
     ],
     imports: [
         CommonModule,
@@ -21,7 +23,8 @@ import { ResultDisplayComponent } from './components/result-display/result-displ
         LinkDirective,
         AppearanceComponent,
         ButtonComponent,
-        ResultDisplayComponent
+        ResultDisplayComponent,
+        LinksComponent
     ]
 })
 export class KlsbCommonModule {}
