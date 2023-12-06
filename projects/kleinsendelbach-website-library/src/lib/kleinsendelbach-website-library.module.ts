@@ -9,6 +9,7 @@ import { HeaderModule } from './header';
 import { FooterModule } from './footer/footer.module';
 import { InputFormModule } from './input-form';
 import { EventModule } from './event';
+import { ReportModule } from './report';
 
 @NgModule({
     declarations: [],
@@ -22,7 +23,8 @@ import { EventModule } from './event';
         HeaderModule,
         FooterModule,
         InputFormModule,
-        EventModule
+        EventModule,
+        ReportModule
     ],
     exports: [
         TextSectionModule,
@@ -35,7 +37,8 @@ import { EventModule } from './event';
         FooterModule,
         FooterModule,
         InputFormModule,
-        EventModule
+        EventModule,
+        ReportModule
     ]
 })
 export class KleinsendelbachWebsiteLibraryModule {}

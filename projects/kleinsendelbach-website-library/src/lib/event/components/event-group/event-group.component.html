@@ -12,5 +12,6 @@
 </div>
 <button
     *ngIf="eventGroup.events.length > 5"
+    id="show-more-button"
     (action)="expandEventGroupClicked.emit()"
 >{{ isExpanded ? 'Weniger anzeigen' : 'Alle anzeigen' }}</button>

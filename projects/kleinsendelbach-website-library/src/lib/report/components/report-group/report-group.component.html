@@ -1,0 +1,19 @@
+<p
+    id="title"
+>{{ title }}:</p>
+<div
+    id="reports"
+>
+    <report
+        *ngFor="let report of reports; trackBy: TrackBy.id"
+        class="report"
+        [report]="report"
+        [isExpanded]="expandedReportId?.guidString === report.id.guidString"
+        (expandReportClicked)="expandReportClicked.emit(report.id)"
+    ></report>
+</div>
+<button
+    *ngIf="reportGroup.reports.length > 5"
+    id="show-more-button"
+    (action)="expandReportGroupClicked.emit()"
+>{{ isExpanded ? 'Weniger anzeigen' : 'Alle anzeigen' }}</button>

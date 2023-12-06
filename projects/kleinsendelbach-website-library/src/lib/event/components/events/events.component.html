@@ -28,6 +28,7 @@
 <ng-template #calendarSubscriptonSelection>
     <button
         *ngIf="eventGroupsResult && eventGroupsResult.isSuccess() && eventGroupsResult.value.length !== 0 && !isCalendarSubscriptionSeletionShown"
+        class="subscribe-button"
         (action)="showCalendarSubscriptionSeletion()"
     >ics-Kalender abonnieren</button>
     <div
@@ -52,11 +53,13 @@
         >
             <button
                 *ngIf="anyCalendarSubscriptionSelected"
+                class="subscribe-button"
                 [link]="calendarSubscriptionLink"
                 [prominent]="true"
                 (action)="hideCalendarSubscriptionSeletion()"
             >Ausgewähltes abonnieren</button>
             <button
+                class="subscribe-button"
                 (action)="hideCalendarSubscriptionSeletion()"
             >Abbrechen</button>
         </div>

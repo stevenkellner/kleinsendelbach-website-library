@@ -40,7 +40,7 @@ export class EventComponent {
                     id: Guid.newGuid(),
                     date: UtcDate.now.advanced({ day: 1 }),
                     title: 'Event 3',
-                    subtitle: 'Subtitle 3',
+                    subtitle: null,
                     isImportant: false,
                     link: 'link-3'
                 },
@@ -48,9 +48,9 @@ export class EventComponent {
                     id: Guid.newGuid(),
                     date: UtcDate.now.advanced({ day: 5 }),
                     title: 'Event 4',
-                    subtitle: 'Subtitle 4',
+                    subtitle: null,
                     isImportant: false,
-                    link: 'link-4'
+                    link: null
                 },
                 {
                     id: Guid.newGuid(),
@@ -76,10 +76,10 @@ export class EventComponent {
                 {
                     id: Guid.newGuid(),
                     date: UtcDate.now.advanced({ day: 5 }),
-                    title: 'Event 4',
-                    subtitle: 'Subtitle 4',
+                    title: 'Event 7',
+                    subtitle: 'Subtitle 7',
                     isImportant: false,
-                    link: 'link-4'
+                    link: 'link-7'
                 }
             ]
         }

@@ -1,0 +1,60 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#report
+    @include flex-row(flex-start, flex-start)
+    width: 100%
+    padding: 16px 0
+
+    #bar
+        width: 5px
+        height: 150px
+        margin-right: 10px
+        background-color: color('secondaryText')
+
+        &.recent
+            background-color: color('primary')
+
+    #content
+        @include flex-column(flex-start, flex-start)
+        width: calc(100% - 15px - 10px - 150px)
+        margin-right: 10px
+
+        #title
+            @include font-montserrat
+            @include font-size('large')
+            @include font-weight('medium')
+            color: color('text')
+
+        #message
+            @include markdown-container
+            max-height: 150px
+            overflow: hidden
+
+            &.expanded
+                max-height: none
+
+    #image
+        height: 150px
+        width: 150px
+        object-fit: cover
+        border: 1px solid color('text')
+        border-radius: 4px
+
+    #show-more-button
+        margin-top: 10px
+        width: 25%
+
+    &.mobile
+        #content
+            width: calc(100% - 15px)
+            margin-right: 0
+
+        #image
+            margin-bottom: 10px
+
+        #show-more-button
+            width: 50%

@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InputFormComponent } from './components/input-form/input-form.component';
 import { EventComponent } from './components/event/event.component';
+import { ReportComponent } from './components/report/report.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
     { path: 'header', component: HeaderComponent },
     { path: 'footer', component: FooterComponent },
     { path: 'input-form', component: InputFormComponent },
-    { path: 'event', component: EventComponent }
+    { path: 'event', component: EventComponent },
+    { path: 'report', component: ReportComponent }
 ];
 
 @NgModule({
