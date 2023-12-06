@@ -1,6 +1,6 @@
 import { Link } from "./link";
 
-export type LinksData = Record<string, LinkData>;
+export type LinksData = LinkData[];
 
 export type LinkData = {
     link: Link;

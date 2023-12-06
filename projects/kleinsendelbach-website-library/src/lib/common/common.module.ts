@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from './components/button/button.component';
 import { ResultDisplayComponent } from './components/result-display/result-display.component';
 import { LinksComponent } from './components/links/links.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { LinksComponent } from './components/links/links.component';
         AppearanceComponent,
         ButtonComponent,
         ResultDisplayComponent,
-        LinksComponent
+        LinksComponent,
+        ContactsComponent
     ],
     imports: [
         CommonModule,
@@ -24,7 +26,8 @@ import { LinksComponent } from './components/links/links.component';
         AppearanceComponent,
         ButtonComponent,
         ResultDisplayComponent,
-        LinksComponent
+        LinksComponent,
+        ContactsComponent
     ]
 })
 export class KlsbCommonModule {}

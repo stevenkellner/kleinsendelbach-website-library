@@ -21,6 +21,7 @@ import { InputFormComponent } from './components/input-form/input-form.component
 import { EventComponent } from './components/event/event.component';
 import { ReportComponent } from './components/report/report.component';
 import { LinksComponent } from './components/links/links.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { LinksComponent } from './components/links/links.component';
         InputFormComponent,
         EventComponent,
         ReportComponent,
-        LinksComponent
+        LinksComponent,
+        ContactsComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),

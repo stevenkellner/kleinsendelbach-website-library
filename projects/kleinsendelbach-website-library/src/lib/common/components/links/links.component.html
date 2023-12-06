@@ -3,7 +3,7 @@
     [ngClass]="deviceType.current"
 >
     <a
-        *ngFor="let link of links; trackBy: TrackBy.id"
+        *ngFor="let link of linksData; trackBy: TrackBy.property('title')"
         [link]="link.link"
         class="link"
     >

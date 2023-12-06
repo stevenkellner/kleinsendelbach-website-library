@@ -10,6 +10,7 @@ import { InputFormComponent } from './components/input-form/input-form.component
 import { EventComponent } from './components/event/event.component';
 import { ReportComponent } from './components/report/report.component';
 import { LinksComponent } from './components/links/links.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
     { path: 'input-form', component: InputFormComponent },
     { path: 'event', component: EventComponent },
     { path: 'report', component: ReportComponent },
-    { path: 'links', component: LinksComponent }
+    { path: 'links', component: LinksComponent },
+    { path: 'contacts', component: ContactsComponent }
 ];
 
 @NgModule({

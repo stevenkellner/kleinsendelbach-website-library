@@ -1,0 +1,60 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#contacts
+    @include flex-row(flex-start, center)
+    flex-wrap: wrap
+    width: 100%
+
+    .contact
+        @include flex-column(flex-start, center)
+        margin-bottom: 48px
+
+        .image
+            height: 100px
+            width: 90%
+            object-fit: contain
+            margin-bottom: 16px
+
+        .function
+            @include font-montserrat
+            @include font-size('large')
+            @include font-weight('normal')
+            color: color('text')
+            margin-bottom: 8px
+            text-align: center
+
+        .name
+            @include font-montserrat
+            @include font-size('medium')
+            @include font-weight('normal')
+            color: color('secondaryText')
+            margin-bottom: 8px
+            text-align: center
+
+        .telephone, .mobile, .email
+            @include flex-row(center, center)
+            @include font-montserrat
+            @include font-size('normal')
+            @include font-weight('small')
+            color: color('primary')
+            margin-bottom: 4px
+            text-decoration: none
+
+            .icon
+                margin-right: 8px
+
+        &:last-child
+            margin-bottom: 0
+
+    &.desktop .contact
+        width: 25%
+
+    &.tablet .contact
+        width: 33%
+
+    &.mobile .contact
+        width: 100%
