@@ -17,6 +17,7 @@ import { SponsorsRowComponent } from './components/sponsors-row/sponsors-row.com
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { OpeningHoursComponent } from './components/opening-hours/opening-hours.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
     { path: 'sponsors-row', component: SponsorsRowComponent },
     { path: 'sponsors', component: SponsorsComponent },
     { path: 'social-media', component: SocialMediaComponent },
-    { path: 'banner', component: BannerComponent }
+    { path: 'banner', component: BannerComponent },
+    { path: 'opening-hours', component: OpeningHoursComponent }
 ];
 
 @NgModule({
