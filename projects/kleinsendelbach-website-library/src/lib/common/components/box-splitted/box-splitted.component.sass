@@ -1,0 +1,36 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#box
+    @include flex-row(center, center)
+    width: 100%
+    border: 1px solid color('text')
+
+    #title
+        @include font-montserrat
+        @include font-size('x-large')
+        @include font-weight('semi-bold')
+        color: color('primary')
+        text-align: center
+        width: calc(50% - 10px)
+        margin: 0 10px
+
+    #content
+        @include flex-column(center, center)
+        @include text-section-container
+        margin: 30px 10px
+        width: calc(50% - 10px)
+
+    &.mobile
+        @include flex-column(center, center)
+        width: 100%
+
+        #title
+            width: 100%
+            margin-top: 30px
+
+        #content
+            width: 90%

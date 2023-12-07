@@ -15,3 +15,4 @@ export * from './sponsors/sponsors.component';
 export * from './social-media/social-media.component';
 export * from './banner/banner.component';;
 export * from './opening-hours/opening-hours.component';
+export * from './box-splitted/box-splitted.component';

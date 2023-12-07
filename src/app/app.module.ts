@@ -30,6 +30,7 @@ import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { OpeningHoursComponent } from './components/opening-hours/opening-hours.component';
+import { BoxSplittedComponent } from './components/box-splitted/box-splitted.component';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,8 @@ import { OpeningHoursComponent } from './components/opening-hours/opening-hours.
         SponsorsComponent,
         SocialMediaComponent,
         BannerComponent,
-        OpeningHoursComponent
+        OpeningHoursComponent,
+        BoxSplittedComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
