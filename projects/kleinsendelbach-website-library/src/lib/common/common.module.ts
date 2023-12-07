@@ -13,6 +13,10 @@ import { MapsComponent } from './components/maps/maps.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { SquadComponent } from './components/squad/squad.component';
 import { SquadPersonComponent } from './components/squad/squad-person/squad-person.component';
+import { SponsorsRowsComponent } from './components/sponsors-rows/sponsors-rows.component';
+import { SponsorComponent } from './components/sponsor/sponsor.component';
+import { SponsorsRowComponent } from './components/sponsors-rows/sponsors-row/sponsors-row.component';
+import { SponsorsComponent } from './components/sponsors/sponsors.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +29,11 @@ import { SquadPersonComponent } from './components/squad/squad-person/squad-pers
         ContactsComponent,
         MapsComponent,
         SquadComponent,
-        SquadPersonComponent
+        SquadPersonComponent,
+        SponsorsRowsComponent,
+        SponsorComponent,
+        SponsorsRowComponent,
+        SponsorsComponent
     ],
     imports: [
         CommonModule,
@@ -43,7 +51,9 @@ import { SquadPersonComponent } from './components/squad/squad-person/squad-pers
         ContactsComponent,
         CookieSelectorComponent,
         MapsComponent,
-        SquadComponent
+        SquadComponent,
+        SponsorsRowsComponent,
+        SponsorsComponent
     ]
 })
 export class KlsbCommonModule {}

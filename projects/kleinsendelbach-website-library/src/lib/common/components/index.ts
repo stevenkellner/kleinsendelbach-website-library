@@ -8,3 +8,7 @@ export * from './maps/maps.component';
 export * from './maps/google-maps-dark-style';
 export * from './squad/squad.component';
 export * from './squad/squad-person/squad-person.component';
+export * from './sponsor/sponsor.component';
+export * from './sponsors-rows/sponsors-rows.component';
+export * from './sponsors-rows/sponsors-row/sponsors-row.component';
+export * from './sponsors/sponsors.component';

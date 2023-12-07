@@ -11,3 +11,4 @@ export * from './regex-iterator';
 export * from './links-data';
 export * from './contacts-data';
 export * from './squad-data';
+export * from './sponsors-data';

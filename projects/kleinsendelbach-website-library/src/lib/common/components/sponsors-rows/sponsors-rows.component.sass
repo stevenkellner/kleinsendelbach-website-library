@@ -1,0 +1,35 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, flex-start)
+    width: 100%
+
+#sponsors
+    @include flex-column(flex-start, flex-start)
+    width: 100%
+
+    .sponsors-row
+        @include flex-row(flex-start, flex-start)
+        overflow: hidden
+        margin-bottom: 32px
+
+        .sub-row
+            animation-name: slide
+            animation-timing-function: linear
+            animation-iteration-count: infinite
+
+            &:first-child
+                animation-name: slide-and-hide
+
+@keyframes slide-and-hide
+    0%
+        transform: translate(0, 0)
+    100%
+        transform: translate(-100%, 0)
+        display: none
+
+@keyframes slide
+    0%
+        transform: translate(0, 0)
+    100%
+        transform: translate(-100%, 0)

@@ -26,7 +26,7 @@
         <a
             class="telephone"
             *ngIf="contact.phone !== null"
-            href="tel:{{ contact.phone }}"
+            [href]="'tel:' + contact.phone"
             [title]="contact.phone"
         >
             <fa-icon
@@ -38,7 +38,7 @@
         <a
             class="mobile"
             *ngIf="contact.mobile !== null"
-            href="tel:{{ contact.mobile }}"
+            [href]="'tel:' + contact.mobile"
             [title]="contact.mobile"
         >
             <fa-icon
@@ -50,7 +50,7 @@
         <a
             class="email"
             *ngIf="contact.email !== null"
-            href="mailto:{{ contact.email }}"
+            [href]="'mailto:' + contact.email"
             [title]="contact.email"
         >
             <fa-icon
