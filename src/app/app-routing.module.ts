@@ -15,6 +15,7 @@ import { MapsComponent } from './components/maps/maps.component';
 import { SquadComponent } from './components/squad/squad.component';
 import { SponsorsRowComponent } from './components/sponsors-row/sponsors-row.component';
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
     { path: 'maps', component: MapsComponent },
     { path: 'squad', component: SquadComponent },
     { path: 'sponsors-row', component: SponsorsRowComponent },
-    { path: 'sponsors', component: SponsorsComponent }
+    { path: 'sponsors', component: SponsorsComponent },
+    { path: 'social-media', component: SocialMediaComponent }
 ];
 
 @NgModule({
