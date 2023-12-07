@@ -19,6 +19,8 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
 import { BannerComponent } from './components/banner/banner.component';
 import { OpeningHoursComponent } from './components/opening-hours/opening-hours.component';
 import { BoxSplittedComponent } from './components/box-splitted/box-splitted.component';
+import { ListComponent } from './components/list/list.component';
+import { OverviewListComponent } from './components/overview-list/overview-list.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -39,7 +41,9 @@ const routes: Routes = [
     { path: 'social-media', component: SocialMediaComponent },
     { path: 'banner', component: BannerComponent },
     { path: 'opening-hours', component: OpeningHoursComponent },
-    { path: 'box-splitted', component: BoxSplittedComponent }
+    { path: 'box-splitted', component: BoxSplittedComponent },
+    { path: 'list', component: ListComponent },
+    { path: 'overview-list', component: OverviewListComponent },
 ];
 
 @NgModule({

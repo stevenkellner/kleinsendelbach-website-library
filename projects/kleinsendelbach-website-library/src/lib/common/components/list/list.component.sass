@@ -1,0 +1,28 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, flex-start)
+    width: 100%
+
+#list
+    @include flex-column(flex-start, flex-start)
+    width: 100%
+    background-color: color('background')
+
+    ::ng-deep & > *
+        border-left: 1px solid color('text')
+        border-right: 1px solid color('text')
+        border-bottom: 1px solid color('text')
+        padding: 10px
+        width: calc(100% - 22px)
+
+        &:first-child
+            border-top: 1px solid color('text')
+            border-radius: 5px 5px 0 0
+
+        &:last-child
+            border-radius: 0 0 5px 5px
+
+        &:first-child:last-child
+            border-radius: 5px
+

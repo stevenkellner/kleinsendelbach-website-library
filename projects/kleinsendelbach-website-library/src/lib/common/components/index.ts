@@ -16,3 +16,5 @@ export * from './social-media/social-media.component';
 export * from './banner/banner.component';;
 export * from './opening-hours/opening-hours.component';
 export * from './box-splitted/box-splitted.component';
+export * from './list/list.component';
+export * from './overview-list/overview-list.component';

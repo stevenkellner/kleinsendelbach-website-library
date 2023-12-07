@@ -1,6 +1,6 @@
 <div
     id="button"
-    *ngIf="!link"
+    *ngIf="!actionLink"
     (click)="action.emit()"
     [class.prominent]="prominent"
     [class.selected]="selected"
@@ -9,8 +9,8 @@
 ><ng-container *ngTemplateOutlet="content"></ng-container></div>
 <a
     id="button"
-    *ngIf="link"
-    [link]="link"
+    *ngIf="actionLink"
+    [link]="actionLink"
     (click)="action.emit()"
     [class.prominent]="prominent"
     [class.selected]="selected"

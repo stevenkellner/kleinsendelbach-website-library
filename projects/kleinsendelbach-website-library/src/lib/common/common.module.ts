@@ -21,6 +21,8 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
 import { BannerComponent } from './components/banner/banner.component';
 import { OpeningHoursComponent } from './components/opening-hours/opening-hours.component';
 import { BoxSplittedComponent } from './components/box-splitted/box-splitted.component';
+import { ListComponent } from './components/list/list.component';
+import { OverviewListComponent } from './components/overview-list/overview-list.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +43,9 @@ import { BoxSplittedComponent } from './components/box-splitted/box-splitted.com
         SocialMediaComponent,
         BannerComponent,
         OpeningHoursComponent,
-        BoxSplittedComponent
+        BoxSplittedComponent,
+        ListComponent,
+        OverviewListComponent
     ],
     imports: [
         CommonModule,
@@ -65,7 +69,9 @@ import { BoxSplittedComponent } from './components/box-splitted/box-splitted.com
         SocialMediaComponent,
         BannerComponent,
         OpeningHoursComponent,
-        BoxSplittedComponent
+        BoxSplittedComponent,
+        ListComponent,
+        OverviewListComponent
     ]
 })
 export class KlsbCommonModule {}

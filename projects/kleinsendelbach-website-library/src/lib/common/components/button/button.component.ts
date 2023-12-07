@@ -8,7 +8,7 @@ import { Link } from '../../types';
 })
 export class ButtonComponent {
 
-    @Input() public link: Link | null = null;
+    @Input() public actionLink: Link | null = null;
 
     @Input() public borderless: boolean = false;
 

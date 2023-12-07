@@ -10,7 +10,7 @@
         >
             <button
                 *ngFor="let link of footerData.links; trackBy: TrackBy.property('title')"
-                [link]="link.link"
+                [actionLink]="link.link"
                 [borderless]="true"
                 class="link"
             >{{ link.title }}</button>
@@ -34,7 +34,7 @@
         >{{ footerData.copyright }}</p>
         <button
             *ngIf="footerData.editLink"
-            [link]="footerData.editLink"
+            [actionLink]="footerData.editLink"
             id="edit-link"
         >Bearbeiten</button>
     </div>
