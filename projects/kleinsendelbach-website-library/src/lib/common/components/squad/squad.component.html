@@ -1,0 +1,22 @@
+<div
+    id="squad"
+    [ngClass]="deviceType.current"
+>
+    <div
+        *ngFor="let squadRow of squadData; trackBy: TrackBy.property('title')"
+        class="squad-row"
+    >
+        <p
+            class="title"
+        >{{ squadRow.title }}:</p>
+        <div
+            class="persons"
+        >
+            <squad-person
+                *ngFor="let person of squadRow.persons; trackBy: TrackBy.property('name')"
+                class="person"
+                [person]="person"
+            />
+        </div>
+    </div>
+</div>

@@ -24,6 +24,7 @@ import { ReportComponent } from './components/report/report.component';
 import { LinksComponent } from './components/links/links.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { MapsComponent } from './components/maps/maps.component';
+import { SquadComponent } from './components/squad/squad.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import { MapsComponent } from './components/maps/maps.component';
         ReportComponent,
         LinksComponent,
         ContactsComponent,
-        MapsComponent
+        MapsComponent,
+        SquadComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),

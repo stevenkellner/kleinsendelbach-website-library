@@ -10,3 +10,4 @@ export * from './markdown-parser';
 export * from './regex-iterator';
 export * from './links-data';
 export * from './contacts-data';
+export * from './squad-data';

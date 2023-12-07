@@ -1,0 +1,44 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#squad
+    @include flex-column(flex-start, center)
+    width: 100%
+
+    .squad-row
+        @include flex-column(flex-start, center)
+        width: 100%
+        margin-bottom: 48px
+
+        &:last-child
+            margin-bottom: 0
+
+        .title
+            @include font-montserrat
+            @include font-size('large')
+            @include font-weight('medium')
+            color: color('text')
+            width: 100%
+            text-align: left
+            margin-bottom: 32px
+
+        .persons
+            @include flex-row(flex-start, center)
+            flex-wrap: wrap
+            width: 100%
+
+            .person
+                margin: 0 16px
+                margin-bottom: 16px
+
+    &.desktop .squad-row .persons .person
+        width: calc(20% - 32px)
+
+    &.tablet .squad-row .persons .person
+        width: calc(25% - 32px)
+
+    &.mobile .squad-row .persons .person
+        width: calc(100% - 32px)

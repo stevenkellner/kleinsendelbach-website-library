@@ -12,6 +12,7 @@ import { ReportComponent } from './components/report/report.component';
 import { LinksComponent } from './components/links/links.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { MapsComponent } from './components/maps/maps.component';
+import { SquadComponent } from './components/squad/squad.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
     { path: 'report', component: ReportComponent },
     { path: 'links', component: LinksComponent },
     { path: 'contacts', component: ContactsComponent },
-    { path: 'maps', component: MapsComponent }
+    { path: 'maps', component: MapsComponent },
+    { path: 'squad', component: SquadComponent }
 ];
 
 @NgModule({

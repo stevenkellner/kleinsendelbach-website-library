@@ -11,6 +11,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { CookieSelectorComponent } from './components/cookie-selector/cookie-selector.component';
 import { MapsComponent } from './components/maps/maps.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SquadComponent } from './components/squad/squad.component';
+import { SquadPersonComponent } from './components/squad/squad-person/squad-person.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +23,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
         ResultDisplayComponent,
         LinksComponent,
         ContactsComponent,
-        MapsComponent
+        MapsComponent,
+        SquadComponent,
+        SquadPersonComponent
     ],
     imports: [
         CommonModule,
@@ -38,7 +42,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
         LinksComponent,
         ContactsComponent,
         CookieSelectorComponent,
-        MapsComponent
+        MapsComponent,
+        SquadComponent
     ]
 })
 export class KlsbCommonModule {}
