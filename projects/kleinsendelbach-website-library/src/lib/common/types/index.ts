@@ -13,3 +13,4 @@ export * from './contacts-data';
 export * from './squad-data';
 export * from './sponsors-data';
 export * from './social-media-data';
+export * from './banner-data';

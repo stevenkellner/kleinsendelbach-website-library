@@ -18,6 +18,7 @@ import { SponsorComponent } from './components/sponsor/sponsor.component';
 import { SponsorsRowComponent } from './components/sponsors-rows/sponsors-row/sponsors-row.component';
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
         SponsorComponent,
         SponsorsRowComponent,
         SponsorsComponent,
-        SocialMediaComponent
+        SocialMediaComponent,
+        BannerComponent
     ],
     imports: [
         CommonModule,
@@ -56,7 +58,8 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
         SquadComponent,
         SponsorsRowsComponent,
         SponsorsComponent,
-        SocialMediaComponent
+        SocialMediaComponent,
+        BannerComponent
     ]
 })
 export class KlsbCommonModule {}

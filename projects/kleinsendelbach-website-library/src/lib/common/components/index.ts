@@ -13,3 +13,4 @@ export * from './sponsors-rows/sponsors-rows.component';
 export * from './sponsors-rows/sponsors-row/sponsors-row.component';
 export * from './sponsors/sponsors.component';
 export * from './social-media/social-media.component';
+export * from './banner/banner.component';

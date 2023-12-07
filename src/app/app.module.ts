@@ -28,6 +28,7 @@ import { SquadComponent } from './components/squad/squad.component';
 import { SponsorsRowComponent } from './components/sponsors-row/sponsors-row.component';
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { SocialMediaComponent } from './components/social-media/social-media.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
     declarations: [
@@ -47,7 +48,8 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
         SquadComponent,
         SponsorsRowComponent,
         SponsorsComponent,
-        SocialMediaComponent
+        SocialMediaComponent,
+        BannerComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
