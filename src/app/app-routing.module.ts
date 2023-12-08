@@ -22,6 +22,7 @@ import { BoxSplittedComponent } from './components/box-splitted/box-splitted.com
 import { ListComponent } from './components/list/list.component';
 import { OverviewListComponent } from './components/overview-list/overview-list.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { BfvWidgetComponent } from './components/bfv-widget/bfv-widget.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
     { path: 'list', component: ListComponent },
     { path: 'overview-list', component: OverviewListComponent },
     { path: 'calendar', component: CalendarComponent },
+    { path: 'bfv-widget', component: BfvWidgetComponent },
 ];
 
 @NgModule({

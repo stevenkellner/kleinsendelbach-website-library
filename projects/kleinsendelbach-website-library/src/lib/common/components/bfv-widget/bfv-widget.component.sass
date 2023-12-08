@@ -1,0 +1,34 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(center, center)
+    width: 100%
+    height: 100%
+
+#container
+    @include flex-column(center, center)
+    background-color: color('background')
+    border: 1px solid color('text')
+    border-radius: 5px
+    width: 100%
+    height: 100%
+
+    #cookie-text
+        @include font-montserrat
+        @include font-size('medium')
+        @include font-weight('small')
+        margin: 32px 0
+        text-align: center
+
+    #loading-text
+        color: color('secondaryText')
+
+    #button
+        width: 50%
+        margin: 32px 0
+
+#bfv-widget
+    border: 1px solid color('text')
+    border-radius: 5px
+    width: 100%
+    height: 100%

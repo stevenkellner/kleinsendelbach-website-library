@@ -22,3 +22,4 @@ export * from './calendar/calendar.component';
 export * from './calendar/calendar-formatter';
 export * from './calendar/calendar-day-view/calendar-day-view.component';
 export * from './calendar/calendar-day-view/day-calendar-utils';
+export * from './bfv-widget/bfv-widget.component';

@@ -28,6 +28,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarDayViewComponent } from './components/calendar/calendar-day-view/calendar-day-view.component';
+import { BfvWidgetComponent } from './components/bfv-widget/bfv-widget.component';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,8 @@ import { CalendarDayViewComponent } from './components/calendar/calendar-day-vie
         ListComponent,
         OverviewListComponent,
         CalendarComponent,
-        CalendarDayViewComponent
+        CalendarDayViewComponent,
+        BfvWidgetComponent
     ],
     imports: [
         CommonModule,
@@ -83,7 +85,8 @@ import { CalendarDayViewComponent } from './components/calendar/calendar-day-vie
         BoxSplittedComponent,
         ListComponent,
         OverviewListComponent,
-        CalendarComponent
+        CalendarComponent,
+        BfvWidgetComponent
     ]
 })
 export class KlsbCommonModule {

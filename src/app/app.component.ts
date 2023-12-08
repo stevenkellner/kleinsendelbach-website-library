@@ -1,3 +1,4 @@
+
 import { Component, HostListener } from '@angular/core';
 import { AppearanceColor, Color, DeviceTypeService, StyleConfigService } from 'kleinsendelbach-website-library';
 

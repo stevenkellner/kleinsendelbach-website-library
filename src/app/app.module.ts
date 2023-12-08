@@ -34,6 +34,7 @@ import { BoxSplittedComponent } from './components/box-splitted/box-splitted.com
 import { ListComponent } from './components/list/list.component';
 import { OverviewListComponent } from './components/overview-list/overview-list.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { BfvWidgetComponent } from './components/bfv-widget/bfv-widget.component';
 
 @NgModule({
     declarations: [
@@ -59,7 +60,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
         BoxSplittedComponent,
         ListComponent,
         OverviewListComponent,
-        CalendarComponent
+        CalendarComponent,
+        BfvWidgetComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),
