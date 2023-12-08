@@ -1,0 +1,40 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(center, center)
+    width: 100%
+
+.text-section
+    @include flex-column(center, center)
+    border-top: 1px solid color('text')
+    margin: 48px 0
+    padding-top: 48px
+    width: 85%
+    @include text-section-container
+
+    .title-container
+        @include flex-row(flex-start, center)
+        width: 100%
+        margin-bottom: 40px
+
+        .collapse-button
+            @include font-montserrat
+            @include font-size('x-large')
+            @include font-weight('medium')
+            color: color('text')
+            text-align: center
+            margin-top: 10px
+            cursor: pointer
+
+        .title
+            @include font-montserrat
+            @include font-size('header')
+            @include font-weight('medium')
+            color: color('text')
+            overflow-wrap: break-word
+            text-align: center
+            width: 100%
+
+            &.collapsable
+                cursor: pointer
+
