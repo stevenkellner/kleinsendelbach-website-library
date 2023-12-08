@@ -1,0 +1,72 @@
+@use 'color' as *
+@use 'flex' as *
+@use 'text' as *
+
+@mixin text-section-container
+    ::ng-deep .text
+        @include font($size: 'medium')
+        color: color('text')
+        text-align: justify
+        width: 100%
+
+        &.align-left
+            text-align: left
+
+        &.align-center
+            text-align: center
+
+        &.small
+            @include font-size('small')
+            @include font-weight('light')
+
+        &.large
+            @include font-size('large')
+            @include font-weight('medium')
+
+        &.margin-top-small
+            margin-top: 8px
+
+        &.margin-top-normal
+            margin-top: 16px
+
+        &.margin-top-large
+            margin-top: 48px
+
+        &.margin-top-small
+            margin-top: 8px
+
+        &.margin-bottom-normal
+            margin-bottom: 16px
+
+        &.margin-bottom-large
+            margin-bottom: 48px
+
+        &:is(a)
+            color: color('primary')
+            text-decoration: none
+            cursor: pointer
+
+    ::ng-deep .color-primary
+        color: color('primary')
+
+    ::ng-deep .color-text
+        color: color('text')
+
+    ::ng-deep .color-secondary
+        color: color('secondaryText')
+
+    ::ng-deep .text-image
+        border: 1px solid color('text')
+        width: 100%
+
+    ::ng-deep .text-images
+        @include flex-row($horizontal: space-around)
+        width: 100%
+        flex-wrap: wrap
+
+        .text-image
+            width: 45%
+            margin-bottom: 8px
+
+    .mobile ::ng-deep .text-image .text-image
+        width: 100%

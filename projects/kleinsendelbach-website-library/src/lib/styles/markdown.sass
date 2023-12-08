@@ -1,0 +1,45 @@
+@use 'color' as *
+@use 'flex' as *
+@use 'text' as *
+
+@mixin markdown-container
+    @include font($size: 'medium', $weight: 'small')
+    color: color('secondaryText')
+    text-align: justify
+    width: 100%
+
+    &::ng-deep
+        *
+            display: inline-block
+
+        img
+            display: block
+            margin-left: auto
+            margin-right: auto
+
+        a
+            color: color('primary')
+            cursor: pointer
+            text-decoration: none
+
+        br
+            content: ""
+            display: block
+            margin: 15px
+
+        .italic
+            font-style: italic
+
+        .strong
+            @include font-weight('medium')
+            color: color('text')
+
+        .horizontal-line
+            @include flex-row(center, center)
+            height: 2px
+            width: 100%
+
+            > *
+                background-color: color('text')
+                height: 1px
+                width: 90%

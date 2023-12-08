@@ -2,8 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'text-section',
-    standalone: true,
-    imports: [],
     templateUrl: './text-section.component.html',
     styleUrl: './text-section.component.sass'
 })

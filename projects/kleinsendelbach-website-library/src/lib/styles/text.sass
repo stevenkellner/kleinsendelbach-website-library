@@ -1,0 +1,27 @@
+@use 'sass:map'
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap')
+
+$_font-family-map: ('montserrat': 'Montserrat', 'roboto': 'Roboto', 'open-sans': 'Open Sans', 'metrophobic': 'Metrophobic')
+
+$_font-size-map: ('xxsmall': 12.5px, 'xsmall': 15px, 'small': 17.5px, 'normal': 20px, 'medium': 24px, 'large': 28px, 'xlarge': 32px, 'xxlarge': 40px, 'xxxlarge': 48px, '4xlarge': 56px)
+
+$_font-weight-map: ('thin': 100, 'extra-light': 200, 'light': 300, 'normal': 400, 'medium': 500, 'semi-bold': 600, 'bold': 700, 'extra-bold': 800, 'heavy': 900, 'black': 1000)
+
+@mixin font-family($name)
+    font-family: map.get($_font-family-map, $name)
+
+@mixin font-size($size)
+    font-size: map.get($_font-size-map, $size)
+    line-height: calc(1.2 * map.get($_font-size-map, $size))
+
+@mixin font-weight($weight)
+    font-weight: map.get($_font-weight-map, $weight)
+
+@mixin font($name: 'montserrat', $size: 'normal', $weight: 'normal')
+    @include font-family($name: $name)
+    @include font-size($size: $size)
+    @include font-weight($weight: $weight)

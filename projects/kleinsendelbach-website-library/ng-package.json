@@ -3,5 +3,12 @@
     "dest": "../../dist/kleinsendelbach-website-library",
     "lib": {
         "entryFile": "src/public-api.ts"
-    }
+    },
+    "assets": [
+        {
+            "input": "src/lib/styles",
+            "glob": "**/*.sass",
+            "output": "styles"
+        }
+    ]
 }

@@ -1,28 +1,27 @@
 <div
-    class="text-section"
+    class="title-container"
 >
-    <div
-        class="title-container"
-    >
-        <fa-icon
-            class="collapse-button"
-            *ngIf="collapsed !== null"
-            [icon]="collapsed ? 'chevron-up' : 'chevron-down'"
-            (click)="toggleCollapsed()"
-        />
-        <p
-            [id]="titleId"
-            class="title collapsable"
-            *ngIf="title !== null && collapsed !== null"
-            role="none"
-            (click)="toggleCollapsed()"
-        >{{ title }}</p>
-        <p
-            [id]="titleId"
-            class="title"
-            *ngIf="title !== null && collapsed === null"
-        >{{ title }}</p>
-    </div>
+    <fa-icon
+        *ngIf="collapsed !== null"
+        class="collapse-button"
+        [icon]="collapsed ? 'chevron-up' : 'chevron-down'"
+        (click)="toggleCollapsed()"
+    />
+    <p
+        *ngIf="title !== null && collapsed !== null"
+        class="title collapsable"
+        [id]="titleId"
+        (click)="toggleCollapsed()"
+    >{{ title }}</p>
+    <p
+        *ngIf="title !== null && collapsed === null"
+        class="title"
+        [id]="titleId"
+    >{{ title }}</p>
+</div>
+<div
+    class="text-container"
+>
     <ng-content
         *ngIf="!collapsed"
     ></ng-content>

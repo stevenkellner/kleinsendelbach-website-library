@@ -1,15 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextSectionComponent } from './components';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+        TextSectionComponent
+    ],
     imports: [
         CommonModule,
-        TextSectionComponent
+        FontAwesomeModule
     ],
     exports: [
         TextSectionComponent
     ]
 })
-export class TextSectionModule {}
+export class TextSectionModule {
+    constructor(
+        faIconLibrary: FaIconLibrary
+    ) {
+        faIconLibrary.addIconPacks(fas);
+    }
+}

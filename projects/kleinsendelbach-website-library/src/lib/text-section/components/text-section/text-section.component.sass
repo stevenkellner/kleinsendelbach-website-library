@@ -1,40 +1,33 @@
-@import '../../../styles/index'
+@use '../../../styles/index' as *
 
 :host
     @include flex-column(center, center)
     width: 100%
-
-.text-section
-    @include flex-column(center, center)
-    border-top: 1px solid color('text')
     margin: 48px 0
-    padding-top: 48px
+
+.title-container
+    @include flex-row(flex-start, center)
     width: 85%
-    @include text-section-container
+    border-top: 1px solid color('text')
+    padding-top: 48px
+    margin-bottom: 48px
 
-    .title-container
-        @include flex-row(flex-start, center)
+    .collapse-button
+        @include font($size: 'xlarge', $weight: 'medium')
+        color: color('text')
+        cursor: pointer
+
+    .title
+        @include font($size: 'xxlarge', $weight: 'medium')
+        color: color('text')
+        overflow-wrap: break-word
         width: 100%
-        margin-bottom: 40px
+        text-align: center
 
-        .collapse-button
-            @include font-montserrat
-            @include font-size('x-large')
-            @include font-weight('medium')
-            color: color('text')
-            text-align: center
-            margin-top: 10px
+        &.collapsable
             cursor: pointer
 
-        .title
-            @include font-montserrat
-            @include font-size('header')
-            @include font-weight('medium')
-            color: color('text')
-            overflow-wrap: break-word
-            text-align: center
-            width: 100%
-
-            &.collapsable
-                cursor: pointer
-
+.text-container
+    @include text-section-container
+    @include flex-column
+    width: 85%
