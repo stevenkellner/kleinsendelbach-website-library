@@ -3,105 +3,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kleinsendelbach-website-library-app": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "sass"
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/kleinsendelbach-website-library-app",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "sass",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "node_modules/angular-calendar/css/angular-calendar.css",
-              "src/styles.sass"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "kleinsendelbach-website-library-app:build:production"
-            },
-            "development": {
-              "browserTarget": "kleinsendelbach-website-library-app:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "kleinsendelbach-website-library-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "sass",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "node_modules/angular-calendar/css/angular-calendar.css",
-              "src/styles.sass"
-            ],
-            "scripts": []
-          }
-        }
-      }
-    },
     "kleinsendelbach-website-library": {
       "projectType": "library",
       "root": "projects/kleinsendelbach-website-library",
@@ -132,8 +33,130 @@
               "zone.js/testing"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/kleinsendelbach-website-library/**/*.ts",
+              "projects/kleinsendelbach-website-library/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "kleinsendelbach-website-library-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/kleinsendelbach-website-library-demo",
+      "sourceRoot": "projects/kleinsendelbach-website-library-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/kleinsendelbach-website-library-demo",
+            "index": "projects/kleinsendelbach-website-library-demo/src/index.html",
+            "browser": "projects/kleinsendelbach-website-library-demo/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/kleinsendelbach-website-library-demo/tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/kleinsendelbach-website-library-demo/src/favicon.ico",
+              "projects/kleinsendelbach-website-library-demo/src/assets"
+            ],
+            "styles": [
+              "projects/kleinsendelbach-website-library-demo/src/styles.sass"
+            ],
+            "scripts": [],
+            "server": "projects/kleinsendelbach-website-library-demo/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/kleinsendelbach-website-library-demo/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "kleinsendelbach-website-library-demo:build:production"
+            },
+            "development": {
+              "buildTarget": "kleinsendelbach-website-library-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "kleinsendelbach-website-library-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/kleinsendelbach-website-library-demo/tsconfig.spec.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/kleinsendelbach-website-library-demo/src/favicon.ico",
+              "projects/kleinsendelbach-website-library-demo/src/assets"
+            ],
+            "styles": [
+              "projects/kleinsendelbach-website-library-demo/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/kleinsendelbach-website-library-demo/**/*.ts",
+              "projects/kleinsendelbach-website-library-demo/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
