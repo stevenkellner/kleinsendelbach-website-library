@@ -9,14 +9,9 @@ export type ReportGroupId = 'group-1' | 'group-2' | 'group-3';
   styleUrls: ['./report.component.sass']
 })
 export class ReportComponent {
+    public reportGroups1: ReportGroup<ReportGroupId>[] = [];
 
-    public reportGroupsResult1:  Result<ReportGroup<ReportGroupId>[]> | null = null;
-
-    public reportGroupsResult2:  Result<ReportGroup<ReportGroupId>[]> | null = Result.failure('Es gab einen Fehler');
-
-    public reportGroupsResult3:  Result<ReportGroup<ReportGroupId>[]> | null = Result.success([]);
-
-    public reportGroupsResult4:  Result<ReportGroup<ReportGroupId>[]> | null = Result.success([
+    public reportGroups2: ReportGroup<ReportGroupId>[] = [
         {
             groupId: 'group-2',
             reports: [
@@ -76,7 +71,7 @@ export class ReportComponent {
                 }
             ]
         }
-    ]);
+    ];
 
     public reportGroupTitle: Record<ReportGroupId, string> = {
         'group-1': 'Group 1',

@@ -4,7 +4,6 @@ import { EventsComponent } from './components/events/events.component';
 import { KlsbCommonModule } from '../common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EventComponent } from './components/event/event.component';
-import { TextSectionModule } from '../text-section';
 import { EventGroupComponent } from './components/event-group/event-group.component';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { EventGroupComponent } from './components/event-group/event-group.compon
     imports: [
         CommonModule,
         KlsbCommonModule,
-        TextSectionModule,
         FontAwesomeModule
     ],
     exports: [

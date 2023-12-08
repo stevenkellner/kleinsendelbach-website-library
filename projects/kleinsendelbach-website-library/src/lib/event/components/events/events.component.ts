@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EventGroup } from '../../types';
-import { DeviceTypeService, Link, Result, TrackBy, mapRecord, mapRecordToArray, recordEntries, recordValues } from '../../../common';
+import { DeviceTypeService, Link, TrackBy, mapRecord, mapRecordToArray, recordEntries, recordValues } from '../../../common';
 
 @Component({
     selector: 'events',
@@ -9,7 +9,7 @@ import { DeviceTypeService, Link, Result, TrackBy, mapRecord, mapRecordToArray, 
 })
 export class EventsComponent<GroupId extends string> implements OnInit {
 
-    @Input() public eventGroupsResult!: Result<EventGroup<GroupId>[]> | null;
+    @Input() public eventGroups!: EventGroup<GroupId>[];
 
     @Input() public eventGroupTitle!: Record<GroupId, string>;
 

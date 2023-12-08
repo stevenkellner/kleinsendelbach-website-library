@@ -10,7 +10,7 @@ import { Result, Guid } from '../../../common';
 })
 export class ReportsComponent<GroupId extends string> {
 
-    @Input() public reportGroupsResult!: Result<ReportGroup<GroupId>[]> | null;
+    @Input() public reportGroups!: ReportGroup<GroupId>[];
 
     @Input() public reportGroupTitle!: Record<GroupId, string>;
 

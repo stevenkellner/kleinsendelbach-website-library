@@ -1,10 +1,10 @@
 <p
     *ngIf="!result"
-    class="text center large color-primary"
+    id="loading"
 >Inhalt wird geladen</p>
 <p
     *ngIf="result && result.isFailure()"
-    class="text center large color-primary"
+    id="error"
 >{{ errorMessage }}</p>
 <ng-content
     *ngIf="result && result.isSuccess()"

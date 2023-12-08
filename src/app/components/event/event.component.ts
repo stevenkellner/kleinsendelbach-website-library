@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventGroup, Guid, Result, UtcDate } from 'kleinsendelbach-website-library';
+import { EventGroup, Guid, UtcDate } from 'kleinsendelbach-website-library';
 
 export type EventGroupId = 'group-1' | 'group-2' | 'group-3';
 
@@ -9,14 +9,9 @@ export type EventGroupId = 'group-1' | 'group-2' | 'group-3';
     styleUrls: ['./event.component.sass']
 })
 export class EventComponent {
+    public eventGroups1:  EventGroup<EventGroupId>[] = [];
 
-    public eventGroupsResult1:  Result<EventGroup<EventGroupId>[]> | null = null;
-
-    public eventGroupsResult2:  Result<EventGroup<EventGroupId>[]> | null = Result.failure('Es gab einen Fehler');
-
-    public eventGroupsResult3:  Result<EventGroup<EventGroupId>[]> | null = Result.success([]);
-
-    public eventGroupsResult4:  Result<EventGroup<EventGroupId>[]> | null = Result.success([
+    public eventGroups2:  EventGroup<EventGroupId>[] = [
         {
             groupId: 'group-2',
             events: [
@@ -31,8 +26,8 @@ export class EventComponent {
                 {
                     id: Guid.newGuid(),
                     date: UtcDate.now.advanced({ day: 5 }),
-                    title: 'Event 2',
-                    subtitle: 'Subtitle 2',
+                    title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
+                    subtitle: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
                     isImportant: true,
                     link: null
                 },
@@ -83,7 +78,7 @@ export class EventComponent {
                 }
             ]
         }
-    ]);
+    ];
 
     public eventGroupTitle: Record<EventGroupId, string> = {
         'group-1': 'Group 1',

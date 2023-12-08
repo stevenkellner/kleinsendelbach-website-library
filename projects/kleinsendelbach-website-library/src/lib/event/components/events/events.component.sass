@@ -4,6 +4,12 @@
     @include flex-column(flex-start, center)
     width: 100%
 
+#no-events
+    @include font-montserrat
+    @include font-size('medium')
+    @include font-weight('normal')
+    color: color('primary')
+
 #event-groups
     @include flex-column(flex-start, center)
     width: 100%
@@ -21,6 +27,13 @@
 #calendar-subscription-container
     @include flex-column(flex-start, center)
     width: 100%
+
+    #selection-text
+        @include font-montserrat
+        @include font-size('medium')
+        @include font-weight('normal')
+        color: color('text')
+        margin-bottom: 10px
 
     #selection-container
         @include flex-row(flex-start, center)
