@@ -5,12 +5,15 @@
         "@angular/common": "^16.2.0",
         "@angular/core": "^16.2.0",
         "@angular/fire": "^16.0.0",
+        "@angular/google-maps": "^16.2.12",
         "@fortawesome/angular-fontawesome": "^0.13.0",
         "aes-ts": "^0.0.0-alpha.0",
+        "angular-calendar": "^0.31.0",
+        "date-fns": "^2.30.0",
         "js-base64": "^3.7.5",
         "ngx-cookie-service": "^16.1.0",
         "sha512-crypt-ts": "^0.1.27",
-        "@angular/google-maps": "^16.2.12",
+        "calendar-utils": "^0.10.4",
         "uuid": "^9.0.1"
     },
     "dependencies": {

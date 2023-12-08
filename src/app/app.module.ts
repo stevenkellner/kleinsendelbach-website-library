@@ -33,6 +33,7 @@ import { OpeningHoursComponent } from './components/opening-hours/opening-hours.
 import { BoxSplittedComponent } from './components/box-splitted/box-splitted.component';
 import { ListComponent } from './components/list/list.component';
 import { OverviewListComponent } from './components/overview-list/overview-list.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
     declarations: [
@@ -57,7 +58,8 @@ import { OverviewListComponent } from './components/overview-list/overview-list.
         OpeningHoursComponent,
         BoxSplittedComponent,
         ListComponent,
-        OverviewListComponent
+        OverviewListComponent,
+        CalendarComponent
     ],
     imports: [
         AngularFireModule.initializeApp(environment.firebase),

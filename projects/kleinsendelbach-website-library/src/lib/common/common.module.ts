@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import * as de from '@angular/common/locales/de';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { LinkDirective } from './directives/link.directive';
 import { AppearanceComponent } from './components/appearance/appearance.component';
@@ -23,6 +24,10 @@ import { OpeningHoursComponent } from './components/opening-hours/opening-hours.
 import { BoxSplittedComponent } from './components/box-splitted/box-splitted.component';
 import { ListComponent } from './components/list/list.component';
 import { OverviewListComponent } from './components/overview-list/overview-list.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarDayViewComponent } from './components/calendar/calendar-day-view/calendar-day-view.component';
 
 @NgModule({
     declarations: [
@@ -45,14 +50,20 @@ import { OverviewListComponent } from './components/overview-list/overview-list.
         OpeningHoursComponent,
         BoxSplittedComponent,
         ListComponent,
-        OverviewListComponent
+        OverviewListComponent,
+        CalendarComponent,
+        CalendarDayViewComponent
     ],
     imports: [
         CommonModule,
         FontAwesomeModule,
         GoogleMapsModule,
         HttpClientModule,
-        HttpClientJsonpModule
+        HttpClientJsonpModule,
+        CalendarModule.forRoot({
+            provide: DateAdapter,
+            useFactory: adapterFactory
+        })
     ],
     exports: [
         LinkDirective,
@@ -71,7 +82,12 @@ import { OverviewListComponent } from './components/overview-list/overview-list.
         OpeningHoursComponent,
         BoxSplittedComponent,
         ListComponent,
-        OverviewListComponent
+        OverviewListComponent,
+        CalendarComponent
     ]
 })
-export class KlsbCommonModule {}
+export class KlsbCommonModule {
+    constructor() {
+        registerLocaleData(de.default);
+    }
+}

@@ -27,6 +27,14 @@ export class AppearanceService {
         return prefersDark ? 'dark' : 'light';
     }
 
+    public get isLight(): boolean {
+        return this.current === 'light';
+    }
+
+    public get isDark(): boolean {
+        return this.current === 'dark';
+    }
+
     public get currentConfig(): Appearance | 'system' {
         return this.appearance;
     }

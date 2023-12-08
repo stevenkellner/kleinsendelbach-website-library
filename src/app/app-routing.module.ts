@@ -21,6 +21,7 @@ import { OpeningHoursComponent } from './components/opening-hours/opening-hours.
 import { BoxSplittedComponent } from './components/box-splitted/box-splitted.component';
 import { ListComponent } from './components/list/list.component';
 import { OverviewListComponent } from './components/overview-list/overview-list.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 const routes: Routes = [
     { path: 'link', component: LinkComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
     { path: 'box-splitted', component: BoxSplittedComponent },
     { path: 'list', component: ListComponent },
     { path: 'overview-list', component: OverviewListComponent },
+    { path: 'calendar', component: CalendarComponent },
 ];
 
 @NgModule({

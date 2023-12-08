@@ -18,3 +18,7 @@ export * from './opening-hours/opening-hours.component';
 export * from './box-splitted/box-splitted.component';
 export * from './list/list.component';
 export * from './overview-list/overview-list.component';
+export * from './calendar/calendar.component';
+export * from './calendar/calendar-formatter';
+export * from './calendar/calendar-day-view/calendar-day-view.component';
+export * from './calendar/calendar-day-view/day-calendar-utils';
