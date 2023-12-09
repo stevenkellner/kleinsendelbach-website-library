@@ -1,7 +1,12 @@
+import { CommonModule } from '@angular/common';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'text-section',
+    standalone: true,
+    imports: [CommonModule, FontAwesomeModule],
     templateUrl: './text-section.component.html',
     styleUrl: './text-section.component.sass'
 })
@@ -12,6 +17,12 @@ export class TextSectionComponent {
     @Input() public collapsed: boolean | null = null;
 
     @Output() public collapsedChanged = new EventEmitter<boolean>();
+
+    constructor(
+        private readonly faIconLibrary: FaIconLibrary
+    ) {
+        this.faIconLibrary.addIconPacks(fas);
+    }
 
     public get titleId(): string | null {
         if (this.title === null)

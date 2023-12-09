@@ -74,12 +74,7 @@
             "styles": [
               "projects/kleinsendelbach-website-library-demo/src/styles.sass"
             ],
-            "scripts": [],
-            "server": "projects/kleinsendelbach-website-library-demo/src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "projects/kleinsendelbach-website-library-demo/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {

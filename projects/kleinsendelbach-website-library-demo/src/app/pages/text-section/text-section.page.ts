@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TextSectionModule } from 'kleinsendelbach-website-library';
+import { TextSectionComponent } from 'kleinsendelbach-website-library';
 
 @Component({
     selector: 'text-section-page',
     standalone: true,
-    imports: [TextSectionModule],
+    imports: [TextSectionComponent],
     templateUrl: './text-section.page.html',
     styleUrl: './text-section.page.sass'
 })

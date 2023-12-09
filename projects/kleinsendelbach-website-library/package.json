@@ -2,13 +2,15 @@
     "name": "kleinsendelbach-website-library",
     "version": "0.0.1",
     "peerDependencies": {
+        "@angular/cdk": "^17.0.3",
         "@angular/common": "^17.0.0",
         "@angular/core": "^17.0.0",
         "@fortawesome/angular-fontawesome": "^0.14.0",
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
         "@fortawesome/free-brands-svg-icons": "^6.5.1",
         "@fortawesome/free-regular-svg-icons": "^6.5.1",
-        "@fortawesome/free-solid-svg-icons": "^6.5.1"
+        "@fortawesome/free-solid-svg-icons": "^6.5.1",
+        "ngx-cookie-service": "^17.0.1"
     },
     "dependencies": {
         "tslib": "^2.3.0"
