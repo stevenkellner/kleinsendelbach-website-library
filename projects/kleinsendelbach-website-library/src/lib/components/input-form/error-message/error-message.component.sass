@@ -1,0 +1,20 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#error-message
+    @include font($size: 'large')
+    margin-top: 8px
+    text-align: left
+    width: 100%
+
+    &.error
+        color: color('formStatusError')
+
+    &.info
+        color: color('formStatusInfo')
+
+    &.success
+        color: color('formStatusSuccess')

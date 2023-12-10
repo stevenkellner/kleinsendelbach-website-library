@@ -1,0 +1,17 @@
+<p
+    id="title"
+>{{ title }}:</p>
+<div
+    id="events"
+>
+    <event
+        *ngFor="let event of events; trackBy: TrackBy.id"
+        class="event"
+        [event]="event"
+    ></event>
+</div>
+<button
+    *ngIf="eventGroup.events.length > 5"
+    id="show-more-button"
+    (action)="expandEventGroupClicked.emit()"
+>{{ isExpanded ? 'Weniger anzeigen' : 'Alle anzeigen' }}</button>

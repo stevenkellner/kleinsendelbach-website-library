@@ -1,0 +1,34 @@
+@import '../../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    margin-bottom: 20px
+    width: 100%
+
+#container
+    @include flex-row(flex-start, center)
+    gap: 32px
+    width: 100%
+
+    #date-input, #time-input
+        @include font($size: 'large')
+        background-color: color('background')
+        border: 1px solid color('text')
+        border-radius: 8px
+        color: color('text')
+        cursor: pointer
+        flex: 1
+        height: 48px
+        text-align: center
+        vertical-align: middle
+
+        &.error
+            border: 1px solid color('formStatusError')
+
+    &.mobile
+        @include flex-column(flex-start, center)
+        gap: 16px
+
+        #date-input, #time-input
+            padding: 5px 0
+            width: 100%

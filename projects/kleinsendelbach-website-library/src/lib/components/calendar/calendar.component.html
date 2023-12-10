@@ -1,0 +1,110 @@
+<div
+    id="header"
+    [ngClass]="deviceType.current"
+>
+    <div
+        id="navigator"
+    >
+        <div
+            class="item"
+            mwlCalendarPreviousView
+            [view]="currentView"
+            [(viewDate)]="activeDate"
+            (viewDateChange)="closeActiveDate()"
+        >Letzter</div>
+        <div
+            class="item"
+            mwlCalendarToday
+            [(viewDate)]="activeDate"
+            (viewDateChange)="closeActiveDate()"
+        >Heute</div>
+        <div
+            class="item"
+            mwlCalendarNextView
+            [view]="currentView"
+            [(viewDate)]="activeDate"
+            (viewDateChange)="closeActiveDate()"
+        >Nächster</div>
+    </div>
+    <div
+        id="view-changer"
+    >
+        <div
+            class="item"
+            [ngClass]="{ active: currentView === 'month' }"
+            role="none"
+            (click)="setCurrentView('month')"
+        >Monat</div>
+        <div
+            *ngIf="!deviceType.isMobile"
+            class="item"
+            [ngClass]="{ active: currentView === 'week' }"
+            role="none"
+            (click)="setCurrentView('week')"
+        >Woche</div>
+        <div
+            class="item"
+            [ngClass]="{ active: currentView === 'day' }"
+            role="none"
+            (click)="setCurrentView('day')"
+        >Tag</div>
+    </div>
+    <div
+        id="current-date"
+    >{{ activeDate | calendarDate:(currentView + 'ViewTitle'):'de' }}</div>
+</div>
+<div
+    id="container"
+    [ngSwitch]="currentView"
+    [class.dark]="appearance.isDark"
+>
+    <mwl-calendar-month-view
+        *ngSwitchCase="'month'"
+        [viewDate]="activeDate"
+        [events]="events"
+        [activeDayIsOpen]="activeDateIsOpen"
+        (dayClicked)="dateClicked($event.day)"
+        (eventClicked)="eventClicked($event.event)"
+        locale="de"
+        [weekStartsOn]="weekStartsOn"
+    />
+    <mwl-calendar-week-view
+        *ngSwitchCase="'week'"
+        [viewDate]="activeDate"
+        [events]="events"
+        (dayHeaderClicked)="viewDate($event.day.date)"
+        (eventClicked)="eventClicked($event.event)"
+        locale="de"
+        [weekStartsOn]="weekStartsOn"
+        [dayStartHour]="8"
+        [dayEndHour]="24"
+    />
+    <calendar-day-view
+        *ngSwitchCase="'day'"
+        [viewDate]="activeDate"
+        [events]="events"
+        [columns]="columns"
+        locale="de"
+        [dayStartHour]="8"
+        [dayEndHour]="24"
+    />
+</div>
+<div
+    id="description-container"
+    [ngClass]="deviceType.current"
+>
+    <div
+        *ngFor="let column of columns; trackBy: TrackBy.id"
+        class="description"
+    >
+        <p
+            class="color"
+            [ngStyle]="{
+                backgroundColor: column.color.css
+            }"
+        ></p>
+        <p
+            class="text"
+        >{{ column.text }}</p>
+    </div>
+</div>

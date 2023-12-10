@@ -1,0 +1,23 @@
+<div
+    id="links"
+    [ngClass]="deviceType.current"
+>
+    <a
+        *ngFor="let link of linksData; trackBy: TrackBy.property('title')"
+        [link]="link.link"
+        class="link"
+    >
+        <fa-icon
+            *ngIf="link.icon !== null"
+            class="icon"
+            [icon]="link.icon.name"
+            [ngClass]="link.icon.animation"
+        ></fa-icon>
+        <p
+            class="title"
+        >{{ link.title }}</p>
+        <p
+            class="subtitle"
+        >{{ link.subtitle }}</p>
+    </a>
+</div>

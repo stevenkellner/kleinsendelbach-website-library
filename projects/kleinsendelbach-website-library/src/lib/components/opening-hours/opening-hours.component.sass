@@ -1,0 +1,32 @@
+@import '../../styles/index'
+
+#opening-hours
+    @include flex-row(flex-start, center)
+    width: 100%
+    flex-wrap: wrap
+
+    .opening-hour
+        @include flex-column(flex-start, center)
+        border-radius: 8px
+        margin: 0 8px
+        padding: 16px
+
+        .title
+            @include font($size: 'large')
+            color: color('primary')
+            text-align: center
+            margin-bottom: 8px
+
+        .time
+            @include font($size: 'medium', $weight: 'small')
+            color: color('secondaryText')
+            text-align: center
+
+    &.desktop .opening-hour
+        width: calc(25% - 48px)
+
+    &.tablet .opening-hour
+        width: calc(33.3% - 48px)
+
+    &.mobile .opening-hour
+        width: calc(100% - 48px)

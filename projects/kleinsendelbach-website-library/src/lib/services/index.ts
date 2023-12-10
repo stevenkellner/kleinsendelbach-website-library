@@ -8,3 +8,4 @@ export * from './shared-data.service';
 export * from './crypter.service';
 export * from './authentication.service';
 export * from './firebase-api.service';
+export * from './link.service';

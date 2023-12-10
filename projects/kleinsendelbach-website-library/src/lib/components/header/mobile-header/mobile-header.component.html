@@ -1,0 +1,57 @@
+<div
+  id="container"
+  [ngClass]="{
+      expanded: isExpanded
+  }"
+>
+    <div
+        id="top-row"
+    >
+        <a
+            [link]="headerData.homeLink"
+            id="logo-container"
+        >
+        <img
+            [src]="headerData.logoSrc"
+            [title]="headerData.name"
+            [alt]="headerData.name"
+            id="logo"
+        >
+        <p
+            id="logo-text"
+        >{{ headerData.name }}</p>
+        </a>
+        <fa-icon
+            class="hamburger-menu"
+            *ngIf="!isExpanded"
+            icon="bars"
+            (click)="handleHamburgerMenuClick(true)"
+        />
+        <fa-icon
+            class="hamburger-menu"
+            *ngIf="isExpanded"
+            icon="times"
+            (click)="handleHamburgerMenuClick(false)"
+        />
+    </div>
+    <div
+        id="header-items"
+        *ngIf="isExpanded"
+    >
+        <mobile-header-item
+            *ngFor="let headerColumn of headerColumns; trackBy: TrackBy.property('key')"
+            [ngClass]="{
+                expanded: expandedHeaderColumnKey === headerColumn.key
+            }"
+            [headerColumn]="headerColumn"
+            [expandedHeaderColumnKey]="expandedHeaderColumnKey"
+            (topItemClicked)="handleTopItemClick($event)"
+        />
+    </div>
+</div>
+<!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus -->
+<div
+    id="background"
+    *ngIf="isExpanded"
+    (click)="$event.preventDefault(); $event.stopPropagation(); isExpanded = false; expandedHeaderColumnKey = null"
+></div>

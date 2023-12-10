@@ -1,6 +1,50 @@
 import { Routes } from '@angular/router';
 import { TextSectionPage } from './pages/text-section/text-section.page';
+import { BannerPage } from './pages/banner/banner.page';
+import { AuthenticationPage } from './pages/authentication/authentication.page';
+import { BfvWidgetPage } from './pages/bfv-widget/bfv-widget.page';
+import { BoxSplittedPage } from './pages/box-splitted/box-splitted.page';
+import { CalendarPage } from './pages/calendar/calendar.page';
+import { ContactsPage } from './pages/contacts/contacts.page';
+import { CookieSelectorPage } from './pages/cookie-selector/cookie-selector.page';
+import { EventPage } from './pages/event/event.page';
+import { FooterPage } from './pages/footer/footer.page';
+import { HeaderPage } from './pages/header/header.page';
+import { InputFormPage } from './pages/input-form/input-form.page';
+import { LinkPage } from './pages/link/link.page';
+import { LinksPage } from './pages/links/links.page';
+import { ListPage } from './pages/list/list.page';
+import { MapsPage } from './pages/maps/maps.page';
+import { OpeningHoursPage } from './pages/opening-hours/opening-hours.page';
+import { OverviewListPage } from './pages/overview-list/overview-list.page';
+import { ReportPage } from './pages/report/report.page';
+import { SocialMediaPage } from './pages/social-media/social-media.page';
+import { SponsorsRowPage } from './pages/sponsors-row/sponsors-row.page';
+import { SponsorsPage } from './pages/sponsors/sponsors.page';
+import { SquadPage } from './pages/squad/squad.page';
 
 export const routes: Routes = [
-    { path: 'text-section', component: TextSectionPage }
+    { path: 'link', component: LinkPage },
+    { path: 'text-section', component: TextSectionPage },
+    { path: 'cookie-selector', component: CookieSelectorPage },
+    { path: 'authentication', component: AuthenticationPage },
+    { path: 'header', component: HeaderPage },
+    { path: 'footer', component: FooterPage },
+    { path: 'input-form', component: InputFormPage },
+    { path: 'event', component: EventPage },
+    { path: 'report', component: ReportPage },
+    { path: 'links', component: LinksPage },
+    { path: 'contacts', component: ContactsPage },
+    { path: 'maps', component: MapsPage },
+    { path: 'squad', component: SquadPage },
+    { path: 'sponsors-rows', component: SponsorsRowPage },
+    { path: 'sponsors', component: SponsorsPage },
+    { path: 'social-media', component: SocialMediaPage },
+    { path: 'banner', component: BannerPage },
+    { path: 'opening-hours', component: OpeningHoursPage },
+    { path: 'box-splitted', component: BoxSplittedPage },
+    { path: 'list', component: ListPage },
+    { path: 'overview-list', component: OverviewListPage },
+    { path: 'calendar', component: CalendarPage },
+    { path: 'bfv-widget', component: BfvWidgetPage },
 ];

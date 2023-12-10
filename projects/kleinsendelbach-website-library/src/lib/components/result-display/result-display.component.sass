@@ -1,0 +1,14 @@
+@import '../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#loading, #error
+    @include font($size: 'medium')
+
+#loading
+    color: color('secondaryText')
+
+#error
+    color: color('primary')

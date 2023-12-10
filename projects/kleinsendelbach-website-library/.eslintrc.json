@@ -13,7 +13,6 @@
                     "error",
                     {
                         "type": "attribute",
-                        "prefix": "lib",
                         "style": "camelCase"
                     }
                 ],
@@ -26,7 +25,10 @@
                 ],
                 "@typescript-eslint/no-namespace": "off",
                 "@typescript-eslint/no-explicit-any": "off",
-                "@typescript-eslint/no-unused-vars": "off"
+                "@typescript-eslint/no-unused-vars": "off",
+                "@angular-eslint/no-output-on-prefix": "off",
+                "no-inner-declarations": "off",
+                "no-control-regex": "off"
             }
         },
             {
@@ -35,7 +37,8 @@
             ],
             "rules": {
                 "@angular-eslint/template/click-events-have-key-events": "off",
-                "@angular-eslint/template/interactive-supports-focus": "off"
+                "@angular-eslint/template/interactive-supports-focus": "off",
+                "@angular-eslint/template/label-has-associated-control": "off"
             }
         }
     ]

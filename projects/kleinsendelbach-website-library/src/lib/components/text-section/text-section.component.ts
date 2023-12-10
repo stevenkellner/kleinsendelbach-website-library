@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
     selector: 'text-section',
@@ -21,7 +23,7 @@ export class TextSectionComponent {
     constructor(
         private readonly faIconLibrary: FaIconLibrary
     ) {
-        this.faIconLibrary.addIconPacks(fas);
+        this.faIconLibrary.addIconPacks(fas, far, fab);
     }
 
     public get titleId(): string | null {

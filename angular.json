@@ -72,7 +72,8 @@
               "projects/kleinsendelbach-website-library-demo/src/assets"
             ],
             "styles": [
-              "projects/kleinsendelbach-website-library-demo/src/styles.sass"
+              "projects/kleinsendelbach-website-library-demo/src/styles.sass",
+              "node_modules/angular-calendar/css/angular-calendar.css"
             ],
             "scripts": []
           },
@@ -132,7 +133,8 @@
               "projects/kleinsendelbach-website-library-demo/src/assets"
             ],
             "styles": [
-              "projects/kleinsendelbach-website-library-demo/src/styles.sass"
+              "projects/kleinsendelbach-website-library-demo/src/styles.sass",
+              "node_modules/angular-calendar/css/angular-calendar.css"
             ],
             "scripts": []
           }

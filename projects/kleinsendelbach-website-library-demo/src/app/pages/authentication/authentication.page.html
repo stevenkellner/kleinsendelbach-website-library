@@ -1,0 +1,24 @@
+<authentication-check
+    [roles]="[]"
+    [loginLink]="loginLink"
+>Is valid</authentication-check>
+<authentication-check
+    [roles]="['invalid']"
+    [loginLink]="loginLink"
+>Is invalid</authentication-check>
+<authentication-check
+    [roles]="['valid']"
+    [loginLink]="loginLink"
+>Is valid</authentication-check>
+<authentication-check
+    [roles]="['invalid']"
+    [loginLink]="loginLink"
+    [authenticationStates]="authenticationStates"
+    key="key-1"
+>Is invalid 2</authentication-check>
+<authentication-check
+    [roles]="['valid']"
+    [loginLink]="loginLink"
+    [authenticationStates]="authenticationStates"
+    key="key-2"
+>Is valid 2</authentication-check>

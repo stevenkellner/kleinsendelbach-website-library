@@ -1,0 +1,122 @@
+@import '../../../../node_modules/angular-calendar/scss/angular-calendar'
+@import '../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#header
+    @include flex-row(flex-start, center)
+    margin-bottom: 25px
+    width: 100%
+
+    #navigator, #view-changer
+        @include flex-row(flex-start, center)
+        flex: 1
+        margin: 0 50px
+
+        .item
+            @include font($weight: 'light')
+            background-color: color('background')
+            border-bottom: 1px solid color('text')
+            border-top: 1px solid color('text')
+            color: color('primary')
+            cursor: pointer
+            flex: 1
+            padding: 5px 0
+            text-align: center
+
+            &:first-child
+                border-left: 1px solid color('text')
+                border-radius: 5px 0 0 5px
+
+            &:last-child
+                border-radius: 0 5px 5px 0
+                border-right: 1px solid color('text')
+
+            &:first-child:last-child
+                border-left: 1px solid color('text')
+                border-radius: 5px
+                border-right: 1px solid color('text')
+
+            &.active, &:hover
+                background-color: color('hoveredBackground')
+
+    #current-date
+        @include font($size: 'medium', $weight: 'medium')
+        color: color('text')
+        flex: 1
+        margin: 0 50px
+        text-align: center
+
+    &.mobile
+        @include flex-column(flex-start, center)
+        margin: 0
+
+        #navigator, #view-changer, #current-date
+            margin: 0
+            margin-bottom: 25px
+            width: 100%
+
+#container
+    @include flex-column(flex-start, center)
+    border: 1px solid color('text')
+    border-radius: 5px
+    overflow: hidden
+    width: 100%
+
+    mwl-calendar-month-view, mwl-calendar-week-view, calendar-day-view
+        @include flex-column(flex-start, center)
+        width: 100%
+
+        ::ng-deep.cal-month-view, ::ng-deep.cal-week-view
+            @include font('montserrat')
+            width: 100%
+
+        ::ng-deep.cal-event-action
+            color: color('primary')
+            text-decoration: none
+            cursor: pointer
+            margin: 0 2px
+
+    &.dark ::ng-deep
+        $bg-primary: #1F262D
+        $bg-secondary: #394046
+        $bg-active: #2C343A
+        $text-color: #D5D6D7
+        $border-color: rgb(0 0 0 / 60%)
+        @include cal-theme((bg-primary: $bg-primary, bg-secondary: $bg-secondary, weekend-color: indianred, bg-active: $bg-active, border-color: $border-color, gray: $bg-secondary, today-bg: $bg-secondary, event-color-primary: $bg-secondary))
+
+        mwl-calendar-month-view, mwl-calendar-week-view, calendar-day-view
+            ::ng-deep.cal-month-view, ::ng-deep.cal-week-view
+                .cal-header, .cal-time, .cal-cell
+                    color: $text-color
+
+#description-container
+    @include flex-row(flex-start, flex-start)
+    margin-left: 25px
+    margin-top: 25px
+    width: 100%
+
+    .description
+        @include flex-row(center, center)
+        margin-right: 25px
+
+        &:last-child
+            margin-left: 0
+
+        .color
+            border-radius: 10px
+            height: 20px
+            margin-right: 5px
+            width: 20px
+
+        .text
+            @include font($weight: 'light')
+            color: color('text')
+
+    &.mobile
+        @include flex-column(flex-start, flex-start)
+
+        .description
+            margin-top: 5px

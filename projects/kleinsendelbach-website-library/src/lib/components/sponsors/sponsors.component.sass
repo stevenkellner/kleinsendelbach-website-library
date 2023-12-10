@@ -1,0 +1,20 @@
+@import '../../styles/index'
+
+:host
+    @include flex-column(flex-start, flex-start)
+    width: 100%
+
+#sponsors
+    @include flex-column(flex-start, flex-start)
+    width: 100%
+
+
+    .sponsor
+        margin-bottom: 64px
+        padding-bottom: 64px
+        border-bottom: 1px solid color('text')
+
+        &:last-child
+            margin-bottom: 0
+            padding-bottom: 0
+            border-bottom: 0

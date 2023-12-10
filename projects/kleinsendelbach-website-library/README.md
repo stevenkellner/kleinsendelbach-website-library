@@ -1,24 +1,21 @@
-# KleinsendelbachWebsiteLibrary
+# Setup
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+Setup the following services, e.g. in the `AppComponent` constructor:
+- `AuthenticationService`
+- `EnvironmentService`
+- `FirebaseApiService`
+- `InternalLinkService`
+- `StyleConfigService`
 
-## Code scaffolding
+# How to use calendar
 
-Run `ng generate component component-name --project kleinsendelbach-website-library` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project kleinsendelbach-website-library`.
-> Note: Don't forget to add `--project kleinsendelbach-website-library` or else it will be added to the default project in your `angular.json` file. 
+Add the following to your `app.config.ts` providers array:
 
-## Build
+```typescript
+importProvidersFrom(CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory
+}))
+```
 
-Run `ng build kleinsendelbach-website-library` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build kleinsendelbach-website-library`, go to the dist folder `cd dist/kleinsendelbach-website-library` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test kleinsendelbach-website-library` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Add `node_modules/angular-calendar/css/angular-calendar.css` to your `angular.json` styles array.

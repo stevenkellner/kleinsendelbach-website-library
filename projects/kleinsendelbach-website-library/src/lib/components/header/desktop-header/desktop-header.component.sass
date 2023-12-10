@@ -1,0 +1,43 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100vw
+
+#container
+    @include flex-row(center, space-around)
+    background-color: color('background')
+    box-shadow: 0 4px 16px
+    color: color('shadow')
+    height: 80px
+    position: fixed
+    top: 0
+    width: 100vw
+    z-index: 1001
+
+    #logo-container
+        @include flex-row(center, center)
+        cursor: pointer
+        height: 100%
+        text-decoration: none
+
+        #logo
+            height: 48px
+
+        #logo-text
+            @include font($name: 'metrophobic', $weight: 'medium')
+            color: color('text')
+            margin-left: 16px
+            white-space: nowrap
+
+    #header-items
+        @include flex-row(center, center)
+        height: 100%
+
+#background
+    height: 100vh
+    left: 0
+    position: fixed
+    top: 0
+    width: 100vw
+    z-index: 1000

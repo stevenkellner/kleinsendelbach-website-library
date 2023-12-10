@@ -1,0 +1,27 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#person
+    @include flex-column(flex-start, center)
+    width: 100%
+
+    #image
+        height: 150px
+        width: 90%
+        object-fit: contain
+        margin-bottom: 16px
+
+    #name
+        @include font($size: 'medium')
+        color: color('primary')
+        margin-bottom: 8px
+        text-align: center
+
+    #additional-text
+        @include font
+        color: color('secondaryText')
+        margin-bottom: 8px
+        text-align: center

@@ -1,0 +1,34 @@
+@import '../../styles/index'
+
+:host
+    @include flex-row(center, center)
+    background-color: transparent
+    width: 100%
+
+#button
+    @include flex-row(center, center)
+    @include font
+    background-color: color('background')
+    border: 1px solid color('text')
+    border-radius: 4px
+    color: color('text')
+    cursor: pointer
+    text-decoration: none
+    text-align: center
+    width: 100%
+    padding: 5px 10px
+
+    &.borderless
+        border: none
+
+    &.largeText
+        @include font-size('large')
+
+    &.prominent
+        color: color('primary')
+
+    &.selected
+        color: color('primary')
+
+    &:hover
+        background-color: color('hoveredBackground')

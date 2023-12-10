@@ -1,0 +1,10 @@
+<div
+    id="sponsors"
+>
+    <sponsor
+        *ngFor="let sponsor of sponsors; trackBy: TrackBy.property('name')"
+        [sponsor]="sponsor"
+        sponsorsType="complete"
+        class="sponsor"
+    />
+</div>

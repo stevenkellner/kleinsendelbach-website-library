@@ -1,0 +1,29 @@
+<div
+    id="items"
+    [ngClass]="deviceType.current"
+>
+    <a
+        *ngFor="let socialMediaItem of socialMediaData; trackBy: TrackBy.id"
+        [link]="socialMediaItem.link"
+        class="item"
+    >
+        <fa-icon
+            *ngIf="isIcon(socialMediaItem.image)"
+            class="icon"
+            [icon]="socialMediaItem.image"
+        />
+        <img
+            *ngIf="!isIcon(socialMediaItem.image)"
+            class="icon"
+            [src]="appearance.current === 'light' ? socialMediaItem.image.lightModeSource : socialMediaItem.image.darkModeSource"
+            [title]="socialMediaItem.title"
+            [alt]="socialMediaItem.title"
+        >
+        <p
+            class="title"
+        >{{ socialMediaItem.title }}</p>
+        <p
+            class="name"
+        >{{ socialMediaItem.name }}</p>
+    </a>
+</div>

@@ -1,0 +1,25 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#title
+    @include font($size: 'xlarge', $weight: 'medium')
+    color: color('text')
+    width: 100%
+    text-align: left
+
+#reports
+    @include flex-column(flex-start, center)
+    width: 100%
+    margin-bottom: 10px
+
+    .report
+        border-bottom: 1px solid color('text')
+
+        &:last-child
+            border-bottom: 0
+
+#show-more-button
+    width: 50%

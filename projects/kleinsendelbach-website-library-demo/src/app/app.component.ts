@@ -15,7 +15,7 @@ export class AppComponent {
         public readonly styleConfig: StyleConfigService
     ){
         this.styleConfig.setup({
-            primary: new AppearanceColor(Color.hex('#C90024'), Color.hex('#893572')),
+            primary: new AppearanceColor(Color.hex('#C90024')),
             accent: new AppearanceColor(Color.hex('#FFD93D')),
             background: new AppearanceColor(Color.hex('#FFFFFF')),
             secondaryBackground: new AppearanceColor(Color.hex('#FFFFFF')),

@@ -1,0 +1,57 @@
+@import '../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#no-events
+    @include font($size: 'medium')
+    color: color('primary')
+
+#event-groups
+    @include flex-column(flex-start, center)
+    width: 100%
+    margin-bottom: 25px
+
+    .event-group
+        margin-bottom: 50px
+
+        &:last-child
+            margin-bottom: 0
+
+.subscribe-button
+    width: 50%
+
+#calendar-subscription-container
+    @include flex-column(flex-start, center)
+    width: 100%
+
+    #selection-text
+        @include font($size: 'medium')
+        color: color('text')
+        margin-bottom: 10px
+
+    #selection-container
+        @include flex-row(flex-start, center)
+        width: 100%
+        flex-wrap: wrap
+        gap: 10px
+        margin-bottom: 25px
+
+        & > *
+            width: calc(50% - 5px)
+
+    #button-container
+        @include flex-row(flex-start, center)
+        width: 100%
+        gap: 10px
+
+    &.mobile
+        #selection-container > *
+            width: 100%
+
+        #button-container
+            @include flex-column(flex-start, center)
+
+            .subscribe-button
+                width: 100%

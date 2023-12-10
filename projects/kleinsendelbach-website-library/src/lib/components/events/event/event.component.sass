@@ -1,0 +1,56 @@
+@import '../../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+#event
+    @include flex-row(flex-start, flex-start)
+    width: 100%
+    padding: 16px 0
+
+    #bar
+        width: 5px
+        height: 75px
+        background-color: color('secondaryText')
+
+        &.recent
+            background-color: color('primary')
+
+        &.important
+            background-color: color('accent')
+
+    #content
+        @include flex-row(flex-start, flex-start)
+        width: calc(100% - 5px)
+
+        #date, #title, #subtitle, #link
+            @include font($size: 'medium', $weight: 'small')
+            color: color('text')
+            flex: 3
+            margin-left: 10px
+            text-align: left
+
+        #date
+            flex: 4
+
+        #subtitle
+            color: color('secondaryText')
+
+        #link
+            color: color('primary')
+            cursor: pointer
+            padding-bottom: 0
+            text-decoration: none
+            width: auto
+
+    &.mobile
+        #bar
+            height: 100px
+
+        #content
+            @include flex-column(flex-start, center)
+
+            #date, #title, #subtitle, #link
+                margin-bottom: 4px
+                width: 100%
