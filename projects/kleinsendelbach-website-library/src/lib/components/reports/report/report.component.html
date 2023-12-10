@@ -25,7 +25,7 @@
             [class.expanded]="isExpanded"
         ></p>
         <button
-            *ngIf="message.clientHeight >= 150"
+            *ngIf="isClipped"
             class="show-more-button"
             (action)="expandReportClicked.emit()"
         >{{ isExpanded ? 'Einklappen' : 'Kompletten Bericht lesen' }}</button>

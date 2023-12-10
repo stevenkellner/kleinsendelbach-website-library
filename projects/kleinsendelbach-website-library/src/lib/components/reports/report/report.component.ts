@@ -21,6 +21,8 @@ export class ReportComponent implements AfterViewInit {
 
     @ViewChild('message') public messageElement: ElementRef<HTMLElement> | null = null;
 
+    public isClipped: boolean = false;
+
     constructor(
         public readonly deviceType: DeviceTypeService,
         public readonly styleConfig: StyleConfigService
@@ -37,6 +39,10 @@ export class ReportComponent implements AfterViewInit {
             for (const element of elements)
                 this.messageElement.nativeElement.append(element);
         }
+        setTimeout(() => {
+            const height = this.messageElement?.nativeElement.clientHeight;
+            this.isClipped = (height ?? 0) >= 150;
+        }, 1);
     }
 
     public get isRecent(): boolean {
