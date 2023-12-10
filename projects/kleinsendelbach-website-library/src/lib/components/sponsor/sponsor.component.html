@@ -1,47 +1,47 @@
 <div
-    id="sponsor"
+    class="sponsor"
     [class.row]="sponsorsType === 'main'"
     [class.column]="sponsorsType === 'normal' || sponsorsType === 'small'"
     [ngClass]="sponsorsType"
 >
     <img
-        id="logo"
+        class="logo"
         [src]="sponsor.logoSrc"
         [title]="sponsor.name"
         [alt]="sponsor.name"
     >
     <div
         *ngIf="sponsorsType !== 'small'"
-        id="container"
+        class="container"
     >
         <p
-            id="name"
+            class="name"
         >{{ sponsor.name }}</p>
         <p
             *ngIf="sponsorsType === 'complete' || sponsorsType === 'main'"
-            id="address-street"
+            class="address-street"
         >{{ sponsor.address.streetName }}</p>
         <p
             *ngIf="sponsorsType === 'complete' || sponsorsType === 'main'"
-            id="address-city"
+            class="address-city"
         >{{ sponsor.address.cityName }}</p>
         <p
             *ngIf="sponsorsType === 'complete' && sponsor.contact.phone !== null"
-            id="phone"
+            class="phone"
         >Telefon: <a
             [href]="'tel:' + sponsor.contact.phone"
             [title]="sponsor.contact.phone"
         >{{ sponsor.contact.phone }}</a></p>
         <p
             *ngIf="sponsorsType === 'complete' && sponsor.contact.email !== null"
-            id="email"
+            class="email"
         >E-Mail: <a
             [href]="'mailto:' + sponsor.contact.email"
             [title]="sponsor.contact.email"
         >{{ sponsor.contact.email }}</a></p>
         <p
             *ngIf="sponsorsType === 'complete' && sponsor.contact.website !== null"
-            id="website"
+            class="website"
         >Website: <a
             [href]="sponsor.contact.website"
             [title]="sponsor.contact.website"

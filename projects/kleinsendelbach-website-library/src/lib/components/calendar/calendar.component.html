@@ -1,9 +1,9 @@
 <div
-    id="header"
+    class="header"
     [ngClass]="deviceType.current"
 >
     <div
-        id="navigator"
+        class="navigator"
     >
         <div
             class="item"
@@ -27,34 +27,31 @@
         >Nächster</div>
     </div>
     <div
-        id="view-changer"
+        class="view-changer"
     >
         <div
             class="item"
             [ngClass]="{ active: currentView === 'month' }"
-            role="none"
             (click)="setCurrentView('month')"
         >Monat</div>
         <div
             *ngIf="!deviceType.isMobile"
             class="item"
             [ngClass]="{ active: currentView === 'week' }"
-            role="none"
             (click)="setCurrentView('week')"
         >Woche</div>
         <div
             class="item"
             [ngClass]="{ active: currentView === 'day' }"
-            role="none"
             (click)="setCurrentView('day')"
         >Tag</div>
     </div>
     <div
-        id="current-date"
+        class="current-date"
     >{{ activeDate | calendarDate:(currentView + 'ViewTitle'):'de' }}</div>
 </div>
 <div
-    id="container"
+    class="container"
     [ngSwitch]="currentView"
     [class.dark]="appearance.isDark"
 >
@@ -90,7 +87,7 @@
     />
 </div>
 <div
-    id="description-container"
+    class="description-container"
     [ngClass]="deviceType.current"
 >
     <div

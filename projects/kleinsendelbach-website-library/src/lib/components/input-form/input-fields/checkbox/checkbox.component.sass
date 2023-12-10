@@ -5,21 +5,21 @@
     margin-bottom: 20px
     width: 100%
 
-#container
+.container
     $width: 60px
     $height: 34px
     $slider-size: 26px
     @include flex-row(center, flex-start)
     width: 100%
 
-    #label
+    .label
         @include font($size: 'large')
         @include flex-row(center, center)
         color: color('text')
         height: $height
         vertical-align: middle
 
-    #checkbox
+    .checkbox
         $slider-margin: calc(($height - $slider-size) / 2)
         background-color: color('text')
         border-color: color('text')
@@ -30,7 +30,7 @@
         width: $width
         z-index: 300
 
-        #slider
+        .slider
             -webkit-transition: .4s
             background-color: color('background')
             border-radius: calc($slider-size / 2)
@@ -47,6 +47,6 @@
         &.checked
             background-color: color('primary')
 
-            #slider
+            .slider
                 left: calc($width - $slider-size - $slider-margin)
                 right: $slider-margin

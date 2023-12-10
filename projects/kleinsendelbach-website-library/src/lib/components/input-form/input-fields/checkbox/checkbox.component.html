@@ -1,19 +1,18 @@
 <div
-    id="container"
+    class="container"
 >
     <p
-        id="label"
+        class="label"
     >{{ label + ':' }}</p>
     <div
-        id="checkbox"
-        role="none"
+        class="checkbox"
         (click)="onClick()"
         [ngClass]="{
             checked: checked
         }"
     >
         <div
-            id="slider"
+            class="slider"
         ></div>
     </div>
 </div>

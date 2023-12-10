@@ -5,12 +5,12 @@
     @include flex-column(flex-start, center)
     width: 100%
 
-#header
+.header
     @include flex-row(flex-start, center)
     margin-bottom: 25px
     width: 100%
 
-    #navigator, #view-changer
+    .navigator, .view-changer
         @include flex-row(flex-start, center)
         flex: 1
         margin: 0 50px
@@ -42,7 +42,7 @@
             &.active, &:hover
                 background-color: color('hoveredBackground')
 
-    #current-date
+    .current-date
         @include font($size: 'medium', $weight: 'medium')
         color: color('text')
         flex: 1
@@ -53,12 +53,12 @@
         @include flex-column(flex-start, center)
         margin: 0
 
-        #navigator, #view-changer, #current-date
+        .navigator, .view-changer, .current-date
             margin: 0
             margin-bottom: 25px
             width: 100%
 
-#container
+.container
     @include flex-column(flex-start, center)
     border: 1px solid color('text')
     border-radius: 5px
@@ -92,7 +92,7 @@
                 .cal-header, .cal-time, .cal-cell
                     color: $text-color
 
-#description-container
+.description-container
     @include flex-row(flex-start, flex-start)
     margin-left: 25px
     margin-top: 25px

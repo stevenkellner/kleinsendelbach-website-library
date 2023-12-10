@@ -4,12 +4,12 @@
     @include flex-column(flex-start, center)
     width: 100%
 
-#event
+.event
     @include flex-row(flex-start, flex-start)
     width: 100%
     padding: 16px 0
 
-    #bar
+    .bar
         width: 5px
         height: 75px
         background-color: color('secondaryText')
@@ -20,24 +20,24 @@
         &.important
             background-color: color('accent')
 
-    #content
+    .content
         @include flex-row(flex-start, flex-start)
         width: calc(100% - 5px)
 
-        #date, #title, #subtitle, #link
+        .date, .title, .subtitle, .link
             @include font($size: 'medium', $weight: 'small')
             color: color('text')
             flex: 3
             margin-left: 10px
             text-align: left
 
-        #date
+        .date
             flex: 4
 
-        #subtitle
+        .subtitle
             color: color('secondaryText')
 
-        #link
+        .link
             color: color('primary')
             cursor: pointer
             padding-bottom: 0
@@ -45,12 +45,12 @@
             width: auto
 
     &.mobile
-        #bar
+        .bar
             height: 100px
 
-        #content
+        .content
             @include flex-column(flex-start, center)
 
-            #date, #title, #subtitle, #link
+            .date, .title, .subtitle, .link
                 margin-bottom: 4px
                 width: 100%

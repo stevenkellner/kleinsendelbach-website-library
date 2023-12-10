@@ -1,5 +1,5 @@
 <div
-    id="header-item"
+    class="header-item"
     [ngClass]="{
         expanded: expandedHeaderColumnKey === headerColumn.key
     }"
@@ -9,22 +9,21 @@
     <a
         *ngIf="!headerColumn.subItems"
         [link]="headerColumn.topItem.link"
-        id="top-item"
+        class="top-item"
     >
         <div
-        id="top-item-text"
+        class="top-item-text"
         >{{ headerColumn.topItem.title }}</div>
     </a>
 
     <!-- Top item with sub items -->
     <div
-        id="top-item"
+        class="top-item"
         *ngIf="headerColumn.subItems"
-        role="none"
         (click)="$event.preventDefault(); $event.stopPropagation(); handleTopItemClick()"
     >
         <div
-            id="top-item-text"
+            class="top-item-text"
         >{{ headerColumn.topItem.title }}</div>
         <fa-icon
             *ngIf="expandedHeaderColumnKey !== headerColumn.key"
@@ -40,7 +39,7 @@
 
     <!-- Sub items -->
     <div
-        id="sub-items"
+        class="sub-items"
         *ngIf="headerColumn.subItems"
     >
         <div

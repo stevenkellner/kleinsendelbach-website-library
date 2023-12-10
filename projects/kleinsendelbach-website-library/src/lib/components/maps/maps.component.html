@@ -1,24 +1,24 @@
 <div
     *ngIf="!apiLoaded || !functionalityCookiesSelected"
-    id="container"
+    class="container"
 >
     <p
         *ngIf="!apiLoaded && functionalityCookiesSelected"
-        id="loading-text"
+        class="loading-text"
     >Google Maps wird geladen</p>
     <p
         *ngIf="!functionalityCookiesSelected"
-        id="cookie-text"
+        class="cookie-text"
     >Google Maps konnte nicht geladen werden, da Sie nicht den erforderlichen Cookies zugestimmt haben.</p>
     <button
         *ngIf="!functionalityCookiesSelected"
-        id="button"
+        class="button"
         (action)="acceptFunctionalityCookies()"
     >Funktionelle Cookies jetzt akzeptieren</button>
 </div>
 
 <div
-    id="maps-container"
+    class="maps-container"
     *ngIf="apiLoaded && functionalityCookiesSelected"
 >
     <google-map

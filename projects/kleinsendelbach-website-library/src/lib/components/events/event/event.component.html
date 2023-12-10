@@ -1,32 +1,32 @@
 <div
-    id="event"
+    class="event"
     [ngClass]="deviceType.current"
 >
     <div
-        id="bar"
+        class="bar"
         [class.important]="event.isImportant"
         [class.recent]="isRecent"
     ></div>
         <div
-            id="content"
+            class="content"
         >
         <p
-            id="date"
+            class="date"
         >{{ event.date.description }}</p>
         <p
-            id="title"
+            class="title"
         >{{ event.title }}</p>
         <p
-            id="subtitle"
+            class="subtitle"
         >{{ event.subtitle ?? '' }}</p>
         <a
             *ngIf="link"
-            id="link"
+            class="link"
             [link]="link"
         >Weitere Informationen</a>
         <p
             *ngIf="!link"
-            id="link"
+            class="link"
         ></p>
     </div>
 </div>

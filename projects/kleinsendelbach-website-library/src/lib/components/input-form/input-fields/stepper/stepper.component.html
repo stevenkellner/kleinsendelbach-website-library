@@ -2,27 +2,27 @@
     [text]="label"
 ></label>
 <div
-    id="container"
+    class="container"
 >
     <input
         #input
-        id="input"
+        class="input"
         [ngClass]="{ error: inputField.error }"
         type="text"
         [placeholder]="label"
         (blur)="onBlur()"
     >
     <div
-        id="stepper"
+        class="stepper"
     >
         <fa-icon
-            id="increase-button"
+            class="increase-button"
             [class.disabled]="min !== null && inputField.value === min"
             icon="minus"
             (click)="onStepperChange('decrease')"
         />
         <fa-icon
-            id="decrease-button"
+            class="decrease-button"
             [class.disabled]="max !== null && inputField.value === max"
             icon="plus"
             (click)="onStepperChange('increase')"

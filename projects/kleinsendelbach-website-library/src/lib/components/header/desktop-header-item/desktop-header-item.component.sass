@@ -4,12 +4,12 @@
     @include flex-column(flex-start, center)
     height: 100%
 
-#header-item
+.header-item
     @include flex-column(flex-start, center)
     position: relative
     width: 100%
 
-    #top-item
+    .top-item
         background-color: color('background')
         @include flex-row(center, center)
         cursor: pointer
@@ -21,7 +21,7 @@
         &:hover
             background-color: color('hoveredBackground')
 
-        #top-item-text
+        .top-item-text
             @include font($name: 'metrophobic', $weight: 'medium')
             color: color('text')
             line-height: 80px
@@ -30,7 +30,7 @@
             color: color('text')
             margin-left: 8px
 
-    #sub-items
+    .sub-items
         @include flex-column(flex-start, center)
         display: none
         position: absolute
@@ -57,6 +57,6 @@
                 color: color('text')
                 text-decoration: none
 
-    &.expanded #sub-items
+    &.expanded .sub-items
         display: flex
         z-index: 1003

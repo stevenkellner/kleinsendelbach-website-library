@@ -3,23 +3,23 @@
 :host
     @include flex-column(flex-start, center)
 
-    &:last-child #header-item #top-item
+    &:last-child .header-item .top-item
         border-radius: 0 0 8px 8px
         border-bottom: 1px solid color('text')
 
     .expanded + &
-        #header-item #top-item
+        .header-item .top-item
             border-radius: 8px 8px 0 0
             border-top: 1px solid color('text')
 
-        &:last-child #header-item #top-item
+        &:last-child .header-item .top-item
             border-radius: 8px
 
-#header-item
+.header-item
     @include flex-column(flex-start, center)
     width: 90vw
 
-    #top-item
+    .top-item
         @include flex-row(center, center)
         background-color: color('background')
         cursor: pointer
@@ -30,7 +30,7 @@
         border-left: 1px solid color('text')
         border-right: 1px solid color('text')
 
-        #top-item-text
+        .top-item-text
             @include font($name: 'metrophobic', $weight: 'medium')
             color: color('text')
             line-height: 48px
@@ -39,7 +39,7 @@
             color: color('text')
             margin-left: 8px
 
-    #sub-items
+    .sub-items
         @include flex-column(flex-start, center)
         display: none
         margin-bottom: 16px
@@ -65,9 +65,9 @@
                 padding-bottom: 16px
 
     &.expanded
-        #top-item
+        .top-item
             border-radius: 0 0 8px 8px
             border-bottom: 1px solid color('text')
 
-        #sub-items
+        .sub-items
             display: flex

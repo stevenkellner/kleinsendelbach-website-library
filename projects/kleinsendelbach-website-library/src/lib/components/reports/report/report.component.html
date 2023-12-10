@@ -1,37 +1,37 @@
 <div
-    id="report"
+    class="report"
     [ngClass]="deviceType.current"
 >
     <div
-        id="bar"
+        class="bar"
         [class.recent]="isRecent"
     ></div>
     <div
-        id="content"
+        class="content"
     >
         <img
-            id="image"
+            class="image"
             *ngIf="report.imageUrl !== null && deviceType.isMobile"
             [src]="report.imageUrl"
             [title]="report.title"
             [alt]="report.title"
         >
         <p
-            id="title"
+            class="title"
         >{{ report.title }}</p>
         <p
             #message
-            id="message"
+            class="message"
             [class.expanded]="isExpanded"
         ></p>
         <button
             *ngIf="message.clientHeight >= 150"
-            id="show-more-button"
+            class="show-more-button"
             (action)="expandReportClicked.emit()"
         >{{ isExpanded ? 'Einklappen' : 'Kompletten Bericht lesen' }}</button>
     </div>
     <img
-        id="image"
+        class="image"
         *ngIf="report.imageUrl !== null && !deviceType.isMobile"
         [src]="report.imageUrl"
         [title]="report.title"

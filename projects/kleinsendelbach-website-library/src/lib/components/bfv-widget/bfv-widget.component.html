@@ -1,18 +1,18 @@
 <div
     *ngIf="!functionalityCookiesSelected"
-    id="container"
+    class="container"
 >
     <p
-        id="cookie-text"
+        class="cookie-text"
     >BFV Widget konnte nicht geladen werden, da Sie nicht den erforderlichen Cookies zugestimmt haben.</p>
     <button
-        id="button"
+        class="button"
         (action)="acceptFunctionalityCookies()"
     >Funktionelle Cookies jetzt akzeptieren</button>
 </div>
 
 <div
-    id="bfv-widget"
+    class="bfv-widget"
     #bfvWidget
     [hidden]="!functionalityCookiesSelected"
 ></div>

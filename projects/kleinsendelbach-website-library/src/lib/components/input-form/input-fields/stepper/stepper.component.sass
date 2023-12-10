@@ -5,11 +5,11 @@
     margin-bottom: 20px
     width: 100%
 
-#container
+.container
     @include flex-row(flex-start, center)
     width: 100%
 
-    #input
+    .input
         @include font($size: 'large')
         background-color: color('background')
         border: 1px solid color('text')
@@ -21,11 +21,11 @@
         vertical-align: middle
         width: 50%
 
-    #stepper
+    .stepper
         @include flex-row(flex-start, center)
         width: 50%
 
-        #increase-button, #decrease-button
+        .increase-button, .decrease-button
             @include flex-row(center, center)
             @include font-size('normal')
             background-color: color('background')
@@ -38,13 +38,13 @@
             &:hover
                 background-color: color('hoveredBackground')
 
-        #increase-button
+        .increase-button
             border-radius: 8px 0 0 8px
 
-        #decrease-button
+        .decrease-button
             border-radius: 0 8px 8px 0
 
-        #increase-button, #decrease-button
+        .increase-button, .decrease-button
             &.disabled
                 color: color('secondaryText')
 

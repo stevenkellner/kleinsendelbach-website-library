@@ -1,5 +1,5 @@
 <div
-    id="button"
+    class="button"
     *ngIf="!actionLink"
     (click)="action.emit()"
     [class.prominent]="prominent"
@@ -8,7 +8,7 @@
     [class.largeText]="largeText"
 ><ng-container *ngTemplateOutlet="content"></ng-container></div>
 <a
-    id="button"
+    class="button"
     *ngIf="actionLink"
     [link]="actionLink"
     (click)="action.emit()"

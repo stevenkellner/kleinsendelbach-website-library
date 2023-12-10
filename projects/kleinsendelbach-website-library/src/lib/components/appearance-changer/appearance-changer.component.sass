@@ -4,7 +4,7 @@
     @include flex-column(flex-start, center)
     width: 100%
 
-#container
+.container
     $height: 30px
     $slider-margin: 2px
     $slider-size: calc($height - 2 * $slider-margin)
@@ -17,7 +17,7 @@
     width: $width
     z-index: 300
 
-    #slider
+    .slider
         @include flex-row(center, center)
         background-color: color('primary')
         border-radius: calc($slider-size / 2)
@@ -31,16 +31,16 @@
         z-index: 301
 
     &.light
-        #slider
+        .slider
             margin-left: $slider-margin
             margin-right: calc($width - 2 * $slider-size - $slider-margin)
 
     &.dark
-        #slider
+        .slider
             margin-left: calc($width - $slider-size - $slider-margin)
             margin-right: calc($width - $slider-size - $slider-margin)
 
     &.system
-        #slider
+        .slider
             margin-left: calc($width - 2 * $slider-size - $slider-margin)
             margin-right: $slider-margin

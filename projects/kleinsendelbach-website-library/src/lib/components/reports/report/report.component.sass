@@ -4,12 +4,12 @@
     @include flex-column(flex-start, center)
     width: 100%
 
-#report
+.report
     @include flex-row(flex-start, flex-start)
     width: 100%
     padding: 16px 0
 
-    #bar
+    .bar
         width: 5px
         height: 150px
         margin-right: 10px
@@ -18,16 +18,16 @@
         &.recent
             background-color: color('primary')
 
-    #content
+    .content
         @include flex-column(flex-start, flex-start)
         width: calc(100% - 15px - 10px - 150px)
         margin-right: 10px
 
-        #title
+        .title
             @include font($size: 'large', $weight: 'medium')
             color: color('text')
 
-        #message
+        .message
             @include markdown-container
             max-height: 150px
             overflow: hidden
@@ -35,24 +35,24 @@
             &.expanded
                 max-height: none
 
-    #image
+    .image
         height: 150px
         width: 150px
         object-fit: cover
         border: 1px solid color('text')
         border-radius: 4px
 
-    #show-more-button
+    .show-more-button
         margin-top: 10px
         width: 25%
 
     &.mobile
-        #content
+        .content
             width: calc(100% - 15px)
             margin-right: 0
 
-        #image
+        .image
             margin-bottom: 10px
 
-        #show-more-button
+        .show-more-button
             width: 50%

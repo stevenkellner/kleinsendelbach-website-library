@@ -4,26 +4,26 @@
     @include flex-column(flex-start, flex-start)
     width: 100%
 
-#sponsor
+.sponsor
     width: 100%
 
-    #logo
+    .logo
         height: 100px
 
-    #container
+    .container
         @include flex-column(center, flex-start)
 
-        #name
+        .name
             @include font
             color: color('text')
             white-space: nowrap
 
-        #address-street, #address-city
+        .address-street, .address-city
             @include font($weight: 'light')
             color: color('secondaryText')
             white-space: nowrap
 
-        #phone, #email, #website, .social-media
+        .phone, .email, .website, .social-media
             @include font($weight: 'light')
             color: color('secondaryText')
             white-space: nowrap
@@ -36,26 +36,26 @@
     &.row
         @include flex-row(center, center)
 
-        #container
+        .container
             margin-left: 10px
 
     &.column
         @include flex-column(center, center)
 
-        #container
+        .container
             margin-top: 10px
 
     &.complete
         @include flex-row(center, center)
 
-        #logo
+        .logo
             width: 350px
             height: auto
             margin-left: calc(50% - 350px - 15px)
 
-        #container
+        .container
             width: calc(50% - 15px)
             margin-left: 30px
 
-            #address-city
+            .address-city
                 margin-bottom: 16px

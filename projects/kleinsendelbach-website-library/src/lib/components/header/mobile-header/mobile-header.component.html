@@ -1,24 +1,24 @@
 <div
-    id="container"
+    class="container"
     [ngClass]="{
         expanded: isExpanded
     }"
 >
     <div
-        id="top-row"
+        class="top-row"
     >
         <a
             [link]="headerData.homeLink"
-            id="logo-container"
+            class="logo-container"
         >
         <img
             [src]="headerData.logoSrc"
             [title]="headerData.name"
             [alt]="headerData.name"
-            id="logo"
+            class="logo"
         >
         <p
-            id="logo-text"
+            class="logo-text"
         >{{ headerData.name }}</p>
         </a>
         <fa-icon
@@ -35,7 +35,7 @@
         />
     </div>
     <div
-        id="header-items"
+        class="header-items"
         *ngIf="isExpanded"
     >
         <mobile-header-item
@@ -51,7 +51,7 @@
 </div>
 <!-- eslint-disable-next-line @angular-eslint/template/interactive-supports-focus -->
 <div
-    id="background"
+    class="background"
     *ngIf="isExpanded"
     (click)="$event.preventDefault(); $event.stopPropagation(); isExpanded = false; expandedHeaderColumnKey = null"
 ></div>

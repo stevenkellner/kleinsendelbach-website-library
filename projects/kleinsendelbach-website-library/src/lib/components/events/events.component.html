@@ -1,10 +1,10 @@
 <p
     *ngIf="eventGroups.length === 0"
-    id="no-events"
+    class="no-events"
 >Es gibt aktuell keine Termine</p>
 <div
     *ngIf="eventGroups.length !== 0"
-    id="event-groups"
+    class="event-groups"
 >
     <event-group
         *ngFor="let eventGroup of eventGroups; trackBy: TrackBy.property('groupId')"
@@ -22,14 +22,14 @@
 >ics-Kalender abonnieren</button>
 <div
     *ngIf="eventGroups.length !== 0 && isCalendarSubscriptionSeletionShown"
-    id="calendar-subscription-container"
+    class="calendar-subscription-container"
     [ngClass]="deviceType.current"
 >
     <p
-        id="selection-text"
+        class="selection-text"
     >Wähle die Kategorien aus, die du abonnieren möchtest:</p>
     <div
-        id="selection-container"
+        class="selection-container"
     >
         <button
             *ngFor="let eventGroup of eventGroupsDescription; trackBy: TrackBy.id"
@@ -38,7 +38,7 @@
         >{{ eventGroup.title }}</button>
     </div>
     <div
-        id="button-container"
+        class="button-container"
     >
         <button
             *ngIf="anyCalendarSubscriptionSelected"

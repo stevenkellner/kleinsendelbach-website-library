@@ -1,9 +1,9 @@
 <div
-    id="spacer"
+    class="spacer"
     [ngClass]="deviceType.current"
 ></div>
 <div
-    id="image-container"
+    class="image-container"
     [ngClass]="deviceType.current"
 >
     <img
@@ -18,23 +18,23 @@
     >
 </div>
 <div
-    id="text-container"
+    class="text-container"
     [ngClass]="deviceType.current"
 >
     <p
-        id="actual"
+        class="actual"
         *ngIf="current.isCurrent"
     >Aktuell</p>
     <p
-        id="title"
+        class="title"
     >{{ current.title }}</p>
     <p
         *ngIf="current.subTitle !== null"
-        id="subtitle"
+        class="subtitle"
     >{{ current.subTitle }}</p>
 </div>
 <div
-    id="nav-bar-container"
+    class="nav-bar-container"
     [ngClass]="deviceType.current"
     (mousedown)="onMouseDown($event)"
     (mouseup)="onMouseUp($event)"
@@ -42,21 +42,21 @@
     (touchend)="onMouseUp($event)"
 >
     <div
-        id="nav-button-container"
+        class="nav-button-container"
     >
         <fa-icon
-            id="left-button"
+            class="left-button"
             icon="chevron-left"
             (click)="$event.preventDefault(); $event.stopPropagation(); handleButtonClick('left')"
         />
         <fa-icon
-            id="right-button"
+            class="right-button"
             icon="chevron-right"
             (click)="$event.preventDefault(); $event.stopPropagation(); handleButtonClick('right')"
         />
     </div>
     <div
-        id="nav-bar"
+        class="nav-bar"
     >
         <fa-icon
             *ngFor="let _ of bannerData; index as index; trackBy: TrackBy.property('title')"

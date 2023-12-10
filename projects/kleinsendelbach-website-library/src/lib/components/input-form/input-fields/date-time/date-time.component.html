@@ -2,13 +2,13 @@
     [text]="label"
 ></label>
 <div
-    id="container"
+    class="container"
     [ngClass]="deviceType.current"
 >
     <input
         #dateInput
         *ngIf="isComponentShown('date')"
-        id="date-input"
+        class="date-input"
         [ngClass]="{ error: inputField.error }"
         type="date"
         (blur)="onBlur()"
@@ -16,7 +16,7 @@
     <input
         #timeInput
         *ngIf="isComponentShown('time')"
-        id="time-input"
+        class="time-input"
         [ngClass]="{ error: inputField.error }"
         type="time"
         (blur)="onBlur()"

@@ -4,11 +4,11 @@
     @include flex-column(flex-start, center)
     width: 100%
 
-#no-events
+.no-events
     @include font($size: 'medium')
     color: color('primary')
 
-#event-groups
+.event-groups
     @include flex-column(flex-start, center)
     width: 100%
     margin-bottom: 25px
@@ -22,16 +22,16 @@
 .subscribe-button
     width: 50%
 
-#calendar-subscription-container
+.calendar-subscription-container
     @include flex-column(flex-start, center)
     width: 100%
 
-    #selection-text
+    .selection-text
         @include font($size: 'medium')
         color: color('text')
         margin-bottom: 10px
 
-    #selection-container
+    .selection-container
         @include flex-row(flex-start, center)
         width: 100%
         flex-wrap: wrap
@@ -41,16 +41,16 @@
         & > *
             width: calc(50% - 5px)
 
-    #button-container
+    .button-container
         @include flex-row(flex-start, center)
         width: 100%
         gap: 10px
 
     &.mobile
-        #selection-container > *
+        .selection-container > *
             width: 100%
 
-        #button-container
+        .button-container
             @include flex-column(flex-start, center)
 
             .subscribe-button

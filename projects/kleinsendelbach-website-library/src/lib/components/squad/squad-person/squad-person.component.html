@@ -1,22 +1,22 @@
 <div
-    id="person"
+    class="person"
 >
     <img
         *ngIf="person.imageSrc !== null"
-        id="image"
+        class="image"
         [src]="person.imageSrc"
         [title]="person.name"
         [alt]="person.name"
     >
     <p
         *ngIf="person.imageSrc === null"
-        id="image"
+        class="image"
     >
     <p
-        id="name"
+        class="name"
     >{{ person.name }}</p>
     <p
         *ngIf="person.additionalText !== null"
-        id="additional-text"
+        class="additional-text"
     >{{ person.additionalText }}</p>
 </div>

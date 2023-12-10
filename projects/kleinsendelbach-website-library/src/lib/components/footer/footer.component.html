@@ -1,12 +1,12 @@
 <div
-    id="footer"
+    class="footer"
     [ngClass]="deviceType.current"
 >
     <div
         class="column"
     >
         <div
-            id="links"
+            class="links"
         >
             <button
                 *ngFor="let link of footerData.links; trackBy: TrackBy.property('title')"
@@ -17,7 +17,7 @@
         </div>
         <div
             *ngIf="footerData.appearanceChangerShown"
-            id="appearance-container"
+            class="appearance-container"
         >
             <p
                 class="text"
@@ -30,12 +30,12 @@
             >{{ appearanceService.configDescription }}</p>
         </div>
         <p
-            id="copyright"
+            class="copyright"
         >{{ footerData.copyright }}</p>
         <button
             *ngIf="footerData.editLink"
             [actionLink]="footerData.editLink"
-            id="edit-link"
+            class="edit-link"
         >Bearbeiten</button>
     </div>
 

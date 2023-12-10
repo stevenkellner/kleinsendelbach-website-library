@@ -1,23 +1,22 @@
 <div
-    id="form"
-    role="none"
+    class="form"
     (keyup.enter)="'$event.preventDefault(); $event.stopPropagation(); submitButtonClicked.emit()'"
     [ngClass]="deviceType.current"
 >
     <ng-content></ng-content>
     <div
         *ngIf="cancelButtonText !== null || submitButtonClicked !== null"
-        id="cancel-submit-container"
+        class="cancel-submit-container"
     >
         <button
             *ngIf="cancelButtonText !== null"
-            id="cancel-button"
+            class="cancel-button"
             (action)="cancelButtonClicked.emit()"
             [largeText]="true"
         >{{ cancelButtonText }}</button>
         <button
             *ngIf="submitButtonText !== null"
-            id="submit-button"
+            class="submit-button"
             (action)="submitButtonClicked.emit()"
             [largeText]="true"
         >{{ submitButtonText }}</button>

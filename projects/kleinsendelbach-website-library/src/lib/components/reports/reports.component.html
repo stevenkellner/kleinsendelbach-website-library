@@ -1,10 +1,10 @@
 <p
     *ngIf="reportGroups.length === 0"
-    id="no-reports"
+    class="no-reports"
 >Es gibt aktuell keine Berichte</p>
 <div
     *ngIf="reportGroups.length !== 0"
-    id="report-groups"
+    class="report-groups"
 >
     <report-group
         *ngFor="let reportGroup of reportGroups; trackBy: TrackBy.property('groupId')"

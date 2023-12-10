@@ -1,10 +1,10 @@
 <div
-    id="message-box"
+    class="message-box"
     *ngIf="isShown"
     [ngClass]="deviceType.current"
 >
     <p
-        id="header"
+        class="header"
     >Cookie-Einstellungen</p>
     <p
         class="text"
@@ -15,14 +15,14 @@
     >Mit der Nutzung unserer Webseite stimmen Sie der Verwendung von Cookies zu. Weitere Informationen über die Verwendung von Cookies und wie Sie Ihre Einwilligung für die Zukunft widerrufen können, finden Sie in unseren Datenschutzhinweisen.</p>
     <a
         link="datenschutz"
-        id="privacy"
+        class="privacy"
     >Datenschutz</a>
     <p
-        id="extra-text"
+        class="extra-text"
         *ngIf="selectionShown"
     >Welchen Cookies stimmen Sie zu?</p>
     <div
-        id="selection-buttons"
+        class="selection-buttons"
         *ngIf="selectionShown"
     >
         <p
@@ -32,26 +32,22 @@
         <p
             class="button"
             [class.selected]="cookieSelection['functionality'] === 'selected'"
-            role="none"
             (click)="toggleCookieSelection('functionality')"
         >Funktionalität</p>
         <p
             class="button"
             [class.selected]="cookieSelection['statistics'] === 'selected'"
-            role="none"
             (click)="toggleCookieSelection('statistics')"
         >Statistik</p>
     </div>
     <p
-        id="details-button"
+        class="details-button"
         *ngIf="selectionShown"
-        role="none"
         (click)="toggleDetailsShown()"
     >{{ detailsShown ? "Details ausblenden" : "Details zeigen" }}</p>
     <p
-        id="show-selection-button"
+        class="show-selection-button"
         *ngIf="deviceType.current === 'mobile'"
-        role="none"
         (click)="toggleSelectionShown()"
     >{{ selectionShown ? "Auswahl ausblenden" : "Auswahl zeigen" }}</p>
     <p
@@ -79,16 +75,14 @@
         *ngIf="detailsShown && selectionShown"
     >Um unsere Webseite weiter zu verbessern, erfassen wir anonymisiert Daten für Statistiken und Analysen. Mit Hilfe dieser Cookies können wir beispielsweise die Anzahl der Website-Besucher und Zugriffe auf bestimmte Seiten ermitteln, um auf dieser Grundlage unsere Inhalte zu verbessern.</p>
     <div
-        id="confirm-buttons"
+        class="confirm-buttons"
     >
         <p
-            id="confirm-selected"
-            role="none"
+            class="confirm-selected"
             (click)="handleConfirmSelected()"
         >Auswahl akzeptieren</p>
         <p
-            id="confirm-all"
-            role="none"
+            class="confirm-all"
             (click)="handleConfirmAll()"
         >Alle akzeptieren</p>
     </div>

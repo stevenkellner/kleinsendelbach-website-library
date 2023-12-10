@@ -5,7 +5,7 @@
     margin-top: 48px
     width: 100vw
 
-#footer
+.footer
     @include flex-row(flex-start, center)
     background-color: color('background')
     box-shadow: 0 -4px 16px
@@ -18,7 +18,7 @@
         width: 50%
         margin: 0 16px
 
-    #links
+    .links
         @include flex-column(flex-start, center)
         width: 100%
         margin-bottom: 8px
@@ -29,7 +29,7 @@
         &:last-child
             margin-bottom: 0
 
-    #appearance-container
+    .appearance-container
         @include flex-row(center, center)
         margin-bottom: 24px
 
@@ -41,12 +41,12 @@
             color: color('secondaryText')
             width: 50px
 
-    #copyright
+    .copyright
         @include font($size: 'xxsmall', $weight: 'light')
         color: color('text')
         margin-bottom: 8px
 
-    #edit-link
+    .edit-link
         width: 50%
 
     .contact
