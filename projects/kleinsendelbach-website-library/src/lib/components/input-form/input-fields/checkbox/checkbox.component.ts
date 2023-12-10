@@ -4,11 +4,11 @@ import { ErrorMessageComponent } from '../../error-message/error-message.compone
 import { InputField } from '../../../../types';
 
 @Component({
-  selector: 'input-field-checkbox',
-  standalone: true,
-  imports: [CommonModule, ErrorMessageComponent],
-  templateUrl: './checkbox.component.html',
-  styleUrl: './checkbox.component.sass'
+    selector: 'input-field-checkbox',
+    standalone: true,
+    imports: [CommonModule, ErrorMessageComponent],
+    templateUrl: './checkbox.component.html',
+    styleUrl: './checkbox.component.sass'
 })
 export class CheckboxComponent {
 

@@ -9,11 +9,11 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
-  selector: 'appearance-changer',
-  standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
-  templateUrl: './appearance-changer.component.html',
-  styleUrl: './appearance-changer.component.sass'
+    selector: 'appearance-changer',
+    standalone: true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './appearance-changer.component.html',
+    styleUrl: './appearance-changer.component.sass'
 })
 export class AppearanceChangerComponent {
 

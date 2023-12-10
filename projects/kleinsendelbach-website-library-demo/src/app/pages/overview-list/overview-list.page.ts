@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Link, OverviewListComponent, OverviewListData } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'overview-list-page',
-  standalone: true,
-  imports: [OverviewListComponent],
-  templateUrl: './overview-list.page.html',
-  styleUrls: ['./overview-list.page.sass']
+    selector: 'overview-list-page',
+    standalone: true,
+    imports: [OverviewListComponent],
+    templateUrl: './overview-list.page.html',
+    styleUrls: ['./overview-list.page.sass']
 })
 export class OverviewListPage {
 

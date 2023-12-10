@@ -22,7 +22,7 @@ export class CalendarEventTitleWithDateFormatter extends CalendarEventTitleForma
     public get locale(): string {
         return this._locale;
     }
-    public constructor(
+    constructor(
         @Inject(LOCALE_ID) private readonly _locale: string
     ) {
         super();

@@ -10,11 +10,11 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'mobile-header',
-  standalone: true,
-  imports: [CommonModule, LinkDirective, MobileHeaderItemComponent, FontAwesomeModule],
-  templateUrl: './mobile-header.component.html',
-  styleUrl: './mobile-header.component.sass'
+    selector: 'mobile-header',
+    standalone: true,
+    imports: [CommonModule, LinkDirective, MobileHeaderItemComponent, FontAwesomeModule],
+    templateUrl: './mobile-header.component.html',
+    styleUrl: './mobile-header.component.sass'
 })
 export class MobileHeaderComponent<HeaderKey extends string, InternalPath extends string> {
 

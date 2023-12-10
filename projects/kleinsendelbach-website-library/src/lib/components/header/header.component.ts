@@ -6,11 +6,11 @@ import { DesktopHeaderComponent } from './desktop-header/desktop-header.componen
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'header',
-  standalone: true,
-  imports: [CommonModule, DesktopHeaderComponent, MobileHeaderComponent],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.sass'
+    selector: 'header',
+    standalone: true,
+    imports: [CommonModule, DesktopHeaderComponent, MobileHeaderComponent],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.sass'
 })
 export class HeaderComponent<HeaderKey extends string, InternalPath extends string> {
 

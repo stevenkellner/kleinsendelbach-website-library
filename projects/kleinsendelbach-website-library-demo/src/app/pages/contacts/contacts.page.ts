@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ContactsComponent, ContactsData } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'contacts-page',
-  standalone: true,
-  imports: [ContactsComponent],
-  templateUrl: './contacts.page.html',
-  styleUrls: ['./contacts.page.sass']
+    selector: 'contacts-page',
+    standalone: true,
+    imports: [ContactsComponent],
+    templateUrl: './contacts.page.html',
+    styleUrls: ['./contacts.page.sass']
 })
 export class ContactsPage {
     public contactsData: ContactsData = [

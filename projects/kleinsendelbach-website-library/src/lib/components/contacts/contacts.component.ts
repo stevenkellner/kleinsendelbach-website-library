@@ -8,11 +8,11 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'contacts',
-  standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
-  templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.sass'
+    selector: 'contacts',
+    standalone: true,
+    imports: [CommonModule, FontAwesomeModule],
+    templateUrl: './contacts.component.html',
+    styleUrl: './contacts.component.sass'
 })
 export class ContactsComponent {
 

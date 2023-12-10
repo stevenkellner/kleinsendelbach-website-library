@@ -5,11 +5,11 @@ import { LabelComponent } from '../../label/label.component';
 import { SelectOptions, InputField, TrackBy } from '../../../../types';
 
 @Component({
-  selector: 'input-field-select',
-  standalone: true,
-  imports: [CommonModule, ErrorMessageComponent, LabelComponent],
-  templateUrl: './select.component.html',
-  styleUrl: './select.component.sass'
+    selector: 'input-field-select',
+    standalone: true,
+    imports: [CommonModule, ErrorMessageComponent, LabelComponent],
+    templateUrl: './select.component.html',
+    styleUrl: './select.component.sass'
 })
 export class SelectComponent<T extends string> implements AfterViewInit, OnDestroy {
 

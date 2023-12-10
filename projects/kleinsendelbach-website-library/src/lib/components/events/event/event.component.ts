@@ -15,7 +15,7 @@ export class EventComponent {
 
     @Input() public event!: Event;
 
-    public constructor(
+    constructor(
         public readonly deviceType: DeviceTypeService
     ) {}
 

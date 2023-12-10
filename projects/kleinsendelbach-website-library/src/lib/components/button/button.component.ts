@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { LinkDirective } from '../../directives';
 
 @Component({
-  selector: 'button',
-  standalone: true,
-  imports: [CommonModule, LinkDirective],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.sass'
+    selector: 'button',
+    standalone: true,
+    imports: [CommonModule, LinkDirective],
+    templateUrl: './button.component.html',
+    styleUrl: './button.component.sass'
 })
 export class ButtonComponent<InternalPath extends string> {
 

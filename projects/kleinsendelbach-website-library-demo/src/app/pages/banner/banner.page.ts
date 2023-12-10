@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { BannerComponent, BannerData, Link } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'banner-page',
-  standalone: true,
-  imports: [BannerComponent],
-  templateUrl: './banner.page.html',
-  styleUrl: './banner.page.sass'
+    selector: 'banner-page',
+    standalone: true,
+    imports: [BannerComponent],
+    templateUrl: './banner.page.html',
+    styleUrl: './banner.page.sass'
 })
 export class BannerPage {
     public bannerData: BannerData<never> = [

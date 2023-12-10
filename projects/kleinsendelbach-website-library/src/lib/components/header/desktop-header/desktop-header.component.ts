@@ -6,11 +6,11 @@ import { DesktopHeaderItemComponent } from '../desktop-header-item/desktop-heade
 import { LinkDirective } from '../../../directives';
 
 @Component({
-  selector: 'desktop-header',
-  standalone: true,
-  imports: [CommonModule, DesktopHeaderItemComponent, LinkDirective],
-  templateUrl: './desktop-header.component.html',
-  styleUrl: './desktop-header.component.sass'
+    selector: 'desktop-header',
+    standalone: true,
+    imports: [CommonModule, DesktopHeaderItemComponent, LinkDirective],
+    templateUrl: './desktop-header.component.html',
+    styleUrl: './desktop-header.component.sass'
 })
 export class DesktopHeaderComponent<HeaderKey extends string, InternalPath extends string> {
 

@@ -6,11 +6,11 @@ import { ButtonComponent } from '../button/button.component';
 import { ListComponent } from '../list/list.component';
 
 @Component({
-  selector: 'overview-list',
-  standalone: true,
-  imports: [CommonModule, ListComponent, ButtonComponent],
-  templateUrl: './overview-list.component.html',
-  styleUrl: './overview-list.component.sass'
+    selector: 'overview-list',
+    standalone: true,
+    imports: [CommonModule, ListComponent, ButtonComponent],
+    templateUrl: './overview-list.component.html',
+    styleUrl: './overview-list.component.sass'
 })
 export class OverviewListComponent<InternalPath extends string> {
 

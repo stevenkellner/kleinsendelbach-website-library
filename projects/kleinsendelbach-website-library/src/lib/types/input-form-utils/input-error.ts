@@ -1,7 +1,7 @@
 import { ErrorLevel } from './error-level';
 
 export class InputError {
-    public constructor(
+    constructor(
         public readonly message: string,
         public readonly level: ErrorLevel = 'error'
     ) {}

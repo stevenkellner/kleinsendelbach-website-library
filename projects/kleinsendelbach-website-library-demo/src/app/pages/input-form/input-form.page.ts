@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { CheckboxComponent, DateTimeComponent, InlineSelectComponent, InputError, InputField, InputForm, InputFormComponent, SelectComponent, SelectOptions, StepperComponent, TextAreaComponent, TextComponent, UtcDate, Validator } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'input-form-page',
-  standalone: true,
-  imports: [InputFormComponent, CheckboxComponent, DateTimeComponent, InlineSelectComponent, SelectComponent, StepperComponent, TextComponent, TextAreaComponent],
-  templateUrl: './input-form.page.html',
-  styleUrls: ['./input-form.page.sass']
+    selector: 'input-form-page',
+    standalone: true,
+    imports: [InputFormComponent, CheckboxComponent, DateTimeComponent, InlineSelectComponent, SelectComponent, StepperComponent, TextComponent, TextAreaComponent],
+    templateUrl: './input-form.page.html',
+    styleUrls: ['./input-form.page.sass']
 })
 export class InputFormPage {
 

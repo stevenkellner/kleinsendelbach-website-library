@@ -6,11 +6,11 @@ import { ButtonComponent } from '../button/button.component';
 import { DeviceTypeService } from '../../services';
 
 @Component({
-  selector: 'events',
-  standalone: true,
-  imports: [CommonModule, EventGroupComponent, ButtonComponent],
-  templateUrl: './events.component.html',
-  styleUrl: './events.component.sass'
+    selector: 'events',
+    standalone: true,
+    imports: [CommonModule, EventGroupComponent, ButtonComponent],
+    templateUrl: './events.component.html',
+    styleUrl: './events.component.sass'
 })
 export class EventsComponent<GroupId extends string> implements OnInit {
 
@@ -28,7 +28,7 @@ export class EventsComponent<GroupId extends string> implements OnInit {
 
     public calendarSubscriptionSelection: Record<GroupId, boolean> = {} as Record<GroupId, boolean>;
 
-    public constructor(
+    constructor(
         public readonly deviceType: DeviceTypeService
     ) {}
 

@@ -5,11 +5,11 @@ import { ErrorMessageComponent } from '../../error-message/error-message.compone
 import { LabelComponent } from '../../label/label.component';
 
 @Component({
-  selector: 'input-field-text-area',
-  standalone: true,
-  imports: [CommonModule, ErrorMessageComponent, LabelComponent],
-  templateUrl: './text-area.component.html',
-  styleUrl: './text-area.component.sass'
+    selector: 'input-field-text-area',
+    standalone: true,
+    imports: [CommonModule, ErrorMessageComponent, LabelComponent],
+    templateUrl: './text-area.component.html',
+    styleUrl: './text-area.component.sass'
 })
 export class TextAreaComponent implements AfterViewInit, OnDestroy {
 

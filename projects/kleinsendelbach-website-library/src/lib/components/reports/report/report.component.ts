@@ -5,11 +5,11 @@ import { UtcDate, Report, MarkdownParser } from '../../../types';
 import { ButtonComponent } from '../../button/button.component';
 
 @Component({
-  selector: 'report',
-  standalone: true,
-  imports: [CommonModule, ButtonComponent],
-  templateUrl: './report.component.html',
-  styleUrl: './report.component.sass'
+    selector: 'report',
+    standalone: true,
+    imports: [CommonModule, ButtonComponent],
+    templateUrl: './report.component.html',
+    styleUrl: './report.component.sass'
 })
 export class ReportComponent implements AfterViewInit {
 
@@ -21,7 +21,7 @@ export class ReportComponent implements AfterViewInit {
 
     @ViewChild('message') public messageElement: ElementRef<HTMLElement> | null = null;
 
-    public constructor(
+    constructor(
         public readonly deviceType: DeviceTypeService,
         public readonly styleConfig: StyleConfigService
     ) {}

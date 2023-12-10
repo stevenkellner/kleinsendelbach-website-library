@@ -9,7 +9,7 @@ export class InputForm<
 > {
     public status: ExtraStatus | 'invalidInput' | 'valid' = 'valid';
 
-    public constructor(
+    constructor(
         private readonly inputFields: InputFields,
         private readonly statusMessages: Record<ExtraStatus | 'invalidInput', InputError>
     ) {}

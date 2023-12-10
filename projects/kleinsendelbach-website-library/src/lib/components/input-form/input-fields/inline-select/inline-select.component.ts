@@ -6,11 +6,11 @@ import { DeviceTypeService } from '../../../../services';
 import { SelectOptions, InputField, TrackBy } from '../../../../types';
 
 @Component({
-  selector: 'input-field-inline-select',
-  standalone: true,
-  imports: [CommonModule, ErrorMessageComponent, LabelComponent],
-  templateUrl: './inline-select.component.html',
-  styleUrl: './inline-select.component.sass'
+    selector: 'input-field-inline-select',
+    standalone: true,
+    imports: [CommonModule, ErrorMessageComponent, LabelComponent],
+    templateUrl: './inline-select.component.html',
+    styleUrl: './inline-select.component.sass'
 })
 export class InlineSelectComponent<T extends string> {
 
@@ -22,7 +22,7 @@ export class InlineSelectComponent<T extends string> {
 
     public TrackBy = TrackBy;
 
-    public constructor(
+    constructor(
         public readonly deviceType: DeviceTypeService
     ) {}
 

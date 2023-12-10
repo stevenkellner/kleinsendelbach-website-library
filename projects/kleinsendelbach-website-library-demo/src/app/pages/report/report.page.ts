@@ -4,11 +4,11 @@ import { Guid, ReportGroup, UtcDate, ReportsComponent } from 'kleinsendelbach-we
 export type ReportGroupId = 'group-1' | 'group-2' | 'group-3';
 
 @Component({
-  selector: 'report-page',
-  standalone: true,
-  imports: [ReportsComponent],
-  templateUrl: './report.page.html',
-  styleUrls: ['./report.page.sass']
+    selector: 'report-page',
+    standalone: true,
+    imports: [ReportsComponent],
+    templateUrl: './report.page.html',
+    styleUrls: ['./report.page.sass']
 })
 export class ReportPage {
 

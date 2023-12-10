@@ -7,7 +7,7 @@ export interface RegexMatch {
 export class RegexIterator implements Iterator<RegexMatch> {
     private match: RegExpExecArray | null = null;
 
-    public constructor(
+    constructor(
         private readonly regex: RegExp,
         private readonly value: string
     ) {}
@@ -33,7 +33,7 @@ export class RegexIterator implements Iterator<RegexMatch> {
 }
 
 export class RegexIterable implements Iterable<RegexMatch> {
-    public constructor(
+    constructor(
         private readonly regex: RegExp,
         private readonly value: string
     ) {}

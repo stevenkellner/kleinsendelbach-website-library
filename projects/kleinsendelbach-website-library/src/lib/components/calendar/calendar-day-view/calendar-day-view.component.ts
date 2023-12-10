@@ -20,7 +20,7 @@ export class CalendarDayViewComponent<ColumnId extends string, MetaType extends 
 
     public override daysInWeek = 1;
 
-    public constructor(
+    constructor(
         protected override cdr: ChangeDetectorRef,
         protected override utils: DayCalendarUtils<ColumnId, MetaType>,
         @Inject(LOCALE_ID) locale: string,

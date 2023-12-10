@@ -3,11 +3,11 @@ import { CookieSelectionService, MapsComponent } from 'kleinsendelbach-website-l
 import { environment } from '../../environment';
 
 @Component({
-  selector: 'maps-page',
-  standalone: true,
-  imports: [MapsComponent],
-  templateUrl: './maps.page.html',
-  styleUrls: ['./maps.page.sass']
+    selector: 'maps-page',
+    standalone: true,
+    imports: [MapsComponent],
+    templateUrl: './maps.page.html',
+    styleUrls: ['./maps.page.sass']
 })
 export class MapsPage {
 

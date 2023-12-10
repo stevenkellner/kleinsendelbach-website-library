@@ -9,11 +9,11 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'input-field-stepper',
-  standalone: true,
-  imports: [CommonModule, ErrorMessageComponent, LabelComponent, FontAwesomeModule],
-  templateUrl: './stepper.component.html',
-  styleUrl: './stepper.component.sass'
+    selector: 'input-field-stepper',
+    standalone: true,
+    imports: [CommonModule, ErrorMessageComponent, LabelComponent, FontAwesomeModule],
+    templateUrl: './stepper.component.html',
+    styleUrl: './stepper.component.sass'
 })
 export class StepperComponent implements AfterViewInit, OnDestroy {
 

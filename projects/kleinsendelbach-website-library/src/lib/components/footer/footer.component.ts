@@ -11,11 +11,11 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { AppearanceChangerComponent } from '../appearance-changer/appearance-changer.component';
 
 @Component({
-  selector: 'footer',
-  standalone: true,
-  imports: [CommonModule, LinkDirective, ButtonComponent, FontAwesomeModule, AppearanceChangerComponent],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.sass'
+    selector: 'footer',
+    standalone: true,
+    imports: [CommonModule, LinkDirective, ButtonComponent, FontAwesomeModule, AppearanceChangerComponent],
+    templateUrl: './footer.component.html',
+    styleUrl: './footer.component.sass'
 })
 export class FooterComponent<InternalPath extends string> {
 

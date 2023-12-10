@@ -5,11 +5,11 @@ import { ReportComponent } from '../report/report.component';
 import { ButtonComponent } from '../../button/button.component';
 
 @Component({
-  selector: 'report-group',
-  standalone: true,
-  imports: [CommonModule, ReportComponent, ButtonComponent],
-  templateUrl: './report-group.component.html',
-  styleUrl: './report-group.component.sass'
+    selector: 'report-group',
+    standalone: true,
+    imports: [CommonModule, ReportComponent, ButtonComponent],
+    templateUrl: './report-group.component.html',
+    styleUrl: './report-group.component.sass'
 })
 export class ReportGroupComponent<GroupId extends string> {
 

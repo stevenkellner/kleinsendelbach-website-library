@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { HeaderComponent, HeaderData, Link } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'header-page',
-  standalone: true,
-  imports: [HeaderComponent],
-  templateUrl: './header.page.html',
-  styleUrls: ['./header.page.sass']
+    selector: 'header-page',
+    standalone: true,
+    imports: [HeaderComponent],
+    templateUrl: './header.page.html',
+    styleUrls: ['./header.page.sass']
 })
 export class HeaderPage {
 

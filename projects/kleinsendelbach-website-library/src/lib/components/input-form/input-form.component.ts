@@ -6,11 +6,11 @@ import { CommonModule } from '@angular/common';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @Component({
-  selector: 'input-form',
-  standalone: true,
-  imports: [CommonModule, ButtonComponent, ErrorMessageComponent],
-  templateUrl: './input-form.component.html',
-  styleUrl: './input-form.component.sass'
+    selector: 'input-form',
+    standalone: true,
+    imports: [CommonModule, ButtonComponent, ErrorMessageComponent],
+    templateUrl: './input-form.component.html',
+    styleUrl: './input-form.component.sass'
 })
 export class InputFormComponent<ExtraStatus extends PropertyKey> {
 
@@ -24,7 +24,7 @@ export class InputFormComponent<ExtraStatus extends PropertyKey> {
 
     @Output() public cancelButtonClicked = new EventEmitter<void>();
 
-    public constructor(
+    constructor(
         public readonly deviceType: DeviceTypeService
     ) {}
 

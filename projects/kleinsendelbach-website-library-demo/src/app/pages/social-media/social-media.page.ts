@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Link, SocialMediaComponent, SocialMediaData } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'social-media-page',
-  standalone: true,
-  imports: [SocialMediaComponent],
-  templateUrl: './social-media.page.html',
-  styleUrls: ['./social-media.page.sass']
+    selector: 'social-media-page',
+    standalone: true,
+    imports: [SocialMediaComponent],
+    templateUrl: './social-media.page.html',
+    styleUrls: ['./social-media.page.sass']
 })
 export class SocialMediaPage {
 

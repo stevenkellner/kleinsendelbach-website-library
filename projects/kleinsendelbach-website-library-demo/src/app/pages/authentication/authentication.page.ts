@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { AuthenticationService, AuthenticationCheckComponent, AuthenticationStates, Link } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'authentication-page',
-  standalone: true,
-  imports: [AuthenticationCheckComponent],
-  templateUrl: './authentication.page.html',
-  styleUrls: ['./authentication.page.sass']
+    selector: 'authentication-page',
+    standalone: true,
+    imports: [AuthenticationCheckComponent],
+    templateUrl: './authentication.page.html',
+    styleUrls: ['./authentication.page.sass']
 })
 export class AuthenticationPage {
 

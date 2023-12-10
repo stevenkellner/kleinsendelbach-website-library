@@ -1,7 +1,7 @@
 import { RegexIterable } from "./regex-iterator";
 
 class Elements implements Iterable<HTMLElement | string> {
-    public constructor(
+    constructor(
         private readonly elements: (HTMLElement | string)[] = []
     ) {}
 

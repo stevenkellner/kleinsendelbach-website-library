@@ -8,11 +8,11 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'desktop-header-item',
-  standalone: true,
-  imports: [CommonModule, LinkDirective, FontAwesomeModule],
-  templateUrl: './desktop-header-item.component.html',
-  styleUrl: './desktop-header-item.component.sass'
+    selector: 'desktop-header-item',
+    standalone: true,
+    imports: [CommonModule, LinkDirective, FontAwesomeModule],
+    templateUrl: './desktop-header-item.component.html',
+    styleUrl: './desktop-header-item.component.sass'
 })
 export class DesktopHeaderItemComponent<HeaderKey extends string, InternalPath extends string> {
 

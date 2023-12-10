@@ -4,11 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { AppearanceColor, Color, StyleConfigService } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+    selector: 'app-root',
+    standalone: true,
+    imports: [CommonModule, RouterOutlet],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.sass'
 })
 export class AppComponent {
     constructor(

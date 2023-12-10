@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FooterComponent, FooterData, Link } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'footer-page',
-  standalone: true,
-  imports: [FooterComponent],
-  templateUrl: './footer.page.html',
-  styleUrls: ['./footer.page.sass']
+    selector: 'footer-page',
+    standalone: true,
+    imports: [FooterComponent],
+    templateUrl: './footer.page.html',
+    styleUrls: ['./footer.page.sass']
 })
 export class FooterPage {
 

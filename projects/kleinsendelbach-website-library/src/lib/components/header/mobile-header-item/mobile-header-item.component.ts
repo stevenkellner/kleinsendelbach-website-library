@@ -8,11 +8,11 @@ import { CommonModule } from '@angular/common';
 import { LinkDirective } from '../../../directives';
 
 @Component({
-  selector: 'mobile-header-item',
-  standalone: true,
-  imports: [CommonModule, LinkDirective, FontAwesomeModule],
-  templateUrl: './mobile-header-item.component.html',
-  styleUrl: './mobile-header-item.component.sass'
+    selector: 'mobile-header-item',
+    standalone: true,
+    imports: [CommonModule, LinkDirective, FontAwesomeModule],
+    templateUrl: './mobile-header-item.component.html',
+    styleUrl: './mobile-header-item.component.sass'
 })
 export class MobileHeaderItemComponent<HeaderKey extends string, InternalPath extends string> {
 

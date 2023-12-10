@@ -26,7 +26,7 @@ export class BannerComponent<InternalPath extends string> {
 
     private mouseDownPosition: [number, number] | null = null;
 
-    public constructor(
+    constructor(
         public readonly deviceType: DeviceTypeService,
         private readonly linkService: LinkService<InternalPath>,
         private readonly faIconLibrary: FaIconLibrary

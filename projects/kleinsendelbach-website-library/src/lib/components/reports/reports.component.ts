@@ -4,11 +4,11 @@ import { ReportGroupComponent } from './report-group/report-group.component';
 import { Guid, ReportGroup, TrackBy } from '../../types';
 
 @Component({
-  selector: 'reports',
-  standalone: true,
-  imports: [CommonModule, ReportGroupComponent],
-  templateUrl: './reports.component.html',
-  styleUrl: './reports.component.sass'
+    selector: 'reports',
+    standalone: true,
+    imports: [CommonModule, ReportGroupComponent],
+    templateUrl: './reports.component.html',
+    styleUrl: './reports.component.sass'
 })
 export class ReportsComponent<GroupId extends string> {
 

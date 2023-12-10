@@ -13,7 +13,7 @@ export class InputField<T> {
 
     private isEvalutated = false;
 
-    public constructor(
+    constructor(
         private _initialValue: T,
         private readonly validators: Validator<T>[] = []
     ) {

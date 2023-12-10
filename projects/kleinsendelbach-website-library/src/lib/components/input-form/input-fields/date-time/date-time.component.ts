@@ -6,11 +6,11 @@ import { DeviceTypeService } from '../../../../services';
 import { InputField, UtcDate } from '../../../../types';
 
 @Component({
-  selector: 'input-field-date-time',
-  standalone: true,
-  imports: [CommonModule, ErrorMessageComponent, LabelComponent],
-  templateUrl: './date-time.component.html',
-  styleUrl: './date-time.component.sass'
+    selector: 'input-field-date-time',
+    standalone: true,
+    imports: [CommonModule, ErrorMessageComponent, LabelComponent],
+    templateUrl: './date-time.component.html',
+    styleUrl: './date-time.component.sass'
 })
 export class DateTimeComponent implements AfterViewInit, OnDestroy {
 
@@ -24,7 +24,7 @@ export class DateTimeComponent implements AfterViewInit, OnDestroy {
 
     @ViewChild('timeInput') private readonly timeInputElement: ElementRef<HTMLInputElement> | null = null;
 
-    public constructor(
+    constructor(
         public deviceType: DeviceTypeService
     ) {}
 

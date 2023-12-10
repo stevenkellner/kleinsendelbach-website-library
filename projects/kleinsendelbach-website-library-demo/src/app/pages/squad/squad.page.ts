@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { SquadComponent, SquadData } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'squad-page',
-  standalone: true,
-  imports: [SquadComponent],
-  templateUrl: './squad.page.html',
-  styleUrls: ['./squad.page.sass']
+    selector: 'squad-page',
+    standalone: true,
+    imports: [SquadComponent],
+    templateUrl: './squad.page.html',
+    styleUrls: ['./squad.page.sass']
 })
 export class SquadPage {
 

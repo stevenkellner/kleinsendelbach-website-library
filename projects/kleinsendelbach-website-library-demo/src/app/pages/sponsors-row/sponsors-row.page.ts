@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { SponsorsData, SponsorsRowsComponent } from 'kleinsendelbach-website-library';
 
 @Component({
-  selector: 'sponsors-row-page',
-  standalone: true,
-  imports: [SponsorsRowsComponent],
-  templateUrl: './sponsors-row.page.html',
-  styleUrls: ['./sponsors-row.page.sass']
+    selector: 'sponsors-row-page',
+    standalone: true,
+    imports: [SponsorsRowsComponent],
+    templateUrl: './sponsors-row.page.html',
+    styleUrls: ['./sponsors-row.page.sass']
 })
 export class SponsorsRowPage {
 

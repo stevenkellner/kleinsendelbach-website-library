@@ -9,11 +9,11 @@ import { googleMapsDarkStyle } from './google-maps-dark-style';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
-  selector: 'maps',
-  standalone: true,
-  imports: [CommonModule, HttpClientModule, HttpClientJsonpModule, GoogleMapsModule, ButtonComponent],
-  templateUrl: './maps.component.html',
-  styleUrl: './maps.component.sass'
+    selector: 'maps',
+    standalone: true,
+    imports: [CommonModule, HttpClientModule, HttpClientJsonpModule, GoogleMapsModule, ButtonComponent],
+    templateUrl: './maps.component.html',
+    styleUrl: './maps.component.sass'
 })
 export class MapsComponent implements OnInit, OnDestroy {
 

@@ -3,11 +3,11 @@ import { Result } from '../../types';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'result-display',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './result-display.component.html',
-  styleUrl: './result-display.component.sass'
+    selector: 'result-display',
+    standalone: true,
+    imports: [CommonModule],
+    templateUrl: './result-display.component.html',
+    styleUrl: './result-display.component.sass'
 })
 export class ResultDisplayComponent {
 
