@@ -11,7 +11,7 @@
 
     .item
         @include flex-column(flex-start, center)
-        border-radius: 8px
+        border-radius: 16px
         margin: 0 8px
         margin-bottom: 16px
         padding: 16px
@@ -37,11 +37,11 @@
         &:hover
             background-color: color('hoveredBackground')
 
-    &.desktop .link
+    &.desktop .item
         width: calc(25% - 48px)
 
-    &.tablet .link
+    &.tablet .item
         width: calc(33.3% - 48px)
 
-    &.mobile .link
+    &.mobile .item
         width: calc(100% - 48px)

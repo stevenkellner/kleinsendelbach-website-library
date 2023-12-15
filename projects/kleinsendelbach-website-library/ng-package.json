@@ -6,6 +6,11 @@
     },
     "assets": [
         {
+            "input": "src/lib/assets",
+            "glob": "**/*",
+            "output": "assets"
+        },
+        {
             "input": "src/lib/styles",
             "glob": "**/*.sass",
             "output": "styles"

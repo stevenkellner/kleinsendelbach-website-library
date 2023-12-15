@@ -16,7 +16,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 })
 export class ContactsComponent {
 
-    @Input() public contactsData!: ContactsData;
+    @Input({ required: true }) public contactsData!: ContactsData;
 
     public TrackBy = TrackBy;
 
@@ -27,4 +27,7 @@ export class ContactsComponent {
         this.faIconLibrary.addIconPacks(fas, far, fab);
     }
 
+    public get someHaveImages(): boolean {
+        return this.contactsData.some(contactData => contactData.profileImageSrc !== null);
+    }
 }

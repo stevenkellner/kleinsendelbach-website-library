@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class LabelComponent {
 
-    @Input() public text!: string;
+    @Input({ required: true }) public text!: string;
 }

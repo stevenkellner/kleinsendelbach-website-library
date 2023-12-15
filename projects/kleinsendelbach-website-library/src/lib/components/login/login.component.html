@@ -1,0 +1,38 @@
+<input-form
+    [inputForm]="inputForm"
+    submitButtonText="Anmelden"
+    (submitButtonClicked)="loginWithEmail()"
+>
+    <text-input
+        label="E-Mail Adresse"
+        [inputField]="inputForm.field('email')"
+    />
+    <text-input
+        label="Passwort"
+        [secure]="true"
+        [inputField]="inputForm.field('password')"
+    />
+</input-form>
+<p
+    class="or-text"
+>oder</p>
+<div
+    class="sign-in-with-container"
+    [ngClass]="deviceType.current"
+>
+    <sign-in-with-button
+        type="apple"
+        (clicked)="loginWithApple()"
+    />
+    <error-message
+        [error]="signInWithAppleError"
+    />
+    <sign-in-with-button
+        class="margin-top"
+        type="google"
+        (clicked)="loginWithGoogle()"
+    />
+    <error-message
+        [error]="signInWithGoogleError"
+    />
+</div>

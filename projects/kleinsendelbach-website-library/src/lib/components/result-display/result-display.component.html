@@ -6,6 +6,10 @@
     *ngIf="result && result.isFailure()"
     class="error"
 >{{ errorMessage }}</p>
+<p
+    *ngIf="isEmptyList"
+    class="error"
+>Es gibt keinen Inhalt</p>
 <ng-content
-    *ngIf="result && result.isSuccess()"
+    *ngIf="result && result.isSuccess() && !isEmptyList"
 ></ng-content>

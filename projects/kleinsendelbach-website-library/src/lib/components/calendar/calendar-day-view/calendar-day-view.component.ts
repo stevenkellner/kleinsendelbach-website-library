@@ -14,7 +14,7 @@ import * as de from '@angular/common/locales/de';
 })
 export class CalendarDayViewComponent<ColumnId extends string, MetaType extends { columnId: ColumnId }> extends CalendarWeekViewComponent {
 
-    @Input() public columns!: { id: ColumnId, text: string }[];
+    @Input({ required: true }) public columns!: { id: ColumnId, text: string }[];
 
     public TrackBy = TrackBy;
 

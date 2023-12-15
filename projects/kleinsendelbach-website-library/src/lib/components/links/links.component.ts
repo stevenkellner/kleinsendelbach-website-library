@@ -15,9 +15,9 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     templateUrl: './links.component.html',
     styleUrl: './links.component.sass'
 })
-export class LinksComponent<InternalPath extends string> {
+export class LinksComponent<InternalPathKey extends string> {
 
-    @Input() public linksData!: LinksData<InternalPath>;
+    @Input({ required: true }) public linksData!: LinksData<InternalPathKey>;
 
     public TrackBy = TrackBy;
 

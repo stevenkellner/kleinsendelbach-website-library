@@ -5,11 +5,11 @@ export class Link {
         private readonly openInNewTab: boolean
     ) {}
 
-    public static internal<InternalPath extends string>(title: string, path: InternalPath): Link {
+    public static internal(title: string, path: string): Link {
         return new Link(title, `/${path}`, false);
     }
 
-    public static internalParam<InternalPath extends string>(title: string, path: InternalPath, param: string): Link {
+    public static internalParam(title: string, path: string, param: string): Link {
         return new Link(title, `/${path}/${param}`, false);
     }
 

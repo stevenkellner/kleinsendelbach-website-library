@@ -1,9 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { TrackBy } from '../../types';
 import { AppearanceService, CookieSelectionService } from '../../services';
 import { HttpClient, HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { catchError, map, of } from 'rxjs';
+import { catchError, firstValueFrom, map, of } from 'rxjs';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { googleMapsDarkStyle } from './google-maps-dark-style';
 import { ButtonComponent } from '../button/button.component';
@@ -13,7 +13,8 @@ import { ButtonComponent } from '../button/button.component';
     standalone: true,
     imports: [CommonModule, HttpClientModule, HttpClientJsonpModule, GoogleMapsModule, ButtonComponent],
     templateUrl: './maps.component.html',
-    styleUrl: './maps.component.sass'
+    styleUrl: './maps.component.sass',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapsComponent implements OnInit, OnDestroy {
 
@@ -21,7 +22,7 @@ export class MapsComponent implements OnInit, OnDestroy {
 
     @Input() public markers: google.maps.LatLngLiteral[] = [];
 
-    @Input() public apiKey!: string;
+    @Input({ required: true }) public apiKey!: string;
 
     public TrackBy = TrackBy;
 
@@ -41,23 +42,24 @@ export class MapsComponent implements OnInit, OnDestroy {
     constructor(
         public readonly appearanceService: AppearanceService,
         public readonly cookieSelectionService: CookieSelectionService,
-        private readonly httpClient: HttpClient
+        private readonly httpClient: HttpClient,
+        private readonly changeDetector: ChangeDetectorRef
     ) {}
 
     public ngOnInit() {
-        this.httpClient.jsonp(`https://maps.googleapis.com/maps/api/js?key=${this.apiKey}`, 'callback')
-            .pipe(map(() => true), catchError(() => of(false)))
-            .subscribe(isLoaded => {
-                this.apiLoaded = isLoaded;
-            });
+        void this.loadApi();
         this.functionalityCookiesSelected = this.cookieSelectionService.cookieSelection !== null && this.cookieSelectionService.cookieSelection.functionality === 'selected';
+        this.changeDetector.markForCheck();
         this.cookieSelectionService.listener.add('google-maps', selection => {
             this.functionalityCookiesSelected = selection.functionality === 'selected';
+            this.changeDetector.markForCheck();
+
         });
     }
 
     public ngOnDestroy() {
         this.cookieSelectionService.listener.remove('google-maps');
+        this.changeDetector.markForCheck();
     }
 
     public get mapOptions(): google.maps.MapOptions {
@@ -68,7 +70,14 @@ export class MapsComponent implements OnInit, OnDestroy {
         };
     }
 
+    public async loadApi() {
+        this.apiLoaded = await firstValueFrom(this.httpClient.jsonp(`https://maps.googleapis.com/maps/api/js?key=${this.apiKey}`, 'callback')
+            .pipe(map(() => true), catchError(() => of(false))));
+        this.changeDetector.markForCheck();
+    }
+
     public acceptFunctionalityCookies() {
         this.cookieSelectionService.changeCookieSelection('functionality', 'selected');
+        this.changeDetector.markForCheck();
     }
 }

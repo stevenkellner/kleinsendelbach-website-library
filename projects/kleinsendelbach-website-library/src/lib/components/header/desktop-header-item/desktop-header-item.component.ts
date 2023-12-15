@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { HeaderColumn, TrackBy } from '../../../types';
+import { HeaderColumn, HeaderItem, TrackBy } from '../../../types';
 import { CommonModule } from '@angular/common';
 import { LinkDirective } from '../../../directives';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,13 +14,13 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     templateUrl: './desktop-header-item.component.html',
     styleUrl: './desktop-header-item.component.sass'
 })
-export class DesktopHeaderItemComponent<HeaderKey extends string, InternalPath extends string> {
+export class DesktopHeaderItemComponent<HeaderKey extends string, InternalPathKey extends string> {
 
-    @Input() public headerColumn!: HeaderColumn<HeaderKey, InternalPath>;
+    @Input({ required: true }) public headerColumn!: HeaderColumn<HeaderKey, InternalPathKey>;
 
-    @Input() public expandedHeaderColumnKey!: HeaderKey | null;
+    @Input({ required: true }) public expandedHeaderColumnKey!: string | null;
 
-    @Output() public topItemClicked = new EventEmitter<HeaderKey>();
+    @Output() public topItemClicked = new EventEmitter<string>();
 
     public TrackBy = TrackBy;
 
@@ -30,7 +30,12 @@ export class DesktopHeaderItemComponent<HeaderKey extends string, InternalPath e
         this.faIconLibrary.addIconPacks(fas, far, fab);
     }
 
+    public isOnlyTopItem(headerColumn: HeaderColumn<HeaderKey, InternalPathKey>): headerColumn is HeaderItem<HeaderKey, InternalPathKey> {
+        return HeaderColumn.isOnlyTopItem(headerColumn);
+    }
+
     public handleTopItemClick() {
-        this.topItemClicked.emit(this.headerColumn.key);
+        if (!this.isOnlyTopItem(this.headerColumn))
+            this.topItemClicked.emit(this.headerColumn.key);
     }
 }

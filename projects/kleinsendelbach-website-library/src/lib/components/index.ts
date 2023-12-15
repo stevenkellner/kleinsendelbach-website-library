@@ -47,3 +47,7 @@ export * from './input-form/input-fields/select/select.component';
 export * from './input-form/input-fields/stepper/stepper.component';
 export * from './input-form/input-fields/text/text.component';
 export * from './input-form/input-fields/text-area/text-area.component';
+export * from './sign-in-with-button/sign-in-with-button.component';
+export * from './login/login.component';
+export * from './navigation-bar/navigation-bar.component';
+export * from './unauthenticated-users/unauthenticated-users.component';

@@ -1,6 +1,6 @@
 import { ButtonComponent } from './../button/button.component';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { InputField, InputForm } from '../../types';
+import { InputForm } from '../../types';
 import { DeviceTypeService } from '../../services';
 import { CommonModule } from '@angular/common';
 import { ErrorMessageComponent } from './error-message/error-message.component';
@@ -12,9 +12,9 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
     templateUrl: './input-form.component.html',
     styleUrl: './input-form.component.sass'
 })
-export class InputFormComponent<ExtraStatus extends PropertyKey> {
+export class InputFormComponent<Status extends string> {
 
-    @Input() public inputForm!: InputForm<Record<string, InputField<any>>, ExtraStatus>;
+    @Input({ required: true }) public inputForm!: InputForm<Record<string, any>, Status>;
 
     @Input() public submitButtonText: string | null = null;
 

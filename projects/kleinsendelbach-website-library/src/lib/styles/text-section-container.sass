@@ -6,8 +6,9 @@
     ::ng-deep .text
         @include font($size: 'medium')
         color: color('text')
-        text-align: justify
         width: 100%
+        text-align: justify
+        white-space: pre-wrap
 
         &.align-left
             text-align: left
@@ -56,7 +57,7 @@
 
     ::ng-deep .text-image
         border: 1px solid color('text')
-        width: 100%
+        width: calc(100% - 2px)
 
     ::ng-deep .text-images
         @include flex-row($horizontal: space-around)

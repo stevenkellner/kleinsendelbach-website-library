@@ -1,0 +1,15 @@
+<div
+    class="sign-in-button"
+    [ngClass]="type + ' ' + appearance.current"
+    (click)="clicked.emit()"
+>
+    <img
+        class="logo"
+        [src]="imageSrc"
+        [title]="buttonText"
+        alt="logo"
+    >
+    <p
+        class="button-text"
+    >{{ buttonText }}</p>
+</div>

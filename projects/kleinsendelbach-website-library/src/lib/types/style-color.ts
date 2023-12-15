@@ -1,1 +1,1 @@
-export type StyleColor = 'primary' | 'accent' | 'background' | 'secondaryBackground' | 'hoveredBackground' | 'shadow' | 'text' | 'secondaryText' | 'formStatusSuccess' | 'formStatusError' | 'formStatusInfo' | 'pageBackground';
+export type StyleColor = 'primary' | 'accent' | 'background' | 'hoveredBackground' | 'shadow' | 'text' | 'secondaryText' | 'formStatusSuccess' | 'formStatusError' | 'formStatusInfo' | 'pageBackground';

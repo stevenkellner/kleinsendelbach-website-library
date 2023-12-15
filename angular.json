@@ -69,7 +69,12 @@
                         "inlineStyleLanguage": "sass",
                         "assets": [
                             "projects/kleinsendelbach-website-library-demo/src/favicon.ico",
-                            "projects/kleinsendelbach-website-library-demo/src/assets"
+                            "projects/kleinsendelbach-website-library-demo/src/assets",
+                            {
+                                "input": "dist/kleinsendelbach-website-library/assets",
+                                "glob": "**/*",
+                                "output": "assets"
+                            }
                         ],
                         "styles": [
                             "projects/kleinsendelbach-website-library-demo/src/styles.sass",

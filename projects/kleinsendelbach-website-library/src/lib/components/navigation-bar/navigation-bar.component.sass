@@ -1,0 +1,22 @@
+@import '../../styles/index'
+
+:host
+    @include flex-row(center, center)
+    width: 100%
+
+.container
+    width: calc(33% - 20px)
+    margin: 25px 10px
+
+    &.left
+        @include flex-row(center, flex-start)
+
+    &.center
+        @include flex-row(center, center)
+
+    &.right
+        @include flex-row(center, flex-end)
+
+    .button
+        margin: 0 10px
+        width: auto

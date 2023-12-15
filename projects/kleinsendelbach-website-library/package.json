@@ -1,12 +1,12 @@
 {
     "name": "kleinsendelbach-website-library",
-    "version": "0.0.1",
+    "version": "0.0.56",
     "peerDependencies": {
         "@angular/cdk": "^17.0.3",
         "@angular/common": "^17.0.0",
         "@angular/core": "^17.0.0",
         "@angular/fire": "^17.0.0",
-        "@angular/google-maps": "^17.0.3",
+        "@angular/google-maps": "^16.2.12",
         "@fortawesome/angular-fontawesome": "^0.14.0",
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
         "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -17,6 +17,7 @@
         "calendar-utils": "^0.10.4",
         "date-fns": "^2.30.0",
         "js-base64": "^3.7.5",
+        "ng-recaptcha": "^13.2.1",
         "ngx-cookie-service": "^17.0.1",
         "sha512-crypt-ts": "^0.1.27",
         "uuid": "^9.0.1"

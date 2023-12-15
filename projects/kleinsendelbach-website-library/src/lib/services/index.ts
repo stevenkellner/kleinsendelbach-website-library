@@ -9,3 +9,5 @@ export * from './crypter.service';
 export * from './authentication.service';
 export * from './firebase-api.service';
 export * from './link.service';
+export * from './recaptcha-verification.service';
+export * from './recaptcha.service';

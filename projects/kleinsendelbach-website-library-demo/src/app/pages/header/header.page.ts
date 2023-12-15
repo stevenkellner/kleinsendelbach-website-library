@@ -41,9 +41,9 @@ export class HeaderPage {
             }
         },
         sorting: {
-            desktop: [{ topItem: 'link-1', subItems: null }, { topItem: 'link-2', subItems: null }, { topItem: 'link-3', subItems: null }, { topItem: 'link-4', subItems: ['link-4', 'link-5', 'link-6'] }],
-            tablet: [{ topItem: 'link-1', subItems: ['link-1', 'link-2', 'link-3'] }, { topItem: 'link-4', subItems: ['link-4', 'link-5', 'link-6'] }],
-            mobile: [{ topItem: 'link-1', subItems: ['link-1', 'link-2', 'link-3'] }, { topItem: 'link-4', subItems: ['link-4', 'link-5', 'link-6'] }]
+            desktop: [{ topItem: 'link-1' }, { topItem: 'link-2' }, { topItem: 'link-3' }, { key: 'link-4', title: 'List 1', subItems: ['link-4', 'link-5', 'link-6'] }],
+            tablet: [{ key: 'link-1', title: 'List 1', subItems: ['link-1', 'link-2', 'link-3'] }, { key: 'link-4', title: 'List 2', subItems: ['link-4', 'link-5', 'link-6'] }],
+            mobile: [{ key: 'link-1', title: 'List 1', subItems: ['link-1', 'link-2', 'link-3'] }, { key: 'link-4', title: 'List 2', subItems: ['link-4', 'link-5', 'link-6'] }]
         }
     }
 }

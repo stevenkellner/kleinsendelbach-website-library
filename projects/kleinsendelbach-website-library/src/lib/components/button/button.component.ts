@@ -10,9 +10,9 @@ import { LinkDirective } from '../../directives';
     templateUrl: './button.component.html',
     styleUrl: './button.component.sass'
 })
-export class ButtonComponent<InternalPath extends string> {
+export class ButtonComponent<InternalPathKey extends string> {
 
-    @Input() public actionLink: Link | InternalPath | null = null;
+    @Input() public actionLink: Link | InternalPathKey | null = null;
 
     @Input() public borderless: boolean = false;
 

@@ -6,19 +6,19 @@ import { DeviceTypeService } from '../../../../services';
 import { InputField, UtcDate } from '../../../../types';
 
 @Component({
-    selector: 'input-field-date-time',
+    selector: 'date-time-input',
     standalone: true,
     imports: [CommonModule, ErrorMessageComponent, LabelComponent],
     templateUrl: './date-time.component.html',
     styleUrl: './date-time.component.sass'
 })
-export class DateTimeComponent implements AfterViewInit, OnDestroy {
+export class DateTimeInputComponent implements AfterViewInit, OnDestroy {
 
-    @Input() public label!: string;
+    @Input({ required: true }) public label!: string;
 
     @Input() public components: 'date' | 'time' | ['date', 'time'] = ['date', 'time'];
 
-    @Input() public inputField!: InputField<UtcDate>;
+    @Input({ required: true }) public inputField!: InputField<UtcDate>;
 
     @ViewChild('dateInput') private readonly dateInputElement: ElementRef<HTMLInputElement> | null = null;
 

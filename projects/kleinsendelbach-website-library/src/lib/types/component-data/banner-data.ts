@@ -1,11 +1,11 @@
 import { Link } from "../link";
 
-export type BannerData<InternalPath extends string> = BannerItem<InternalPath>[];
+export type BannerData<InternalPathKey extends string> = BannerItem<InternalPathKey>[];
 
-export type BannerItem<InternalPath extends string> = {
+export type BannerItem<InternalPathKey extends string> = {
     imageSource: string;
     title: string;
     subTitle: string | null;
-    link: Link | InternalPath;
+    link: Link | InternalPathKey;
     isCurrent: boolean;
 }

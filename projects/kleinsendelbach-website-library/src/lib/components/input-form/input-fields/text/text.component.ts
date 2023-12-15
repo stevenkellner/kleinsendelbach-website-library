@@ -5,21 +5,21 @@ import { ErrorMessageComponent } from '../../error-message/error-message.compone
 import { LabelComponent } from '../../label/label.component';
 
 @Component({
-    selector: 'input-field-text',
+    selector: 'text-input',
     standalone: true,
     imports: [CommonModule, ErrorMessageComponent, LabelComponent],
     templateUrl: './text.component.html',
     styleUrl: './text.component.sass'
 })
-export class TextComponent implements AfterViewInit, OnDestroy {
+export class TextInputComponent implements AfterViewInit, OnDestroy {
 
     @Input() public secure = false;
 
-    @Input() public label!: string;
+    @Input({ required: true }) public label!: string;
 
     @Input() public placeholder: string | null = null;
 
-    @Input() public inputField!: InputField<string>;
+    @Input({ required: true }) public inputField!: InputField<string>;
 
     @ViewChild('input') private readonly inputElement!: ElementRef<HTMLInputElement>;
 

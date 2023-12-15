@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class OpeningHoursComponent {
 
-    @Input() public openingHoursData!: OpeningHoursData;
+    @Input({ required: true }) public openingHoursData!: OpeningHoursData;
 
     public TrackBy = TrackBy;
 

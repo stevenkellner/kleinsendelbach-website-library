@@ -1,4 +1,4 @@
-export type Element<T extends unknown[]> = T extends (infer U) ? U : never;
+export type Element<T extends unknown[]> = T extends (infer U)[] ? U : never;
 
 export function includesAll<T>(array: T[], expectedElements: T[]): boolean {
     for (const expectedElement of expectedElements) {

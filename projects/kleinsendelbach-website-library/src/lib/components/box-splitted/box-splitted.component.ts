@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class BoxSplittedComponent {
 
-    @Input() public title!: string;
+    @Input({ required: true }) public title!: string;
 
     constructor(
         public readonly deviceType: DeviceTypeService

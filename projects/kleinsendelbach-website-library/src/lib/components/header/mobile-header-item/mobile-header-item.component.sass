@@ -4,16 +4,16 @@
     @include flex-column(flex-start, center)
 
     &:last-child .header-item .top-item
-        border-radius: 0 0 8px 8px
+        border-radius: 0 0 5px 5px
         border-bottom: 1px solid color('text')
 
     .expanded + &
         .header-item .top-item
-            border-radius: 8px 8px 0 0
+            border-radius: 5px 5px 0 0
             border-top: 1px solid color('text')
 
         &:last-child .header-item .top-item
-            border-radius: 8px
+            border-radius: 5px
 
 .header-item
     @include flex-column(flex-start, center)
@@ -26,7 +26,7 @@
         height: 48px
         padding: 0 4px
         text-decoration: none
-        width: 100%
+        width: calc(100% - 10px)
         border-left: 1px solid color('text')
         border-right: 1px solid color('text')
 
@@ -52,7 +52,7 @@
             border-right: 1px solid color('text')
             cursor: pointer
             padding: 8px 0
-            width: 90%
+            width: calc(90% - 2px)
 
             .sub-item-text
                 @include font($name: 'metrophobic', $weight: 'medium')
@@ -60,13 +60,13 @@
                 text-decoration: none
 
             &:last-child
-                border-radius: 0 0 8px 8px
+                border-radius: 0 0 5px 5px
                 border-bottom: 1px solid color('text')
                 padding-bottom: 16px
 
     &.expanded
         .top-item
-            border-radius: 0 0 8px 8px
+            border-radius: 0 0 5px 5px
             border-bottom: 1px solid color('text')
 
         .sub-items

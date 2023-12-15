@@ -12,11 +12,11 @@ import { ButtonComponent } from '../button/button.component';
     templateUrl: './authentication-check.component.html',
     styleUrl: './authentication-check.component.sass'
 })
-export class AuthenticationCheckComponent<InternalPath extends string> implements OnInit {
+export class AuthenticationCheckComponent<Role extends string, InternalPathKey extends string> implements OnInit {
 
-    @Input() public roles!: string[];
+    @Input({ required: true }) public roles!: Role[];
 
-    @Input() public loginLink!: Link | InternalPath;
+    @Input({ required: true }) public loginLink!: Link | InternalPathKey;
 
     @Input() public authenticationStates: AuthenticationStates = new AuthenticationStates(['default']);
 
@@ -25,7 +25,7 @@ export class AuthenticationCheckComponent<InternalPath extends string> implement
     @Output() public onAuthentication = new EventEmitter<void>();
 
     constructor(
-        private readonly authenticationService: AuthenticationService
+        private readonly authenticationService: AuthenticationService<Role>
     ) {}
 
     public get state(): AuthenticationState | null {
@@ -34,7 +34,7 @@ export class AuthenticationCheckComponent<InternalPath extends string> implement
 
     public async ngOnInit() {
         try {
-            const hasRoles = await this.authenticationService.hasRoles(this.roles);
+            const hasRoles = await this.authenticationService.checkRoles(this.roles);
             if (hasRoles) {
                 this.authenticationStates.setState(this.key, 'authenticated');
                 this.onAuthentication.emit();

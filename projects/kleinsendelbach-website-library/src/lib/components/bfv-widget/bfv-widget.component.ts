@@ -12,7 +12,7 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class BfvWidgetComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    @Input() public teamId!: string;
+    @Input({ required: true }) public teamId!: string;
 
     @ViewChild('bfvWidget') public bfvWidget: ElementRef<HTMLElement> | null = null;
 
@@ -53,10 +53,7 @@ export class BfvWidgetComponent implements OnInit, AfterViewInit, OnDestroy {
             return;
         this.bfvWidget.nativeElement.innerHTML = '';
         const options = {
-            backgroundNav: this.styleConfig.css('text'),
-            colorClubName: this.styleConfig.css('primary'),
-            colorNav: this.styleConfig.css('background'),
-            colorResults: `${this.styleConfig.css('text')};}</style><link rel='stylesheet' href='${window.location.protocol}//${window.location.hostname}/assets/other/bfvWidgetStyle.css'><style type='text/css'>xy{x:y`,
+            colorResults: `;}body{background-color:${this.styleConfig.css('pageBackground')};}#bfv-team-widget-header>div>div{background:${this.styleConfig.css('background')}!important;&>div>table>tbody>tr{&:nth-child(1)>td:nth-child(2)>h3{color:${this.styleConfig.css('primary')};}&:nth-child(2)>td>h3>small{color:${this.styleConfig.css('secondaryText')};}}}#header-competition-name{color:${this.styleConfig.css('secondaryText')};}#bfv-refresh{background-color:${this.styleConfig.css('background')};border-color:${this.styleConfig.css('text')};&>span{color:${this.styleConfig.css('text')};}}#bfv-widget-footer{background:${this.styleConfig.css('background')}!important;border-top:1px solid ${this.styleConfig.css('secondaryText')}!important;&>h6>a{color:${this.styleConfig.css('secondaryText')}}}#bfv-team-widget-navbar>div>ul{&,&>li,&>li>a{background-color:${this.styleConfig.css('text')};color:${this.styleConfig.css('background')}!important;}}#bfv-wettbewerb-spieltag-fixed-table>div>div{background-color:${this.styleConfig.css('text')};&>span{color:${this.styleConfig.css('background')};}}#bfv-wettbewerb-spieltag-row,#bfv-widget-team-competition-tables-subnav>div,#bfv-widget-team-player-subnav>div{&>div{background-color:${this.styleConfig.css('background')};&>a>nobr,&>a{color:${this.styleConfig.css('secondaryText')};}&.active{background-color:${this.styleConfig.css('primary')};&>a>nobr,&>a{color:${this.styleConfig.css('primary')};}}}}#bfv-club-team-matches-container,#bfv-competition-matches-container,#bfv-competition-table-scroll-wrapper,#bfv-team-squad-container>div{&>div>div.list-group-item.row.header,&>table>thead>tr>th{background:${this.styleConfig.css('hoveredBackground')};color:${this.styleConfig.css('text')};font-weight:normal;}}#bfv-club-team-matches-container,#bfv-competition-matches-container,#bfv-competition-table-scroll-wrapper,#bfv-team-squad-container>div{&>div>div.list-group-item.row:not(.header),&>table>tbody>tr{&,&>table>tbody>tr>td{background:${this.styleConfig.css('background')};color:${this.styleConfig.css('secondaryText')};&.bfv-match-list-item-result.bfv-base-widget-color{color:${this.styleConfig.css('text')};}&.bfv-base-widget-color-club-name{color:${this.styleConfig.css('primary')};font-weight:normal;}}}}xy:{x:y`,
             height: '100%',
             selectedTab: 'teammatches',
             width: '100%'

@@ -9,13 +9,13 @@
     @include font($size: 'large')
     background-color: color('background')
     border: 1px solid color('text')
-    border-radius: 8px
+    border-radius: 5px
     color: color('text')
     cursor: pointer
     height: 48px
     text-align: center
     vertical-align: middle
-    width: 100%
+    width: calc(100% - 2px)
 
     &.error
         border: 1px solid color('formStatusError')

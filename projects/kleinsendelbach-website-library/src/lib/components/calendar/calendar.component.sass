@@ -63,7 +63,7 @@
     border: 1px solid color('text')
     border-radius: 5px
     overflow: hidden
-    width: 100%
+    width: calc(100% - 2px)
 
     mwl-calendar-month-view, mwl-calendar-week-view, calendar-day-view
         @include flex-column(flex-start, center)
@@ -96,7 +96,7 @@
     @include flex-row(flex-start, flex-start)
     margin-left: 25px
     margin-top: 25px
-    width: 100%
+    width: calc(100% - 25px)
 
     .description
         @include flex-row(center, center)

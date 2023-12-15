@@ -10,16 +10,17 @@
     @include font
     background-color: color('background')
     border: 1px solid color('text')
-    border-radius: 4px
+    border-radius: 5px
     color: color('text')
     cursor: pointer
     text-decoration: none
     text-align: center
-    width: 100%
+    width: calc(100% - 22px)
     padding: 5px 10px
 
     &.borderless
         border: none
+        width: calc(100% - 20px)
 
     &.largeText
         @include font-size('large')

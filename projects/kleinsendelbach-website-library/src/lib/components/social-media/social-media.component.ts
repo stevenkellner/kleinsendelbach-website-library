@@ -16,9 +16,9 @@ import { LinkDirective } from '../../directives';
     templateUrl: './social-media.component.html',
     styleUrl: './social-media.component.sass'
 })
-export class SocialMediaComponent<InternalPath extends string> {
+export class SocialMediaComponent<InternalPathKey extends string> {
 
-    @Input() public socialMediaData!: SocialMediaData<InternalPath>;
+    @Input({ required: true }) public socialMediaData!: SocialMediaData<InternalPathKey>;
 
     public TrackBy = TrackBy;
 
@@ -30,7 +30,7 @@ export class SocialMediaComponent<InternalPath extends string> {
         this.faIconLibrary.addIconPacks(fas, far, fab);
     }
 
-    public isIcon(image: SocialMediaItem<InternalPath>['image']): image is IconProp {
+    public isIcon(image: SocialMediaItem<InternalPathKey>['image']): image is IconProp {
         return !(typeof image === 'object' && 'lightModeSource' in image);
     }
 

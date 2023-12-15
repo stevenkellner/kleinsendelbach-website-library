@@ -6,13 +6,13 @@ import { LinkService } from '../services';
     selector: '[link]',
     standalone: true
 })
-export class LinkDirective<InternalPath extends string> implements OnInit {
+export class LinkDirective<InternalPathKey extends string> implements OnInit {
 
-    @Input() public link!: Link | InternalPath;
+    @Input({ required: true }) public link!: Link | InternalPathKey;
 
     constructor(
         private readonly element: ElementRef<HTMLElement>,
-        private readonly linkService: LinkService<InternalPath>
+        private readonly linkService: LinkService<InternalPathKey>
     ) {}
 
     public ngOnInit() {

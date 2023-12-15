@@ -14,9 +14,9 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
     templateUrl: './banner.component.html',
     styleUrl: './banner.component.sass'
 })
-export class BannerComponent<InternalPath extends string> {
+export class BannerComponent<InternalPathKey extends string> {
 
-    @Input() public bannerData!: BannerData<InternalPath>;
+    @Input({ required: true }) public bannerData!: BannerData<InternalPathKey>;
 
     public TrackBy = TrackBy;
 
@@ -28,14 +28,14 @@ export class BannerComponent<InternalPath extends string> {
 
     constructor(
         public readonly deviceType: DeviceTypeService,
-        private readonly linkService: LinkService<InternalPath>,
+        private readonly linkService: LinkService<InternalPathKey>,
         private readonly faIconLibrary: FaIconLibrary
     ) {
         this.faIconLibrary.addIconPacks(fas, far, fab);
         this.setPage(1);
     }
 
-    public get current(): BannerItem<InternalPath> {
+    public get current(): BannerItem<InternalPathKey> {
         return this.bannerData[this.currentPage - 1];
     }
 

@@ -1,18 +1,25 @@
-import { values } from '../record-utils';
+import { mapRecord, values } from '../record-utils';
 import { InputError } from './input-error';
 import { InputField } from './input-field';
 import { ValidationResult } from './validation-result';
 
 export class InputForm<
-    InputFields extends Record<string, InputField<any>>,
-    ExtraStatus extends PropertyKey = never
+    Values extends Record<string, unknown>,
+    Status extends string
 > {
-    public status: ExtraStatus | 'invalidInput' | 'valid' = 'valid';
+
+    public status: Status | 'invalidInput' | 'valid' = 'valid';
 
     constructor(
-        private readonly inputFields: InputFields,
-        private readonly statusMessages: Record<ExtraStatus | 'invalidInput', InputError>
+        private readonly inputFields: {
+            [Key in keyof Values]: InputField<Values[Key]>
+        },
+        private readonly statusMessages: Record<Status | 'invalidInput', InputError>
     ) {}
+
+    public get values(): Values {
+        return mapRecord(this.inputFields, inputField => inputField.value) as Values;
+    }
 
     public get error(): InputError | null {
         if (this.status === 'valid')
@@ -20,7 +27,7 @@ export class InputForm<
         return this.statusMessages[this.status];
     }
 
-    public field<Key extends keyof InputFields>(key: Key): InputFields[Key] {
+    public field<Key extends keyof Values>(key: Key): InputField<Values[Key]> {
         return this.inputFields[key];
     }
 

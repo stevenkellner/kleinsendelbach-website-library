@@ -7,24 +7,24 @@
 
     <!-- Top item without sub items -->
     <a
-        *ngIf="!headerColumn.subItems"
-        [link]="headerColumn.topItem.link"
+        *ngIf="isOnlyTopItem(headerColumn)"
+        [link]="headerColumn.link"
         class="top-item"
     >
         <div
         class="top-item-text"
-        >{{ headerColumn.topItem.title }}</div>
+        >{{ headerColumn.title }}</div>
     </a>
 
     <!-- Top item with sub items -->
     <div
         class="top-item"
-        *ngIf="headerColumn.subItems"
+        *ngIf="!isOnlyTopItem(headerColumn)"
         (click)="$event.preventDefault(); $event.stopPropagation(); handleTopItemClick()"
     >
         <div
             class="top-item-text"
-        >{{ headerColumn.topItem.title }}</div>
+        >{{ headerColumn.title }}</div>
         <fa-icon
             *ngIf="expandedHeaderColumnKey !== headerColumn.key"
             icon="caret-down"
@@ -40,7 +40,7 @@
     <!-- Sub items -->
     <div
         class="sub-items"
-        *ngIf="headerColumn.subItems"
+        *ngIf="!isOnlyTopItem(headerColumn)"
     >
         <div
             class="sub-item"

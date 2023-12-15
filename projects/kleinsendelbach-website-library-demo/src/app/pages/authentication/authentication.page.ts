@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthenticationService, AuthenticationCheckComponent, AuthenticationStates, Link } from 'kleinsendelbach-website-library';
+import { AuthenticationService, AuthenticationCheckComponent, AuthenticationStates, Link, EnvironmentService, CryptionKeys } from 'kleinsendelbach-website-library';
+import { environment } from '../../environment';
 
 @Component({
     selector: 'authentication-page',
@@ -15,8 +16,10 @@ export class AuthenticationPage {
     public loginLink = Link.external('Anmelden', 'https://google.com')
 
     constructor(
-        private readonly authService: AuthenticationService
+        private readonly environmentService: EnvironmentService<{ cryptionKeys: CryptionKeys }>,
+        private readonly authService: AuthenticationService<'valid' | 'invalid'>
     ) {
-        this.authService.setup(async roles => roles.includes('valid'), async () => {});
+        this.environmentService.setup(environment);
+        this.authService.setup(async () => ['valid']);
     }
 }

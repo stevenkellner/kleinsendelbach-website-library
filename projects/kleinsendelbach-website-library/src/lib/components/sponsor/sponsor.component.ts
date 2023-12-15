@@ -11,9 +11,9 @@ import { Sponsor, SponsorsType, TrackBy } from '../../types';
 })
 export class SponsorComponent {
 
-    @Input() public sponsor!: Sponsor;
+    @Input({ required: true }) public sponsor!: Sponsor;
 
-    @Input() public sponsorsType!: SponsorsType | 'complete';
+    @Input({ required: true }) public sponsorsType!: SponsorsType | 'complete';
 
     public TrackBy = TrackBy;
 }

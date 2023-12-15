@@ -6,19 +6,19 @@ import { DeviceTypeService } from '../../../../services';
 import { SelectOptions, InputField, TrackBy } from '../../../../types';
 
 @Component({
-    selector: 'input-field-inline-select',
+    selector: 'inline-select-input',
     standalone: true,
     imports: [CommonModule, ErrorMessageComponent, LabelComponent],
     templateUrl: './inline-select.component.html',
     styleUrl: './inline-select.component.sass'
 })
-export class InlineSelectComponent<T extends string> {
+export class InlineSelectInputComponent<T extends string> {
 
     @Input() public label: string | null = null;
 
-    @Input() public selectOptions!: SelectOptions.Ungrouped<T>;
+    @Input({ required: true }) public selectOptions!: SelectOptions.Ungrouped<T>;
 
-    @Input() public inputField!: InputField<T>;
+    @Input({ required: true }) public inputField!: InputField<T>;
 
     public TrackBy = TrackBy;
 

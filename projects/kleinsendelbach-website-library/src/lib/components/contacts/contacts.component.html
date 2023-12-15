@@ -14,7 +14,7 @@
             [title]="contact.name"
         >
         <p
-            *ngIf="contact.profileImageSrc === null"
+            *ngIf="someHaveImages && contact.profileImageSrc === null"
             class="image"
         ></p>
         <p

@@ -23,3 +23,4 @@ export * from './report';
 export * from './report-group';
 export * from './markdown-parser';
 export * from './regex-iterator';
+export * from './user';

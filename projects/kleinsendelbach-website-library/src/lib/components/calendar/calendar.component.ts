@@ -27,9 +27,9 @@ import * as de from '@angular/common/locales/de';
 })
 export class CalendarComponent<ColumnId extends string, MetaType extends { columnId: ColumnId }> {
 
-    @Input() public events!: CalendarEvent<MetaType>[]
+    @Input({ required: true }) public events!: CalendarEvent<MetaType>[]
 
-    @Input() public columns!: {
+    @Input({ required: true }) public columns!: {
         id: ColumnId;
         text: string;
         color: Color;

@@ -5,19 +5,19 @@ import { LabelComponent } from '../../label/label.component';
 import { SelectOptions, InputField, TrackBy } from '../../../../types';
 
 @Component({
-    selector: 'input-field-select',
+    selector: 'select-input',
     standalone: true,
     imports: [CommonModule, ErrorMessageComponent, LabelComponent],
     templateUrl: './select.component.html',
     styleUrl: './select.component.sass'
 })
-export class SelectComponent<T extends string> implements AfterViewInit, OnDestroy {
+export class SelectInputComponent<T extends string> implements AfterViewInit, OnDestroy {
 
-    @Input() public label: string | null = null;
+    @Input({ required: true }) public label: string | null = null;
 
-    @Input() public selectOptions!: SelectOptions<T>;
+    @Input({ required: true }) public selectOptions!: SelectOptions<T>;
 
-    @Input() public inputField!: InputField<T>;
+    @Input({ required: true }) public inputField!: InputField<T>;
 
     @ViewChild('select') private readonly selectElement!: ElementRef<HTMLSelectElement>;
 

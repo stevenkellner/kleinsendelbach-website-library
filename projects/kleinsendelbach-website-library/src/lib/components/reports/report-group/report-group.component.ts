@@ -13,13 +13,13 @@ import { ButtonComponent } from '../../button/button.component';
 })
 export class ReportGroupComponent<GroupId extends string> {
 
-    @Input() public title!: string;
+    @Input({ required: true }) public title!: string;
 
-    @Input() public reportGroup!: ReportGroup<GroupId>;
+    @Input({ required: true }) public reportGroup!: ReportGroup<GroupId>;
 
-    @Input() public isExpanded!: boolean;
+    @Input({ required: true }) public isExpanded!: boolean;
 
-    @Input() public expandedReportId!: Guid | null;
+    @Input({ required: true }) public expandedReportId!: Guid | null;
 
     @Output() public expandReportGroupClicked = new EventEmitter<void>();
 

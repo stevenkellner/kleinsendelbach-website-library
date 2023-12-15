@@ -18,7 +18,6 @@ export class AppComponent {
             primary: new AppearanceColor(Color.hex('#C90024')),
             accent: new AppearanceColor(Color.hex('#FFD93D')),
             background: new AppearanceColor(Color.hex('#FFFFFF')),
-            secondaryBackground: new AppearanceColor(Color.hex('#FFFFFF')),
             hoveredBackground: new AppearanceColor(Color.hex('#E0E0E0')),
             shadow: new AppearanceColor(Color.hex('#80808080')),
             text: new AppearanceColor(Color.hex('#24252A')),

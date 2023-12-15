@@ -12,9 +12,9 @@ import { Guid, ReportGroup, TrackBy } from '../../types';
 })
 export class ReportsComponent<GroupId extends string> {
 
-    @Input() public reportGroups!: ReportGroup<GroupId>[];
+    @Input({ required: true }) public reportGroups!: ReportGroup<GroupId>[];
 
-    @Input() public reportGroupTitle!: Record<GroupId, string>;
+    @Input({ required: true }) public reportGroupTitle!: Record<GroupId, string>;
 
     public TrackBy = TrackBy;
 

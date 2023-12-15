@@ -11,5 +11,5 @@ import { InputError } from '../../../types';
 })
 export class ErrorMessageComponent {
 
-    @Input() public error!: InputError | null;
+    @Input({ required: true }) public error!: InputError | null;
 }

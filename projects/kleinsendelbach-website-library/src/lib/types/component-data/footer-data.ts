@@ -1,16 +1,16 @@
 import { Link } from "../link";
 
-export type FooterData<InternalPath extends string> = {
+export type FooterData<InternalPathKey extends string> = {
     appearanceChangerShown: boolean;
     copyright: string;
-    editLink: Link | InternalPath | null;
-    links: FooterLink<InternalPath>[],
+    editLink: Link | InternalPathKey | null;
+    links: FooterLink<InternalPathKey>[],
     contacts: FooterContact[]
 }
 
-export type FooterLink<InternalPath extends string> = {
+export type FooterLink<InternalPathKey extends string> = {
     title: string;
-    link: Link | InternalPath;
+    link: Link | InternalPathKey;
 }
 
 export type FooterContact = {

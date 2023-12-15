@@ -1,14 +1,14 @@
 import { Link } from "../link";
 
-export type OverviewListData<InternalPath extends string> = OverviewListElement<InternalPath>[];
+export type OverviewListData<InternalPathKey extends string> = OverviewListElement<InternalPathKey>[];
 
-export type OverviewListElement<InternalPath extends string> = {
+export type OverviewListElement<InternalPathKey extends string> = {
     title: string;
     subtitle: string | null;
     buttons: {
         title: string;
         action: (() => void) | null;
-        link: Link | InternalPath | null;
-        selected: boolean;
+        link: Link | InternalPathKey | null;
+        options: 'selected' | 'prominent' | null;
     }[] | null;
 }

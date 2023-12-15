@@ -13,13 +13,13 @@
         @include font($size: 'large')
         background-color: color('background')
         border: 1px solid color('text')
-        border-radius: 8px
+        border-radius: 5px
         color: color('text')
         cursor: pointer
         height: 48px
         text-align: center
         vertical-align: middle
-        width: 50%
+        width: calc(50% - 2px)
 
     .stepper
         @include flex-row(flex-start, center)
@@ -33,16 +33,16 @@
             color: color('text')
             cursor: pointer
             height: 48px
-            width: 25%
+            width: calc(25% - 2px)
 
             &:hover
                 background-color: color('hoveredBackground')
 
         .increase-button
-            border-radius: 8px 0 0 8px
+            border-radius: 5px 0 0 5px
 
         .decrease-button
-            border-radius: 0 8px 8px 0
+            border-radius: 0 5px 5px 0
 
         .increase-button, .decrease-button
             &.disabled

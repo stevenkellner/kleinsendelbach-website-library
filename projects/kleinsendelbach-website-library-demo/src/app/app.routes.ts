@@ -22,6 +22,10 @@ import { SocialMediaPage } from './pages/social-media/social-media.page';
 import { SponsorsRowPage } from './pages/sponsors-row/sponsors-row.page';
 import { SponsorsPage } from './pages/sponsors/sponsors.page';
 import { SquadPage } from './pages/squad/squad.page';
+import { SignInWithButtonPage } from './pages/sign-in-with-button/sign-in-with-button.page';
+import { LoginPage } from './pages/login/login.page';
+import { NavigationBarPage } from './pages/navigation-bar/navigation-bar.page';
+import { UnauthenticatedUsersPage } from './pages/unauthenticated-users/unauthenticated-users.page';
 
 export const routes: Routes = [
     { path: 'link', component: LinkPage },
@@ -47,4 +51,8 @@ export const routes: Routes = [
     { path: 'overview-list', component: OverviewListPage },
     { path: 'calendar', component: CalendarPage },
     { path: 'bfv-widget', component: BfvWidgetPage },
+    { path: 'sign-in-with-button', component: SignInWithButtonPage },
+    { path: 'login', component: LoginPage },
+    { path: 'navigation-bar', component: NavigationBarPage },
+    { path: 'unauthenticated-users', component: UnauthenticatedUsersPage }
 ];

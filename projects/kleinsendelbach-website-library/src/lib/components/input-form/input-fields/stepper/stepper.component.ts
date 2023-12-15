@@ -9,17 +9,17 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-    selector: 'input-field-stepper',
+    selector: 'stepper-input',
     standalone: true,
     imports: [CommonModule, ErrorMessageComponent, LabelComponent, FontAwesomeModule],
     templateUrl: './stepper.component.html',
     styleUrl: './stepper.component.sass'
 })
-export class StepperComponent implements AfterViewInit, OnDestroy {
+export class StepperInputComponent implements AfterViewInit, OnDestroy {
 
-    @Input() public label!: string;
+    @Input({ required: true }) public label!: string;
 
-    @Input() public inputField!: InputField<number>;
+    @Input({ required: true }) public inputField!: InputField<number>;
 
     @Input() public min: number | null = null;
 

@@ -1,24 +1,35 @@
+<p>Valid: Roles []</p>
 <authentication-check
     [roles]="[]"
     [loginLink]="loginLink"
->Is valid</authentication-check>
+>Hello there</authentication-check>
+<p>Invalid: Roles ['invalid']</p>
 <authentication-check
     [roles]="['invalid']"
     [loginLink]="loginLink"
->Is invalid</authentication-check>
+>Hello there</authentication-check>
+<p>Invalid: Roles ['valid', 'invalid']</p>
+<authentication-check
+    [roles]="['valid', 'invalid']"
+    [loginLink]="loginLink"
+>Hello there</authentication-check>
+<p>Valid: Roles ['valid']</p>
 <authentication-check
     [roles]="['valid']"
     [loginLink]="loginLink"
->Is valid</authentication-check>
+>Hello there</authentication-check>
+
+<p>Inalid, not shown: Roles ['invalid']</p>
 <authentication-check
     [roles]="['invalid']"
     [loginLink]="loginLink"
     [authenticationStates]="authenticationStates"
     key="key-1"
->Is invalid 2</authentication-check>
+>Hello there</authentication-check>
+<p>Valid: Roles ['valid']</p>
 <authentication-check
     [roles]="['valid']"
     [loginLink]="loginLink"
     [authenticationStates]="authenticationStates"
     key="key-2"
->Is valid 2</authentication-check>
+>Hello there</authentication-check>

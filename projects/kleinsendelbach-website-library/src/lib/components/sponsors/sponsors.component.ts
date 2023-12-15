@@ -12,7 +12,7 @@ import { SponsorComponent } from '../sponsor/sponsor.component';
 })
 export class SponsorsComponent {
 
-    @Input() public sponsors!: Sponsor[];
+    @Input({ required: true }) public sponsors!: Sponsor[];
 
     public TrackBy = TrackBy;
 }

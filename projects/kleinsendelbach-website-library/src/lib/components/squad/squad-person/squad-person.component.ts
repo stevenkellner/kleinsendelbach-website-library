@@ -11,5 +11,5 @@ import { CommonModule } from '@angular/common';
 })
 export class SquadPersonComponent {
 
-    @Input() public person!: SquadPerson;
+    @Input({ required: true }) public person!: SquadPerson;
 }

@@ -9,11 +9,9 @@ import { includesAll } from '../types';
 @Injectable({
     providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthenticationService<Role extends string> {
 
-    private checkUserRoles: ((roles: string[]) => Promise<boolean>) | null = null;
-
-    private userRequestAccess: ((firstName: string, lastName: string) => Promise<void>) | null = null;
+    private getUserRoles: (() => Promise<Role[] | null>) | null = null;
 
     constructor(
         private readonly firebaseAuth: AngularFireAuth,
@@ -21,15 +19,14 @@ export class AuthenticationService {
         private readonly crypter: CrypterService
     ) {}
 
-    public setup(checkUserRoles: (roles: string[]) => Promise<boolean>, userRequestAccess: (firstName: string, lastName: string) => Promise<void>) {
-        if (this.checkUserRoles && this.userRequestAccess)
+    public setup(getUserRoles: () => Promise<Role[] | null>) {
+        if (this.getUserRoles)
             throw new Error('Auth service is already set up.');
-        this.checkUserRoles = checkUserRoles;
-        this.userRequestAccess = userRequestAccess;
+        this.getUserRoles = getUserRoles;
     }
 
-    public async logIn(method: 'google' | 'apple' | { email: string; password: string }): Promise<'registered' | 'unregistered'> {
-        let credential: firebase.auth.UserCredential;
+    private async loginFirebase(method: 'google' | 'apple' | { email: string; password: string }): Promise<firebase.User> {
+        let credential: firebase.auth.UserCredential & { user: firebase.User | null | undefined };
         if (method === 'google' || method === 'apple') {
             const provider = method === 'google' ? new firebase.auth.GoogleAuthProvider() : new OAuthProvider('apple.com');
             credential = await this.firebaseAuth.signInWithPopup(provider);
@@ -40,48 +37,50 @@ export class AuthenticationService {
                 throw error;
             });
         }
-        if (credential.user === null || credential.user as firebase.User | undefined === undefined)
+        if (credential.user === null || credential.user === undefined)
             throw new Error('Login failed, no user in credential.');
-        const authenticated = await this.checkRoles([]);
-        return authenticated === 'authenticated' ? 'registered' : 'unregistered';
+        return credential.user;
     }
 
-    public async logOut() {
-        this.cookieService.delete('user-roles');
+    private async logoutFirebase() {
         await this.firebaseAuth.signOut();
     }
 
-    public async isLoggedIn(): Promise<boolean> {
-        return await this.firebaseAuth.currentUser !== null;
+    private async getAndStoreUserRoles(): Promise<Role[] | null> {
+        if (!this.getUserRoles)
+            throw new Error('Auth service not set up, but getUserRoles is needed.');
+        const roles = await this.getUserRoles();
+        if (roles === null)
+            this.cookieService.delete('user-roles');
+        else
+            this.cookieService.set('user-roles', this.crypter.encodeEncrypt(roles));
+        return roles;
     }
 
-    public async hasRoles(expectedRoles: string[]): Promise<boolean> {
-        if (expectedRoles.length === 0)
-            return true;
+    public async login(method: 'google' | 'apple' | { email: string; password: string }): Promise<'registered' | 'unregistered'> {
+        this.cookieService.delete('user-roles');
+        await this.loginFirebase(method);
+        return await this.getAndStoreUserRoles() === null ? 'unregistered' : 'registered';
+    }
+
+    public async logout() {
+        this.cookieService.delete('user-roles');
+        await this.logoutFirebase();
+    }
+
+    public isLoggedIn(): boolean {
+        return this.cookieService.check('user-roles');
+    }
+
+    public async checkRoles(roles: Role[]): Promise<boolean> {
         if (this.cookieService.check('user-roles')) {
-            const storedRoles: string[] = this.crypter.decryptDecode(this.cookieService.get('user-roles'));
-            if (includesAll(storedRoles, expectedRoles))
+            const storedRoles: Role[] = this.crypter.decryptDecode(this.cookieService.get('user-roles'));
+            if (includesAll(storedRoles, roles))
                 return true;
         }
-        return await this.checkRoles(expectedRoles) === 'authenticated';
-    }
-
-    private async checkRoles(expectedRoles: string[]): Promise<'authenticated' | 'unauthenticated'> {
-        if (!this.checkUserRoles)
-            throw new Error('Auth service not set up, but the check user roles is requested.');
-        const hasRoles = await this.checkUserRoles(expectedRoles);
-        if (hasRoles && expectedRoles.length !== 0)
-            this.cookieService.set('user-roles', this.crypter.encodeEncrypt(expectedRoles));
-        else
-            this.cookieService.delete('user-roles');
-        return hasRoles ? 'authenticated' : 'unauthenticated';
-    }
-
-    public async requestAccess(firstName: string, lastName: string) {
-        if (!this.userRequestAccess)
-            throw new Error('Auth service not set up, but the user request access is requested.');
-        if (!await this.firebaseAuth.currentUser)
-            return;
-        await this.userRequestAccess(firstName, lastName);
+        const myRoles = await this.getAndStoreUserRoles();
+        if (myRoles === null)
+            return false;
+        return includesAll(myRoles, roles);
     }
 }

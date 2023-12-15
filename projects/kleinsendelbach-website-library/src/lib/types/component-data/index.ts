@@ -8,3 +8,4 @@ export * from './sponsors-data';
 export * from './squad-data';
 export * from './header-data';
 export * from './footer-data';
+export * from './navigation-bar-data';

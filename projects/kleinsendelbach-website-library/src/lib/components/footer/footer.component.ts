@@ -17,9 +17,9 @@ import { AppearanceChangerComponent } from '../appearance-changer/appearance-cha
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.sass'
 })
-export class FooterComponent<InternalPath extends string> {
+export class FooterComponent<InternalPathKey extends string> {
 
-    @Input() public footerData!: FooterData<InternalPath>;
+    @Input({ required: true }) public footerData!: FooterData<InternalPathKey>;
 
     public TrackBy = TrackBy;
 

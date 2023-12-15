@@ -5,19 +5,19 @@ import { ErrorMessageComponent } from '../../error-message/error-message.compone
 import { LabelComponent } from '../../label/label.component';
 
 @Component({
-    selector: 'input-field-text-area',
+    selector: 'text-area-input',
     standalone: true,
     imports: [CommonModule, ErrorMessageComponent, LabelComponent],
     templateUrl: './text-area.component.html',
     styleUrl: './text-area.component.sass'
 })
-export class TextAreaComponent implements AfterViewInit, OnDestroy {
+export class TextAreaInputComponent implements AfterViewInit, OnDestroy {
 
-    @Input() public label!: string;
+    @Input({ required: true }) public label!: string;
 
     @Input() public placeholder: string | null = null;
 
-    @Input() public inputField!: InputField<string>;
+    @Input({ required: true }) public inputField!: InputField<string>;
 
     @ViewChild('textarea') private readonly textareaElement!: ElementRef<HTMLTextAreaElement>;
 

@@ -14,11 +14,11 @@ import { DeviceTypeService } from '../../services';
 })
 export class EventsComponent<GroupId extends string> implements OnInit {
 
-    @Input() public eventGroups!: EventGroup<GroupId>[];
+    @Input({ required: true }) public eventGroups!: EventGroup<GroupId>[];
 
-    @Input() public eventGroupTitle!: Record<GroupId, string>;
+    @Input({ required: true }) public eventGroupTitle!: Record<GroupId, string>;
 
-    @Input() public getCalendarSubscriptionLink!: (eventGroupIds: GroupId[]) => string;
+    @Input({ required: true }) public getCalendarSubscriptionLink!: (eventGroupIds: GroupId[]) => string;
 
     public TrackBy = TrackBy;
 

@@ -13,11 +13,11 @@ import { ButtonComponent } from '../../button/button.component';
 })
 export class EventGroupComponent<GroupId extends string> {
 
-    @Input() public title!: string;
+    @Input({ required: true }) public title!: string;
 
-    @Input() public eventGroup!: EventGroup<GroupId>;
+    @Input({ required: true }) public eventGroup!: EventGroup<GroupId>;
 
-    @Input() public isExpanded!: boolean;
+    @Input({ required: true }) public isExpanded!: boolean;
 
     @Output() public expandEventGroupClicked = new EventEmitter<void>();
 

@@ -12,9 +12,9 @@ import { ListComponent } from '../list/list.component';
     templateUrl: './overview-list.component.html',
     styleUrl: './overview-list.component.sass'
 })
-export class OverviewListComponent<InternalPath extends string> {
+export class OverviewListComponent<InternalPathKey extends string> {
 
-    @Input() public overviewListData!: OverviewListData<InternalPath>;
+    @Input({ required: true }) public overviewListData!: OverviewListData<InternalPathKey>;
 
     public TrackBy = TrackBy;
 

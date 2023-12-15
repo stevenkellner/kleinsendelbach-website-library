@@ -19,43 +19,43 @@ export class OverviewListPage {
                     title: 'Button 1',
                     action: null,
                     link: null,
-                    selected: false
+                    options: null
                 },
                 {
                     title: 'Button 2',
                     action: () => {},
                     link: null,
-                    selected: false
+                    options: null
                 },
                 {
                     title: 'Button 3',
                     action: () => {},
                     link: Link.external('Link 3', 'https://google.com'),
-                    selected: false
+                    options: null
                 },
                 {
                     title: 'Button 4',
                     action: null,
                     link: Link.external('Link 3', 'https://google.com'),
-                    selected: false
+                    options: null
                 },
                 {
                     title: 'Button 5',
                     action: null,
                     link: null,
-                    selected: false
+                    options: null
                 },
                 {
                     title: 'Button 6',
                     action: null,
                     link: null,
-                    selected: false
+                    options: null
                 },
                 {
                     title: 'Button 7',
                     action: null,
                     link: null,
-                    selected: false
+                    options: null
                 }
             ]
         },
@@ -72,13 +72,13 @@ export class OverviewListPage {
                     title: 'Button 1',
                     action: null,
                     link: null,
-                    selected: false
+                    options: null
                 },
                 {
                     title: 'Button 2',
                     action: null,
                     link: null,
-                    selected: true
+                    options: 'selected'
                 }
             ]
         },
@@ -95,13 +95,13 @@ export class OverviewListPage {
                     title: 'Button 1',
                     action: null,
                     link: null,
-                    selected: true
+                    options: 'selected'
                 },
                 {
                     title: 'Button 2',
                     action: null,
                     link: null,
-                    selected: false
+                    options: null
                 }
             ]
         }

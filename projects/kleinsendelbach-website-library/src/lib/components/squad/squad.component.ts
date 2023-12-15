@@ -13,7 +13,7 @@ import { DeviceTypeService } from '../../services';
 })
 export class SquadComponent {
 
-    @Input() public squadData!: SquadData;
+    @Input({ required: true }) public squadData!: SquadData;
 
     public TrackBy = TrackBy;
 

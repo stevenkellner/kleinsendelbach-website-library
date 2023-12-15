@@ -2,7 +2,7 @@
 
 :host
     @include flex-column(flex-start, center)
-    margin-top: 48px
+    margin-top: 128px
     width: 100vw
 
 .footer
@@ -15,7 +15,7 @@
 
     .column
         @include flex-column(flex-start, center)
-        width: 50%
+        width: calc(50% - 32px)
         margin: 0 16px
 
     .links
@@ -51,7 +51,7 @@
 
     .contact
         @include flex-column(flex-start, center)
-        width: 100%
+        width: calc(100% - 2px)
         padding: 10px 0
         border: 1px solid color('text')
         border-radius: 5px

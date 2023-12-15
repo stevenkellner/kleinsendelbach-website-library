@@ -9,7 +9,7 @@ import { ContactsComponent, ContactsData } from 'kleinsendelbach-website-library
     styleUrls: ['./contacts.page.sass']
 })
 export class ContactsPage {
-    public contactsData: ContactsData = [
+    public contactsData1: ContactsData = [
         {
             name: 'Max Mustermann',
             function: 'Vorstand',
@@ -59,4 +59,11 @@ export class ContactsPage {
             email: null
         }
     ];
+
+    public get contactsData2(): ContactsData {
+        return this.contactsData1.map(contactData => ({
+            ...contactData,
+            profileImageSrc: null
+        }));
+    }
 }

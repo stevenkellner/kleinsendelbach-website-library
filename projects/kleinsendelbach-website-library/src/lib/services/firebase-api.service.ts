@@ -4,7 +4,7 @@ import { CrypterService } from "./crypter.service";
 import { EnvironmentService } from './environment.service';
 import { CallSecret, DatabaseType, FirebaseFunctionResult, FunctionType, VerboseType } from '../types/firebase-api-utils';
 import { Result, UtcDate } from '../types';
-import { lastValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -50,7 +50,7 @@ export class FirebaseFunctionCaller<FirebaseFunction extends FunctionType<unknow
             callSecret: CallSecret.Flatten;
             parameters: string;
         }, { result: string; context: unknown }>(functionName);
-        const encryptedReturnValue = await lastValueFrom(callableFunction({
+        const encryptedReturnValue = await firstValueFrom(callableFunction({
             callSecret: {
                 expiresAt: expiresAtUtcDate.encoded,
                 hashedData: this.crypter.sha512(expiresAtUtcDate.encoded, this.environmentService.value('callSecretKey'))

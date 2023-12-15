@@ -47,7 +47,7 @@ export class AppearanceService {
             case 'light':
                 return 'Hell';
             case 'dark':
-                return 'Dark';
+                return 'Dunkel';
             case 'system':
                 return 'System';
         }

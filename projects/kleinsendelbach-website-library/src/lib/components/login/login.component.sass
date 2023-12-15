@@ -1,0 +1,23 @@
+@import '../../styles/index'
+
+:host
+    @include flex-column(flex-start, center)
+    width: 100%
+
+.or-text
+    @include font($size: 'large')
+    color: color('secondaryText')
+    margin: 48px 0
+
+.sign-in-with-container
+    @include flex-column(flex-start, center)
+    width: 65%
+
+    .margin-top
+        margin-top: 20px
+
+    &.tablet
+        width: 85%
+
+    &.mobile
+        width: 100%

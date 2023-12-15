@@ -1,0 +1,30 @@
+<div
+    class="container left"
+>
+    <button
+        *ngFor="let item of navigationItems('left'); trackBy: TrackBy.property('text')"
+        class="button"
+        [actionLink]="item.link"
+        (action)="item.action?.()"
+    >{{ item.text }}</button>
+</div>
+<div
+    class="container center"
+>
+    <button
+        *ngFor="let item of navigationItems('center'); trackBy: TrackBy.property('text')"
+        class="button"
+        [actionLink]="item.link"
+        (action)="item.action?.()"
+    >{{ item.text }}</button>
+</div>
+<div
+    class="container right"
+>
+    <button
+        *ngFor="let item of navigationItems('right'); trackBy: TrackBy.property('text')"
+        class="button"
+        [actionLink]="item.link"
+        (action)="item.action?.()"
+    >{{ item.text }}</button>
+</div>

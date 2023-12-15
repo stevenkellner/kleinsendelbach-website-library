@@ -13,7 +13,7 @@ import { DeviceTypeService } from '../../services';
 })
 export class SponsorsRowsComponent {
 
-    @Input() public sponsorsData!: SponsorsData;
+    @Input({ required: true }) public sponsorsData!: SponsorsData;
 
     public TrackBy = TrackBy;
 

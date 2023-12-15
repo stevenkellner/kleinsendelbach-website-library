@@ -3,70 +3,70 @@
     submitButtonText="Submit"
     (submitButtonClicked)="submit()"
 >
-    <input-field-checkbox
+    <checkbox-input
         [inputField]="inputForm.field('checkbox1')"
         label="Checkbox 1"
-    ></input-field-checkbox>
-    <input-field-checkbox
+    />
+    <checkbox-input
         [inputField]="inputForm.field('checkbox2')"
         label="Checkbox 2"
-    ></input-field-checkbox>
-    <input-field-date-time
+    />
+    <date-time-input
         [inputField]="inputForm.field('date1')"
         label="Date 1"
-    ></input-field-date-time>
-    <input-field-date-time
+    />
+    <date-time-input
         [inputField]="inputForm.field('date2')"
         label="Date 2"
         components="date"
-    ></input-field-date-time>
-    <input-field-date-time
+    />
+    <date-time-input
         [inputField]="inputForm.field('date3')"
         label="Date 3"
         components="time"
-    ></input-field-date-time>
-    <input-field-inline-select
+    />
+    <inline-select-input
         [inputField]="inputForm.field('select1')"
         label="Select 1"
         [selectOptions]="selectOptions1"
-    ></input-field-inline-select>
-    <input-field-inline-select
+    />
+    <inline-select-input
         [inputField]="inputForm.field('select2')"
         label="Select 2"
         [selectOptions]="selectOptions2"
-    ></input-field-inline-select>
-    <input-field-inline-select
+    />
+    <inline-select-input
         [inputField]="inputForm.field('select3')"
         label="Select 3"
         [selectOptions]="selectOptions3"
-    ></input-field-inline-select>
-    <input-field-select
+    />
+    <select-input
         [inputField]="inputForm.field('select1')"
         label="Select 1"
         [selectOptions]="selectOptions1"
-    ></input-field-select>
-    <input-field-select
+    />
+    <select-input
         [inputField]="inputForm.field('select2')"
         label="Select 2"
         [selectOptions]="selectOptions2"
-    ></input-field-select>
-    <input-field-select
+    />
+    <select-input
         [inputField]="inputForm.field('select3')"
         label="Select 3"
         [selectOptions]="selectOptions4"
-    ></input-field-select>
-    <input-field-stepper
+    />
+    <stepper-input
         [inputField]="inputForm.field('stepper1')"
         label="Stepper 1"
         [min]="0"
         [max]="3"
-    ></input-field-stepper>
-    <input-field-text
+    />
+    <text-input
         [inputField]="inputForm.field('text1')"
         label="Text 1"
-    ></input-field-text>
-    <input-field-text-area
+    />
+    <text-area-input
         [inputField]="inputForm.field('text2')"
         label="Text 2"
-    ></input-field-text-area>
+    />
 </input-form>

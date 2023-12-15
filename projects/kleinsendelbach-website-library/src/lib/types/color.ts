@@ -25,6 +25,13 @@ export class ColorComponent {
             return new ColorComponent(Number.parseInt(value, 16));
         throw new Error(`Invalid hex color component: ${value}`);
     }
+
+    public get hex(): string {
+        let value = this.value.toString(16).toUpperCase();
+        while (value.length < 2)
+            value = '0' + value;
+        return value;
+    }
 }
 
 export class Color {
@@ -36,7 +43,7 @@ export class Color {
     ) {}
 
     public get css(): string {
-        return `rgba(${this.red.value}, ${this.green.value}, ${this.blue.value}, ${this.alpha.value / 255})`;
+        return `#${this.red.hex}${this.green.hex}${this.blue.hex}${this.alpha.value === 255 ? '' : this.alpha.hex}`;
     }
 
     public static hex(value: string): Color {

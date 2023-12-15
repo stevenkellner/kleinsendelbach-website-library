@@ -16,15 +16,15 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
     templateUrl: './mobile-header.component.html',
     styleUrl: './mobile-header.component.sass'
 })
-export class MobileHeaderComponent<HeaderKey extends string, InternalPath extends string> {
+export class MobileHeaderComponent<HeaderKey extends string, InternalPathKey extends string> {
 
-    @Input() public headerData!: HeaderData<HeaderKey, InternalPath>;
+    @Input({ required: true }) public headerData!: HeaderData<HeaderKey, InternalPathKey>;
 
     public TrackBy = TrackBy;
 
     public isExpanded = false;
 
-    public expandedHeaderColumnKey: HeaderKey | null = null;
+    public expandedHeaderColumnKey: string | null = null;
 
     constructor(
         public readonly deviceType: DeviceTypeService,
@@ -33,22 +33,15 @@ export class MobileHeaderComponent<HeaderKey extends string, InternalPath extend
         this.faIconLibrary.addIconPacks(fas, far, fab);
     }
 
-    public get headerColumns(): HeaderColumn<HeaderKey, InternalPath>[] {
-        return this.headerData.sorting[this.deviceType.current].map(headerColumn => ({
-            key: headerColumn.topItem,
-            topItem: this.headerData.items[headerColumn.topItem],
-            subItems: headerColumn.subItems ? headerColumn.subItems.map(key => ({
-                key: key,
-                ...this.headerData.items[key]
-            })) : null
-        }));
+    public get headerColumns(): HeaderColumn<HeaderKey, InternalPathKey>[] {
+        return HeaderData.toHeaderColumns(this.headerData, this.deviceType.current);
     }
 
     public handleHamburgerMenuClick(toExpanded: boolean) {
         this.isExpanded = toExpanded;
     }
 
-    public handleTopItemClick(key: HeaderKey) {
+    public handleTopItemClick(key: string) {
         if (this.expandedHeaderColumnKey === key)
             this.expandedHeaderColumnKey = null;
         else

@@ -12,11 +12,11 @@ import { Sponsor, SponsorsType, TrackBy } from '../../../types';
 })
 export class SponsorsRowComponent {
 
-    @Input() public sponsors!: Sponsor[];
+    @Input({ required: true }) public sponsors!: Sponsor[];
 
-    @Input() public type!: SponsorsType;
+    @Input({ required: true }) public type!: SponsorsType;
 
-    @Input() public sponsorElementWidth!: number;
+    @Input({ required: true }) public sponsorElementWidth!: number;
 
     public TrackBy = TrackBy;
 }

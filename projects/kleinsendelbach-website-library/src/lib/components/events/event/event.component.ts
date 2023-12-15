@@ -13,7 +13,7 @@ import { LinkDirective } from '../../../directives';
 })
 export class EventComponent {
 
-    @Input() public event!: Event;
+    @Input({ required: true }) public event!: Event;
 
     constructor(
         public readonly deviceType: DeviceTypeService

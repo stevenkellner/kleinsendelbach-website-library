@@ -15,6 +15,7 @@ export class AuthenticationStates {
     }
 
     public visisbleState(key: string): AuthenticationState | null {
+
         // State is shown if it's authenticated
         if (this.states[key] === 'authenticated')
             return 'authenticated';

@@ -12,9 +12,9 @@ import { CommonModule } from '@angular/common';
     templateUrl: './header.component.html',
     styleUrl: './header.component.sass'
 })
-export class HeaderComponent<HeaderKey extends string, InternalPath extends string> {
+export class HeaderComponent<HeaderKey extends string, InternalPathKey extends string> {
 
-    @Input() public headerData!: HeaderData<HeaderKey, InternalPath>;
+    @Input({ required: true }) public headerData!: HeaderData<HeaderKey, InternalPathKey>;
 
     constructor(
         public readonly deviceType: DeviceTypeService

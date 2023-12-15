@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ResultDisplayComponent {
 
-    @Input() public result!: Result<any> | null;
+    @Input({ required: true }) public result!: Result<any> | null;
 
     @Input() public showError: boolean = false;
 
@@ -19,5 +19,11 @@ export class ResultDisplayComponent {
         if (!this.showError || !this.result || !this.result.isFailure() || typeof this.result.error !== 'string')
             return 'Inhalt konnte nicht geladen werden';
         return this.result.error;
+    }
+
+    public get isEmptyList(): boolean {
+        if (!this.result || this.result.isFailure())
+            return false;
+        return Array.isArray(this.result.value) && this.result.value.length === 0;
     }
 }

@@ -1,10 +1,10 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "../link";
 
-export type LinksData<InternalPath extends string> = LinkData<InternalPath>[];
+export type LinksData<InternalPathKey extends string> = LinkData<InternalPathKey>[];
 
-export type LinkData<InternalPath extends string> = {
-    link: Link | InternalPath;
+export type LinkData<InternalPathKey extends string> = {
+    link: Link | InternalPathKey;
     icon: {
         name: IconProp;
         animation: 'jump' | 'rotation' | 'shake';
