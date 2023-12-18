@@ -16,12 +16,12 @@
     ></event-group>
 </div>
 <button
-    *ngIf="eventGroups.length !== 0 && !isCalendarSubscriptionSeletionShown"
+    *ngIf="eventGroups.length !== 0 && !isCalendarSubscriptionSeletionShown && getCalendarSubscriptionLink"
     class="subscribe-button"
     (action)="showCalendarSubscriptionSeletion()"
 >ics-Kalender abonnieren</button>
 <div
-    *ngIf="eventGroups.length !== 0 && isCalendarSubscriptionSeletionShown"
+    *ngIf="eventGroups.length !== 0 && isCalendarSubscriptionSeletionShown && calendarSubscriptionLink"
     class="calendar-subscription-container"
     [ngClass]="deviceType.current"
 >

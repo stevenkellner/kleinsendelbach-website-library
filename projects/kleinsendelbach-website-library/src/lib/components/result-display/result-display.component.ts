@@ -15,6 +15,8 @@ export class ResultDisplayComponent {
 
     @Input() public showError: boolean = false;
 
+    @Input() public showEmptyListError: boolean = false;
+
     public get errorMessage(): string {
         if (!this.showError || !this.result || !this.result.isFailure() || typeof this.result.error !== 'string')
             return 'Inhalt konnte nicht geladen werden';
@@ -22,7 +24,7 @@ export class ResultDisplayComponent {
     }
 
     public get isEmptyList(): boolean {
-        if (!this.result || this.result.isFailure())
+        if (!this.showEmptyListError || !this.result || this.result.isFailure())
             return false;
         return Array.isArray(this.result.value) && this.result.value.length === 0;
     }

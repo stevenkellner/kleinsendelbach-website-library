@@ -26,6 +26,7 @@ import { SignInWithButtonPage } from './pages/sign-in-with-button/sign-in-with-b
 import { LoginPage } from './pages/login/login.page';
 import { NavigationBarPage } from './pages/navigation-bar/navigation-bar.page';
 import { UnauthenticatedUsersPage } from './pages/unauthenticated-users/unauthenticated-users.page';
+import { NewsletterPage } from './pages/newsletter/newsletter.page';
 
 export const routes: Routes = [
     { path: 'link', component: LinkPage },
@@ -54,5 +55,6 @@ export const routes: Routes = [
     { path: 'sign-in-with-button', component: SignInWithButtonPage },
     { path: 'login', component: LoginPage },
     { path: 'navigation-bar', component: NavigationBarPage },
-    { path: 'unauthenticated-users', component: UnauthenticatedUsersPage }
+    { path: 'unauthenticated-users', component: UnauthenticatedUsersPage },
+    { path: 'newsletter', component: NewsletterPage }
 ];

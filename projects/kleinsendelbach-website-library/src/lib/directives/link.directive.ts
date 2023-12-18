@@ -23,5 +23,7 @@ export class LinkDirective<InternalPathKey extends string> implements OnInit {
             this.element.nativeElement.title = link.title;
         if ('target' in this.element.nativeElement && typeof this.element.nativeElement.target === 'string' && this.element.nativeElement.target === '')
             this.element.nativeElement.target = link.target;
+        this.element.nativeElement.style.textDecoration = 'none'
+        this.element.nativeElement.style.cursor = 'pointer'
     }
 }

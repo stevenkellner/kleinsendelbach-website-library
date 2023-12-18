@@ -18,7 +18,7 @@ export class EventsComponent<GroupId extends string> implements OnInit {
 
     @Input({ required: true }) public eventGroupTitle!: Record<GroupId, string>;
 
-    @Input({ required: true }) public getCalendarSubscriptionLink!: (eventGroupIds: GroupId[]) => string;
+    @Input() public getCalendarSubscriptionLink: ((eventGroupIds: GroupId[]) => string) | null = null;
 
     public TrackBy = TrackBy;
 
@@ -51,7 +51,9 @@ export class EventsComponent<GroupId extends string> implements OnInit {
         return values(this.calendarSubscriptionSelection).some(selected => selected);
     }
 
-    public get calendarSubscriptionLink(): Link {
+    public get calendarSubscriptionLink(): Link | null {
+        if (!this.getCalendarSubscriptionLink)
+            return null;
         const selectedEventGroupIds = entries(this.calendarSubscriptionSelection).flatMap(entry => entry.value ? entry.key : []);
         const link = this.getCalendarSubscriptionLink(selectedEventGroupIds);
         return Link.external('ics-Kalender abonnieren', link);

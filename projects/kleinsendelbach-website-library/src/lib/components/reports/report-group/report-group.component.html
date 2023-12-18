@@ -13,7 +13,7 @@
     ></report>
 </div>
 <button
-    *ngIf="reportGroup.reports.length > 5"
+    *ngIf="reportGroup.reports.length > 3"
     class="show-more-button"
     (action)="expandReportGroupClicked.emit()"
->{{ isExpanded ? 'Weniger anzeigen' : 'Alle anzeigen' }}</button>
+>{{ isExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen' }}</button>

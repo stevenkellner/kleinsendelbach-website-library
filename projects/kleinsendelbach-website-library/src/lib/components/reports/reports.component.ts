@@ -1,20 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ReportGroupComponent } from './report-group/report-group.component';
-import { Guid, ReportGroup, TrackBy } from '../../types';
+import { Guid, Link, ReportGroup, TrackBy } from '../../types';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
     selector: 'reports',
     standalone: true,
-    imports: [CommonModule, ReportGroupComponent],
+    imports: [CommonModule, ReportGroupComponent, ButtonComponent],
     templateUrl: './reports.component.html',
     styleUrl: './reports.component.sass'
 })
-export class ReportsComponent<GroupId extends string> {
+export class ReportsComponent<GroupId extends string, InternalPathKey extends string> {
 
     @Input({ required: true }) public reportGroups!: ReportGroup<GroupId>[];
 
     @Input({ required: true }) public reportGroupTitle!: Record<GroupId, string>;
+
+    @Input() public allReportsLink: Link | InternalPathKey | null = null;
 
     public TrackBy = TrackBy;
 

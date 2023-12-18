@@ -1,4 +1,9 @@
+<p
+    *ngIf="squadData.length === 0"
+    class="no-squad"
+>Der Kader wurde nicht gefunden</p>
 <div
+    *ngIf="squadData.length !== 0"
     class="squad"
     [ngClass]="deviceType.current"
 >

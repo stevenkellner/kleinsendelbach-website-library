@@ -17,3 +17,9 @@
         (expandReportClicked)="expandReportClicked($event)"
     ></report-group>
 </div>
+<button
+    *ngIf="allReportsLink"
+    class="show-all-button"
+    [actionLink]="allReportsLink"
+    [prominent]="true"
+>Berichte aller Abteilungen ansehen</button>

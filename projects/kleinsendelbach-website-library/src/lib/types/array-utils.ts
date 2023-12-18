@@ -23,3 +23,13 @@ export function mapExisting<T, U>(array: (T | null | undefined)[], callbackFn: (
     return compactMap(array, value => value)
         .map(callbackFn);
 }
+
+
+export function group<T>(array: T[], count: number): T[][] {
+    return array.reduce<T[][]>((newArray, item) => {
+        if (newArray.length === 0 || newArray[newArray.length - 1].length === count)
+            newArray.push([]);
+        newArray[newArray.length - 1].push(item);
+        return newArray;
+    }, []);
+}

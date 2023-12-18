@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Guid, ReportGroup, UtcDate, ReportsComponent } from 'kleinsendelbach-website-library';
+import { Guid, Link, ReportGroup, UtcDate, ReportsComponent } from 'kleinsendelbach-website-library';
 
 export type ReportGroupId = 'group-1' | 'group-2' | 'group-3';
 
@@ -11,6 +11,8 @@ export type ReportGroupId = 'group-1' | 'group-2' | 'group-3';
     styleUrls: ['./report.page.sass']
 })
 export class ReportPage {
+
+    public link = Link.external('Link', 'https://google.com')
 
     public reportGroups1: ReportGroup<ReportGroupId>[] = [];
 

@@ -51,3 +51,4 @@ export * from './sign-in-with-button/sign-in-with-button.component';
 export * from './login/login.component';
 export * from './navigation-bar/navigation-bar.component';
 export * from './unauthenticated-users/unauthenticated-users.component';
+export * from './newsletter/newsletter.component';
