@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InternalLinkService, LinkDirective } from 'kleinsendelbach-website-library';
+import { LinkService, LinkDirective } from 'kleinsendelbach-website-library';
 
 type InternalPathKey = 'path-1' | 'path-2' | 'path-3';
 
@@ -12,9 +12,9 @@ type InternalPathKey = 'path-1' | 'path-2' | 'path-3';
 })
 export class LinkPage {
     constructor(
-        public readonly internalLinkService: InternalLinkService<InternalPathKey>
+        public readonly linkService: LinkService<InternalPathKey>
     ) {
-        this.internalLinkService.setup({
+        this.linkService.setup({
             'path-1': {
                 title: 'Path 1',
                 path: 'pfad-1'
@@ -27,6 +27,6 @@ export class LinkPage {
                 title: 'Path 3',
                 path: 'pfad-3'
             }
-        });
+        }, 'https://asdf.com');
     }
 }

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import firebase from 'firebase/compat/app';
 import { CookieService } from 'ngx-cookie-service';
 import { CrypterService } from './crypter.service';
-import { includesAll } from '../types';
+import { Result, includesAll } from '../types';
 
 @Injectable({
     providedIn: 'root'
@@ -25,21 +25,25 @@ export class AuthenticationService<Role extends string> {
         this.getUserRoles = getUserRoles;
     }
 
-    private async loginFirebase(method: 'google' | 'apple' | { email: string; password: string }): Promise<firebase.User> {
+    private async loginFirebase(method: 'google' | 'apple' | { email: string; password: string }): Promise<Result<firebase.User>> {
         let credential: firebase.auth.UserCredential & { user: firebase.User | null | undefined };
-        if (method === 'google' || method === 'apple') {
-            const provider = method === 'google' ? new firebase.auth.GoogleAuthProvider() : new OAuthProvider('apple.com');
-            credential = await this.firebaseAuth.signInWithPopup(provider);
-        } else {
-            credential = await this.firebaseAuth.signInWithEmailAndPassword(method.email, method.password).catch(async (error: unknown) => {
-                if (typeof error === 'object' && error !== null && 'code' in error && error.code === 'auth/user-not-found')
-                    return this.firebaseAuth.createUserWithEmailAndPassword(method.email, method.password);
-                throw error;
-            });
+        try {
+            if (method === 'google' || method === 'apple') {
+                const provider = method === 'google' ? new firebase.auth.GoogleAuthProvider() : new OAuthProvider('apple.com');
+                credential = await this.firebaseAuth.signInWithPopup(provider);
+            } else {
+                credential = await this.firebaseAuth.signInWithEmailAndPassword(method.email, method.password).catch(async (error: unknown) => {
+                    if (typeof error === 'object' && error !== null && 'code' in error && error.code === 'auth/user-not-found')
+                        return this.firebaseAuth.createUserWithEmailAndPassword(method.email, method.password);
+                    throw error;
+                });
+            }
+            if (credential.user === null || credential.user === undefined)
+                return Result.failure(new Error('Login failed, no user in credential.'));
+            return Result.success(credential.user);
+        } catch (error) {
+            return Result.failure(error);
         }
-        if (credential.user === null || credential.user === undefined)
-            throw new Error('Login failed, no user in credential.');
-        return credential.user;
     }
 
     private async logoutFirebase() {
@@ -57,10 +61,12 @@ export class AuthenticationService<Role extends string> {
         return roles;
     }
 
-    public async login(method: 'google' | 'apple' | { email: string; password: string }): Promise<'registered' | 'unregistered'> {
+    public async login(method: 'google' | 'apple' | { email: string; password: string }): Promise<Result<'registered' | 'unregistered'>> {
         this.cookieService.delete('user-roles');
-        await this.loginFirebase(method);
-        return await this.getAndStoreUserRoles() === null ? 'unregistered' : 'registered';
+        const result = await this.loginFirebase(method);
+        if (result.isFailure())
+            return result;
+        return Result.failure(await this.getAndStoreUserRoles() === null ? 'unregistered' : 'registered');
     }
 
     public async logout() {

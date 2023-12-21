@@ -12,8 +12,6 @@ import { LinkDirective } from '../../directives';
 })
 export class ButtonComponent<InternalPathKey extends string> {
 
-    @Input() public actionLink: Link | InternalPathKey | null = null;
-
     @Input() public borderless: boolean = false;
 
     @Input() public largeText: boolean = false;
@@ -22,5 +20,14 @@ export class ButtonComponent<InternalPathKey extends string> {
 
     @Input() public selected: boolean = false;
 
+    @Input() public disabled: boolean = false;
+
+    @Input() public actionLink: Link | InternalPathKey | null = null;
+
     @Output() public action = new EventEmitter<void>();
+
+    public clicked() {
+        if (!this.disabled)
+            this.action.emit();
+    }
 }

@@ -3,7 +3,6 @@ export * from './style-config.service';
 export * from './cookie-selection.service';
 export * from './device-type.service';
 export * from './environment.service';
-export * from './internal-link.service';
 export * from './shared-data.service';
 export * from './crypter.service';
 export * from './authentication.service';

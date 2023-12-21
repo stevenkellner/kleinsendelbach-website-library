@@ -27,6 +27,7 @@ import { LoginPage } from './pages/login/login.page';
 import { NavigationBarPage } from './pages/navigation-bar/navigation-bar.page';
 import { UnauthenticatedUsersPage } from './pages/unauthenticated-users/unauthenticated-users.page';
 import { NewsletterPage } from './pages/newsletter/newsletter.page';
+import { HomePage } from './pages/home/home.page';
 
 export const routes: Routes = [
     { path: 'link', component: LinkPage },
@@ -56,5 +57,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginPage },
     { path: 'navigation-bar', component: NavigationBarPage },
     { path: 'unauthenticated-users', component: UnauthenticatedUsersPage },
-    { path: 'newsletter', component: NewsletterPage }
+    { path: 'newsletter', component: NewsletterPage },
+    { path: '', component: HomePage },
+    { path: '**', pathMatch: 'full', redirectTo: '' }
 ];

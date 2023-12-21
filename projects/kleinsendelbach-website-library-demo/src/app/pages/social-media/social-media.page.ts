@@ -10,7 +10,7 @@ import { Link, SocialMediaComponent, SocialMediaData } from 'kleinsendelbach-web
 })
 export class SocialMediaPage {
 
-    public socialMediaData: SocialMediaData<never> = [
+    public socialMediaData: SocialMediaData = [
         {
             image: ['fab', 'facebook-f'],
             link: Link.external('Facebook', 'https://www.facebook.com/svkleinsendelbach/', true),

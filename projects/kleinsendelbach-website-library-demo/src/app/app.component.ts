@@ -1,3 +1,4 @@
+import { LinkService } from './../../../kleinsendelbach-website-library/src/lib/services/link.service';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
@@ -12,7 +13,8 @@ import { AppearanceColor, Color, StyleConfigService } from 'kleinsendelbach-webs
 })
 export class AppComponent {
     constructor(
-        public readonly styleConfig: StyleConfigService
+        public readonly styleConfig: StyleConfigService,
+        public readonly linkService: LinkService<never>
     ){
         this.styleConfig.setup({
             primary: new AppearanceColor(Color.hex('#C90024')),
@@ -26,6 +28,7 @@ export class AppComponent {
             formStatusError: new AppearanceColor(Color.hex('#CE3A0F')),
             formStatusInfo: new AppearanceColor(Color.hex('#868E90')),
             pageBackground: new AppearanceColor(Color.hex('#F0F0F0'))
-        })
+        });
+        this.linkService.setup({}, 'https://asdf.com');
     }
 }

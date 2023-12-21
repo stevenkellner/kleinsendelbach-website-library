@@ -1,0 +1,6 @@
+<button
+    *ngFor="let route of routes"
+    class="button"
+    [actionLink]="route.link"
+    [prominent]="true"
+>{{ route.name }}</button>

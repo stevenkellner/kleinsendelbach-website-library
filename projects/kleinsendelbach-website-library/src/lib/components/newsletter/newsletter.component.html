@@ -1,26 +1,29 @@
-<table width="100%" [ngClass]="'scaling-' + scaling">
-    <tbody class="w100">
+<table [ngStyle]="{ width: '100%', backgroundColor: styleConfig.css('pageBackground') }">
+    <tbody [ngStyle]="{ width: '100%' }">
         <ng-container *ngTemplateOutlet="row; context: { content: name_year_row }"/>
         <ng-container *ngTemplateOutlet="row; context: { content: logo_title_description_row }"/>
         <ng-container *ngTemplateOutlet="row; context: { content: website_link_row }"/>
         <ng-container *ngTemplateOutlet="row; context: { content: newsletter_not_correct_shown_row }"/>
         <ng-container *ngFor="let content of newsletterData.content">
             <ng-container *ngIf="content.imageSrc !== null">
-                <ng-container *ngTemplateOutlet="row; context: { content: content_image_row, context: { imageSrc: content.imageSrc, title: content.title } }"/>
+                <ng-container *ngTemplateOutlet="content_image_row; context: { imageSrc: content.imageSrc, title: content.title }"/>
             </ng-container>
-            <ng-container *ngTemplateOutlet="row; context: { content: content_title_row, context: { title: content.title } }"/>
+            <ng-container *ngTemplateOutlet="content_title_row; context: { title: content.title }"/>
             <ng-container *ngFor="let item of content.items">
                 <ng-container *ngTemplateOutlet="row; context: { content: content_item_row, context: { item: item } }"/>
             </ng-container>
         </ng-container>
-        <ng-container *ngTemplateOutlet="row; context: { content: content_title_row, context: { title: 'Unsere Social-Media Kanäle' } }"/>
+        <ng-container *ngTemplateOutlet="content_title_row; context: { title: 'Unsere Social-Media Kanäle' }"/>
         <ng-container *ngFor="let socialMediaRow of socialMediaList">
             <ng-container *ngTemplateOutlet="row; context: { content: social_media_row, context: { socialMediaRow: socialMediaRow } }"/>
         </ng-container>
         <ng-container *ngIf="socialMediaList.length !== 0">
-            <ng-container *ngTemplateOutlet="row; context: { content: content_title_row, context: { title: 'Unsere Sponsoren' } }"/>
+            <ng-container *ngTemplateOutlet="content_title_row; context: { title: 'Unsere Sponsoren' }"/>
             <ng-container *ngFor="let sponsors of sponsorsList">
-                <ng-container *ngTemplateOutlet="row; context: { content: sponsors_row, context: { sponsors: sponsors } }"/>
+                <ng-container *ngTemplateOutlet="row; context: { content: sponsor_title, context: { title: sponsors.title } }"/>
+                <ng-container *ngFor="let sponsorRow of sponsors.sponsors">
+                    <ng-container *ngTemplateOutlet="row; context: { content: sponsor_row, context: { sponsorRow: sponsorRow } }"/>
+                </ng-container>
             </ng-container>
         </ng-container>
         <ng-container *ngIf="newsletterData.unsubscribeLink !== null">
@@ -30,114 +33,129 @@
 </table>
 
 <ng-template #row let-content="content" let-context="context">
-    <table class="w100">
-        <tbody class="w100">
-            <tr class="w100">
-                <td class="w5"></td>
+    <table [ngStyle]="{ width: '100%' }">
+        <tbody [ngStyle]="{ width: '100%' }">
+            <tr [ngStyle]="{ width: '100%' }">
+                <td [ngStyle]="{ width: '5%' }"></td>
                 <ng-container *ngTemplateOutlet="content; context: context"/>
-                <td class="w5"></td>
+                <td [ngStyle]="{ width: '5%' }"></td>
             </tr>
-            <tr class="w100 h75px"></tr>
+            <tr [ngStyle]="{ width: '100%', height: '25px' }"></tr>
         </tbody>
     </table>
 </ng-template>
 
 <ng-template #name_year_row>
-    <td class="w60 align-left metrophobic fw-bold fs-x-large" [style.color]="styleConfig.css('text')">{{ newsletterData.name }}&nbsp;</td>
-    <td class="w30">
+    <td [ngStyle]="style({ width: '60%' }, { family: 'header', size: 'x-large', weight: 'bold' })">{{ newsletterData.name }}&nbsp;</td>
+    <td [ngStyle]="{ width: '30%' }">
         <ng-container *ngTemplateOutlet="name_year_row_month_year"></ng-container>
     </td>
 </ng-template>
 
 <ng-template #name_year_row_month_year>
-    <table class="w100">
-        <tbody class="w100">
-            <tr class="w100">
-                <td class="w100 align-right metrophobic fw-normal fs-normal lh-20px" [style.color]="styleConfig.css('text')">{{ newsletterData.month }}&nbsp;</td>
+    <table [ngStyle]="{ width: '100%' }">
+        <tbody [ngStyle]="{ width: '100%' }">
+            <tr [ngStyle]="{ width: '100%' }">
+                <td [ngStyle]="style({ width: '100%', lineHeight: scaled(12) + 'px' }, { align: 'right', family: 'header' })">{{ newsletterData.month }}&nbsp;</td>
             </tr>
-            <tr class="w100">
-                <td class="w100 align-right metrophobic fw-semi-bold fs-xx-large" [style.color]="styleConfig.css('text')">{{ newsletterData.year }}&nbsp;</td>
+            <tr [ngStyle]="{ width: '100%' }">
+                <td [ngStyle]="style({ width: '100%' }, { align: 'right', family: 'header', size: 'xx-large', weight: 'semi-bold' })">{{ newsletterData.year }}&nbsp;</td>
             </tr>
         </tbody>
     </table>
 </ng-template>
 
 <ng-template #logo_title_description_row>
-    <td class="w10">
-        <img class="w100" [src]="newsletterData.logoSrc" [alt]="newsletterData.name">
+    <td [ngStyle]="{ width: '15%' }">
+        <img [ngStyle]="{ width: '100%', verticalAlign: 'top' }" [src]="newsletterData.logoSrc" [alt]="newsletterData.name">
     </td>
-    <td class="w5"></td>
-    <td class="w75 va-top">
+    <td [ngStyle]="{ width: '5%' }"></td>
+    <td [ngStyle]="{ width: '70%', verticalAlign: 'top' }">
         <ng-container *ngTemplateOutlet="logo_title_description_row_title_description"></ng-container>
     </td>
 </ng-template>
 
 <ng-template #logo_title_description_row_title_description>
-    <table class="w100">
-        <tbody class="w100">
-            <tr class="w100">
-                <td class="w100 align-left roboto fw-bold fs-xxx-large" [style.color]="styleConfig.css('text')">{{ newsletterData.title }}</td>
+    <table [ngStyle]="{ width: '100%' }">
+        <tbody [ngStyle]="{ width: '100%' }">
+            <tr [ngStyle]="{ width: '100%' }">
+                <td [ngStyle]="style({ width: '100%' }, { size: 'x-large', weight: 'semi-bold' })">{{ newsletterData.title }}</td>
             </tr>
-            <tr class="w100">
-                <td class="w100 align-left roboto fw-light fs-medium" [style.color]="styleConfig.css('text')">{{ newsletterData.description }}</td>
+            <tr [ngStyle]="{ width: '100%' }">
+                <td [ngStyle]="style({ width: '100%' }, { weight: 'light' })">{{ newsletterData.description }}</td>
             </tr>
         </tbody>
     </table>
 </ng-template>
 
 <ng-template #website_link_row>
-    <td class="w10"></td>
-    <td class="w70">
-        <a class="w100 align-center roboto fw-normal fs-normal link block p-top5px p-bottom5px border-radius" [style.color]="styleConfig.css('text')" [style.backgroundColor]="styleConfig.css('primary')" [href]="newsletterData.websiteLink.link">{{ newsletterData.websiteLink.title }}</a>
+    <td [ngStyle]="{ width: '5%' }"></td>
+    <td [ngStyle]="{ width: '80%' }">
+        <a [ngStyle]="style({ width: 'calc(100% - 10px)', backgroundColor: styleConfig.css('primary'), borderRadius: '1000px', display: 'block', padding: '5px', cursor: 'pointer', textDecoration: 'none' }, { align: 'center' })" [href]="newsletterData.websiteLink.link">{{ newsletterData.websiteLink.title }}</a>
     </td>
-    <td class="w10"></td>
+    <td [ngStyle]="{ width: '5%' }"></td>
 </ng-template>
 
 <ng-template #newsletter_not_correct_shown_row>
-    <td class="w90 align-left roboto fw-normal fs-normal" [style.color]="styleConfig.css('secondaryText')">Wenn der Newsletter nicht richtig angezeigt wird, klicken Sie <a class="link" [style.color]="styleConfig.css('primary')" [href]="newsletterData.notCorrectShownLink" title="Newsletter" target="_blank">hier</a>.</td>
+    <td [ngStyle]="style({ width: '90%' }, { color: 'secondaryText' })">Wenn der Newsletter nicht richtig angezeigt wird, klicken Sie <a [ngStyle]="style({ cursor: 'pointer', textDecoration: 'none' }, { color: 'primary' })" [href]="newsletterData.notCorrectShownLink" title="Newsletter" target="_blank">hier</a>.</td>
 </ng-template>
 
 <ng-template #content_image_row let-imageSrc="imageSrc" let-title="title">
-    <td class="w90"><img class="w100 h250px image-cover" [src]="imageSrc" [alt]="title"></td>
+    <table [ngStyle]="{ width: '100%' }">
+        <tbody [ngStyle]="{ width: '100%' }">
+            <tr [ngStyle]="{ width: '100%' }">
+                <td [ngStyle]="{ width: '100%' }"><img [ngStyle]="{ width: '100%', height: '250px', objectFit: 'cover' }" [src]="imageSrc" [alt]="title"></td>
+            </tr>
+            <tr [ngStyle]="{ width: '100%', height: '75px' }"></tr>
+        </tbody>
+    </table>
 </ng-template>
 
 <ng-template #content_title_row let-title="title">
-    <td class="w90 align-left roboto fw-normal fs-normal background-primary p-top5px p-bottom5px border-radius-right" [style.color]="styleConfig.css('text')">{{ title }}</td>
+    <table [ngStyle]="{ width: '100%' }">
+        <tbody [ngStyle]="{ width: '100%' }">
+            <tr [ngStyle]="{ width: '100%' }">
+                <td [ngStyle]="style({ width: 'calc(85% - 30px)', backgroundColor: styleConfig.css('primary'), borderRadius: '0 1000px 1000px 0', padding: '5px', paddingLeft: '25px' })">{{ title }}</td>
+                <td [ngStyle]="{ width: '15%' }"></td>
+            </tr>
+            <tr [ngStyle]="{ width: '100%', height: '75px' }"></tr>
+        </tbody>
+    </table>
 </ng-template>
 
 <ng-template #content_item_row let-item="item">
-    <td class="w90">
-        <table class="w100">
-            <tbody class="w100">
-                <tr class="w100">
-                    <td class="w100 roboto align-center fw-normal fs-medium" [style.color]="styleConfig.css('text')">{{ item.title }}</td>
+    <td [ngStyle]="{ width: '90%' }">
+        <table [ngStyle]="{ width: '100%' }">
+            <tbody [ngStyle]="{ width: '100%' }">
+                <tr [ngStyle]="{ width: '100%' }">
+                    <td [ngStyle]="style({ width: '100%' }, { align: 'center', size: 'medium' })">{{ item.title }}</td>
                 </tr>
-                <tr class="w100" *ngFor="let subitem of item.subitems">
-                    <td class="w100">
+                <tr [ngStyle]="{ width: '100%' }" *ngFor="let subitem of item.subitems">
+                    <td [ngStyle]="{ width: '100%' }">
                         <ng-container *ngTemplateOutlet="content_subitem; context: { subitem: subitem }"/>
                     </td>
                 </tr>
-                <tr class="w100" *ngIf="item.link !== null">
-                    <td class="w100 p-top15px align-center"><a class="w100 roboto align-center fw-normal fs-normal link" [style.color]="styleConfig.css('primary')" [href]="item.link">Mehr lesen</a></td>
+                <tr [ngStyle]="{ width: '100%' }" *ngIf="item.link !== null">
+                    <td [ngStyle]="style({ width: '100%', paddingTop: '15px' }, { align: 'center' })"><a [ngStyle]="style({ cursor: 'pointer', textDecoration: 'none' }, { color: 'primary' })" [href]="item.link">Mehr lesen</a></td>
                 </tr>
-                <tr class="w100 h75px"></tr>
-                <tr class="w100">
-                    <td class="w100 h1px" [style.backgroundColor]="styleConfig.css('primary')"></td>
+                <tr [ngStyle]="{ width: '100%', height: '75px' }"></tr>
+                <tr [ngStyle]="{ width: '100%' }">
+                    <td [ngStyle]="{ width: '100%', height: '1px', backgroundColor: styleConfig.css('primary')}"></td>
                 </tr>
-                <tr class="w100 h75px"></tr>
+                <tr [ngStyle]="{ width: '100%', height: '25px' }"></tr>
             </tbody>
         </table>
     </td>
 </ng-template>
 
 <ng-template #content_subitem let-subitem="subitem">
-    <table class="w100">
-        <tbody class="w100">
-            <tr class="w100">
-                <td class="w100 roboto align-left fw-normal fs-normal p-top25px" [style.color]="styleConfig.css('text')">{{ subitem.title }}</td>
+    <table [ngStyle]="{ width: '100%' }">
+        <tbody [ngStyle]="{ width: '100%' }">
+            <tr [ngStyle]="{ width: '100%' }">
+                <td [ngStyle]="style({ width: '100%', paddingTop: '25px' })">{{ subitem.title }}</td>
             </tr>
-            <tr class="w100" *ngIf="subitem.subtitle !== null">
-                <td class="w100 roboto align-block fw-light fs-small p-top5px" [style.color]="styleConfig.css('secondaryText')">{{ subitem.subtitle }}</td>
+            <tr [ngStyle]="{ width: '100%' }" *ngIf="subitem.subtitle !== null">
+                <td [ngStyle]="style({ width: '100%', paddingTop: '5px' }, { align: 'block', size: 'small', weight: 'light', color: 'secondaryText' })">{{ subitem.subtitle }}</td>
             </tr>
         </tbody>
     </table>
@@ -145,75 +163,58 @@
 
 <ng-template #social_media_row let-socialMediaRow="socialMediaRow">
     <ng-container *ngFor="let socialMedia of socialMediaRow">
-        <td class="w5"></td>
-        <td class="w35">
-            <table class="w100">
-                <tbody class="w100">
-                    <tr class="w100">
-                        <td class="w100 align-center p-top25px"><img class="h250px" [src]="socialMedia.imageSrc" [alt]="socialMedia.name"></td>
+        <td [ngStyle]="{ width: '5%' }"></td>
+        <td [ngStyle]="{ width: '35%', verticalAlign: 'top' }">
+            <table [ngStyle]="{ width: '100%' }">
+                <tbody [ngStyle]="{ width: '100%' }">
+                    <tr [ngStyle]="{ width: '100%' }">
+                        <td [ngStyle]="{ width: '100%', textAlign: 'center', paddingTop: '5px' }"><img [ngStyle]="{ width: '25%', objectFit: 'contain' }" [src]="socialMedia.imageSrc" [alt]="socialMedia.name"></td>
                     </tr>
-                    <tr class="w100">
-                        <td class="w100 roboto align-center fw-normal fs-normal p-top5px break-word" [style.color]="styleConfig.css('text')">{{ socialMedia.name }}</td>
+                    <tr [ngStyle]="{ width: '100%' }">
+                        <td [ngStyle]="style({ width: '100%', overflowWrap: 'anywhere', paddingTop: '5px' }, { align: 'center' })">{{ socialMedia.name }}</td>
                     </tr>
-                    <tr class="w100">
-                        <td class="w100 roboto align-center fw-light fs-normal break-word" [style.color]="styleConfig.css('text')">{{ socialMedia.title }}</td>
+                    <tr [ngStyle]="{ width: '100%' }">
+                        <td [ngStyle]="style({ width: '100%', overflowWrap: 'anywhere', paddingTop: '5px' }, { align: 'center', weight: 'light', color: 'secondaryText' })">{{ socialMedia.title }}</td>
                     </tr>
-                    <tr class="w100">
-                        <td class="w100 align-center"><a class="w100 roboto fw-normal fs-normal link break-word" [style.color]="styleConfig.css('primary')" [href]="socialMedia.link.link">{{ socialMedia.link.title }}</a></td>
+                    <tr [ngStyle]="{ width: '100%' }">
+                        <td [ngStyle]="style({ width: '100%', overflowWrap: 'anywhere', paddingTop: '5px' }, { align: 'center' })"><a [ngStyle]="style({ cursor: 'pointer', textDecoration: 'none' }, { color: 'primary' })" [href]="socialMedia.link.link">{{ socialMedia.link.title }}</a></td>
                     </tr>
-                    <tr class="w100 h75px"></tr>
+                    <tr [ngStyle]="{ width: '100%', height: '25px' }"></tr>
                 </tbody>
             </table>
         </td>
-        <td class="w5"></td>
+        <td [ngStyle]="{ width: '5%' }"></td>
     </ng-container>
 </ng-template>
 
-<ng-template #sponsors_row let-sponsors="sponsors">
-    <td class="w90">
-        <table class="w100">
-            <tbody class="w100">
-                <tr class="w100">
-                    <td class="w100 roboto align-center fw-normal fs-medium" [style.color]="styleConfig.css('text')">{{ sponsors.title }}</td>
-                </tr>
-                <tr class="w100" *ngFor="let sponsorRow of sponsors.sponsors">
-                    <td class="w100">
-                        <ng-container *ngTemplateOutlet="sponsor; context: { sponsorRow: sponsorRow }"/>
-                    </td>
-                </tr>
-                <tr class="w100 h75px"></tr>
-                <tr class="w100">
-                    <td class="w100 h1px" [style.backgroundColor]="styleConfig.css('primary')"></td>
-                </tr>
-                <tr class="w100 h75px"></tr>
-            </tbody>
-        </table>
-    </td>
+<ng-template #sponsor_title let-title="title">
+    <td [ngStyle]="style({ width: '90%' }, { align: 'center', size: 'medium', color: 'primary' })">{{ title }}</td>
 </ng-template>
 
-<ng-template #sponsor let-sponsorRow="sponsorRow">
+<ng-template #sponsor_row let-sponsorRow="sponsorRow">
     <ng-container *ngFor="let sponsor of sponsorRow">
-        <td class="w5"></td>
-        <td class="w45">
-            <table class="w100">
-                <tbody class="w100">
-                    <tr class="w100">
-                        <td class="w100 align-center p-top25px"><img class="h250px" [src]="sponsor.logoSrc" [alt]="sponsor.name"></td>
+        <td [ngStyle]="{ width: '5%' }"></td>
+        <td [ngStyle]="{ width: '35%', verticalAlign: 'top' }">
+            <table [ngStyle]="{ width: '100%' }">
+                <tbody [ngStyle]="{ width: '100%' }">
+                    <tr [ngStyle]="{ width: '100%' }">
+                        <td [ngStyle]="{ width: '100%', textAlign: 'center', paddingTop: '5px' }"><img [ngStyle]="{ width: '90%', objectFit: 'contain' }" [src]="sponsor.logoSrc" [alt]="sponsor.name"></td>
                     </tr>
-                    <tr class="w100">
-                        <td class="w100 roboto align-center fw-normal fs-normal p-top5px break-word" [style.color]="styleConfig.css('text')">{{ sponsor.name }}</td>
+                    <tr [ngStyle]="{ width: '100%' }">
+                        <td [ngStyle]="style({ width: '100%', overflowWrap: 'anywhere', paddingTop: '5px' }, { align: 'center' })">{{ sponsor.name }}</td>
                     </tr>
-                    <tr class="w100">
-                        <td class="w100 roboto align-center fw-light fs-normal break-word" [style.color]="styleConfig.css('secondaryText')">{{ sponsor.address.streetName }}, {{ sponsor.address.cityName }}</td>
+                    <tr [ngStyle]="{ width: '100%' }">
+                        <td [ngStyle]="style({ width: '100%', overflowWrap: 'anywhere', paddingTop: '5px' }, { align: 'center', weight: 'light', color: 'secondaryText' })">{{ sponsor.address.streetName }}, {{ sponsor.address.cityName }}</td>
                     </tr>
-                    <tr class="w100 h75px"></tr>
+
+                <tr [ngStyle]="{ width: '100%', height: '25px' }"></tr>
                 </tbody>
             </table>
         </td>
-        <td class="w5"></td>
+        <td [ngStyle]="{ width: '5%' }"></td>
     </ng-container>
 </ng-template>
 
 <ng-template #unsubscribe_link_row let-link="link">
-    <td class="w90 align-block roboto fw-normal fs-normal" [style.color]="styleConfig.css('secondaryText')">Sie möchten unseren Newsletter abbestellen? Folgen Sie dem <a class="link" [style.color]="styleConfig.css('primary')" [href]="link">Link</a> um sich automatisch abzumelden. Sie können sich jederzeit auf unserer Website wieder für den Newsletter anmelden.</td>
+    <td [ngStyle]="style({ width: '90%' }, { align: 'block', color: 'secondaryText' })">Sie möchten unseren Newsletter abbestellen? Folgen Sie dem <a [ngStyle]="style({ cursor: 'pointer', textDecoration: 'none' }, { color: 'primary' })" [href]="link">Link</a> um sich automatisch abzumelden. Sie können sich jederzeit auf unserer Website wieder für den Newsletter anmelden.</td>
 </ng-template>

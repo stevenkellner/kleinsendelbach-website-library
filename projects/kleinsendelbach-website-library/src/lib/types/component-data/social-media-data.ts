@@ -1,12 +1,12 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "../link";
 
-export type SocialMediaData<InternalPathKey extends string> = SocialMediaItem<InternalPathKey>[];
+export type SocialMediaData = SocialMediaItem[];
 
-export type SocialMediaItem<InternalPathKey extends string> = {
+export type SocialMediaItem = {
     title: string;
     name: string;
-    link: Link | InternalPathKey;
+    link: Link;
     image: IconProp | {
         lightModeSource: string;
         darkModeSource: string;

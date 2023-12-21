@@ -22,9 +22,19 @@ export class InputFormPage {
         stepper1: new InputField<number>(5),
         text1: new InputField<string>(''),
         text2: new InputField<string>('')
-    }, {
-        invalidInput: new InputError('Nicht alle Eingaben sind gültig')
-    });
+    }, {});
+
+    public inputForm1 = new InputForm({}, {});
+
+    public inputForm2 = new InputForm({}, {});
+
+    public inputForm3 = new InputForm({}, {});
+
+    constructor() {
+        this.inputForm1.setState('loading');
+        this.inputForm2.setState('success');
+        this.inputForm3.setState('failed');
+    }
 
     public submit() {
         this.inputForm.evaluate();

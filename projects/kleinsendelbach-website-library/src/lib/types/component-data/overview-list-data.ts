@@ -9,6 +9,6 @@ export type OverviewListElement<InternalPathKey extends string> = {
         title: string;
         action: (() => void) | null;
         link: Link | InternalPathKey | null;
-        options: 'selected' | 'prominent' | null;
+        options: 'selected' | 'prominent' | 'disabled' | null;
     }[] | null;
 }

@@ -24,6 +24,7 @@
                 class="button"
                 [prominent]="button.options === 'prominent'"
                 [selected]="button.options === 'selected'"
+                [disabled]="button.options === 'disabled'"
                 [actionLink]="button.link"
                 (action)="button.action?.()"
             >{{ button.title }}</button>

@@ -12,12 +12,14 @@
             class="cancel-button"
             (action)="cancelButtonClicked.emit()"
             [largeText]="true"
+            [disabled]="inputForm.loading"
         >{{ cancelButtonText }}</button>
         <button
             *ngIf="submitButtonText !== null"
             class="submit-button"
             (action)="submitButtonClicked.emit()"
             [largeText]="true"
+            [disabled]="inputForm.loading"
         >{{ submitButtonText }}</button>
     </div>
     <error-message

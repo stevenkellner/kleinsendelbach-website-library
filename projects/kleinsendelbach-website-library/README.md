@@ -4,7 +4,7 @@ Setup the following services, e.g. in the `AppComponent` constructor:
 - `AuthenticationService`
 - `EnvironmentService`
 - `FirebaseApiService`
-- `InternalLinkService`
+- `LinkService`
 - `StyleConfigService`
 - `RecaptchaVerificationService`
 

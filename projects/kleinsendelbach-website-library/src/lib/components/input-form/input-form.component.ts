@@ -1,6 +1,6 @@
 import { ButtonComponent } from './../button/button.component';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { InputForm } from '../../types';
+import { InputError, InputForm } from '../../types';
 import { DeviceTypeService } from '../../services';
 import { CommonModule } from '@angular/common';
 import { ErrorMessageComponent } from './error-message/error-message.component';

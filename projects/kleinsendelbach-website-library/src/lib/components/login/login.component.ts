@@ -4,7 +4,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { InputFormComponent } from '../input-form/input-form.component';
 import { TextInputComponent } from '../input-form/input-fields/text/text.component';
 import { SignInWithButtonComponent } from '../sign-in-with-button/sign-in-with-button.component';
-import { InputError, InputField, InputForm, Validator } from '../../types';
+import { InputError, InputField, InputForm, Result, Validator } from '../../types';
 import { AuthenticationService, DeviceTypeService } from '../../services';
 import { ErrorMessageComponent } from '../input-form/error-message/error-message.component';
 
@@ -19,9 +19,9 @@ export class LoginComponent {
 
     @Output('login') public onLoginRegistrationState = new EventEmitter<'registered' | 'unregistered'>();
 
-    public signInWithAppleStatus: 'loading' | 'valid' | 'failed' = 'valid';
+    public signInWithAppleState: 'loading' | 'success' | 'failed' | null = null;
 
-    public signInWithGoogleStatus: 'loading' | 'valid' | 'failed' = 'valid';
+    public signInWithGoogleState: 'loading' | 'success' | 'failed' | null = null;
 
     public inputForm = new InputForm({
         email: new InputField<string>('', [
@@ -37,10 +37,7 @@ export class LoginComponent {
         ])
     },
     {
-        invalidInput: new InputError('Nicht alle Eingaben sind gültig.'),
-        recaptchaFailed: new InputError('reCaptcha failed.'),
-        failed: new InputError('Anmeldung ist fehlgeschlagen.'),
-        loading: new InputError('Anmeldung wird geprüft.', 'info')
+        recaptchaFailed: 'Ungültige reCAPTCHA. Bitte versuchen Sie es erneut.'
     });
 
     constructor(
@@ -50,74 +47,66 @@ export class LoginComponent {
     ) {}
 
     public get signInWithAppleError(): InputError | null {
-        return this.signInWithError(this.signInWithAppleStatus);
+        return this.signInWithError(this.signInWithAppleState);
     }
 
     public get signInWithGoogleError(): InputError | null {
-        return this.signInWithError(this.signInWithGoogleStatus);
+        return this.signInWithError(this.signInWithGoogleState);
     }
 
-    private signInWithError(status: 'loading' | 'valid' | 'failed'): InputError | null {
-        switch (status) {
+    private signInWithError(state: 'loading' | 'success' | 'failed' | null): InputError | null {
+        if (state === null)
+            return null;
+        switch (state) {
         case 'loading':
             return new InputError('Bitte melden Sie sich im seperaten Anmeldefenster an.', 'info');
-        case 'valid':
-            return null;
+        case 'success':
+            return new InputError('Die Anmeldung war erfolgreich. Sie werden automatisch weitergeleitet.', 'success');
         case 'failed':
-            return new InputError('Anmeldung ist fehlgeschlagen.');
+            return new InputError('Die Anmeldung ist fehlgeschlagen. Bitte versuchen Sie es erneut.');
         }
     }
 
-    private setState(loading: 'email' | 'apple' | 'google' | null = null) {
-        this.inputForm.status = loading === 'email' ? 'loading' : 'valid';
-        this.signInWithAppleStatus = loading === 'apple' ? 'loading' : 'valid';
-        this.signInWithGoogleStatus = loading === 'google' ? 'loading' : 'valid';
+    private setLoadingState(type: 'email' | 'apple' | 'google') {
+        this.inputForm.setState(type === 'email' ? 'loading' : 'valid');
+        this.signInWithAppleState = type === 'apple' ? 'loading' : null;
+        this.signInWithGoogleState = type === 'google' ? 'loading' : null;
+        if (type === 'apple' || type === 'google')
+            this.inputForm.reset();
     }
 
     public async loginWithEmail() {
         if (this.inputForm.evaluate() === 'invalid')
             return;
-        this.setState('email');
-        if (await this.recaptchaService.verify('login_page') === 'invalid') {
-            this.inputForm.status = 'recaptchaFailed';
-            return;
-        }
-        try {
-            const registrationState = await this.authenticationService.login({
-                email: this.inputForm.field('email').value,
-                password: this.inputForm.field('password').value
-            });
-            await this.handleRegistrationState(registrationState);
-        } catch {
-            this.inputForm.status = 'failed';
-        }
+        this.setLoadingState('email');
+        if (await this.recaptchaService.verify('login_page') === 'invalid')
+            return this.inputForm.setState('recaptchaFailed');
+        const registrationStateResult = await this.authenticationService.login({
+            email: this.inputForm.field('email').value,
+            password: this.inputForm.field('password').value
+        });
+        this.inputForm.finish(registrationStateResult);
+        await this.handleRegistrationState(registrationStateResult);
     }
 
     public async loginWithApple() {
-        this.setState('apple');
-        this.inputForm.reset();
-        try {
-            const registrationState = await this.authenticationService.login('apple');
-            await this.handleRegistrationState(registrationState);
-        } catch {
-            this.signInWithAppleStatus = 'failed';
-        }
+        this.setLoadingState('apple');
+        const registrationStateResult = await this.authenticationService.login('apple');
+        this.signInWithAppleState = registrationStateResult.isSuccess() ? 'success' : 'failed';
+        await this.handleRegistrationState(registrationStateResult);
     }
 
     public async loginWithGoogle() {
-        this.setState('google');
-        this.inputForm.reset();
-        try {
-            const registrationState = await this.authenticationService.login('google');
-            await this.handleRegistrationState(registrationState);
-        } catch {
-            this.signInWithGoogleStatus = 'failed';
-        }
+        this.setLoadingState('google');
+        const registrationStateResult = await this.authenticationService.login('google');
+        this.signInWithGoogleState = registrationStateResult.isSuccess() ? 'success' : 'failed';
+        await this.handleRegistrationState(registrationStateResult);
     }
 
-    private async handleRegistrationState(registrationState: 'registered' | 'unregistered') {
-        this.setState();
+    private async handleRegistrationState(registrationStateResult: Result<'registered' | 'unregistered'>) {
+        if (registrationStateResult.isFailure())
+            return;
         this.inputForm.reset();
-        this.onLoginRegistrationState.emit(registrationState);
+        this.onLoginRegistrationState.emit(registrationStateResult.value);
     }
 }

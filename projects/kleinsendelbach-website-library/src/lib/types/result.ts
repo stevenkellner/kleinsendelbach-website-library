@@ -85,9 +85,16 @@ export namespace Result {
         return Result.failure(object.error);
     }
 
+    export function merge<Content, Failure>(...results: [Result<Content, Failure>, ...Result<Content, Failure>[]]): Result<void, Failure> {
+        for (const result of results) {
+            if (result.isFailure())
+                return Result.failure(result.error);
+        }
+        return Result.success();
+    }
+
     export function success<Content>(value: Content): Result.Success<Content>;
     export function success(): Result.Success<void>;
-    // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
     export function success<Content>(value?: Content): Result.Success<Content | void> {
         return new Result.Success(value);
     }
