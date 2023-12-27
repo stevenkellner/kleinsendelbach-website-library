@@ -8,32 +8,83 @@
 .button
     @include flex-row(center, center)
     @include font
-    background-color: color('background')
-    border: 1px solid color('text')
-    border-radius: 5px
-    color: color('text')
     cursor: pointer
     text-decoration: none
     text-align: center
-    width: calc(100% - 22px)
     padding: 5px 10px
+    width: calc(100% - 22px)
 
-    &.borderless
-        border: none
-        width: calc(100% - 20px)
+    &.style-rounded
+        background-color: color('background')
+        border: 1px solid color('text')
+        border-radius: 5px
+        color: color('text')
 
-    &.largeText
-        @include font-size('large')
+        &.borderless
+            border: none
+            width: calc(100% - 20px)
 
-    &.prominent
-        color: color('primary')
+        &.smallText:not(.largeText)
+            @include font-size('small')
 
-    &.selected
-        color: color('primary')
+            &:not(.selected):not(.prominent):not(.lowProminent)
+                @include font-weight('light')
 
-    &.disabled
-        color: color('secondaryText')
-        cursor: wait
+        &.largeText:not(.smallText)
+            @include font-size('large')
+            @include font-weight('medium')
 
-    &:hover
-        background-color: color('hoveredBackground')
+        &.prominent, &.lowProminent, &.selected
+            color: color('primary')
+
+        &.disabled
+            color: color('secondaryText')
+            cursor: wait
+
+        &.unchangeable
+            cursor: not-allowed
+
+        &:hover:not(.disabled):not(.unchangeable)
+            background-color: color('hoveredBackground')
+
+    &.style-plain
+        background-color: color('background')
+        color: color('text')
+        border: 1px solid color('text')
+
+        &.borderless
+            border: none
+            width: calc(100% - 20px)
+
+        &.smallText:not(.largeText)
+            @include font-size('small')
+            @include font-weight('light')
+
+        &.largeText:not(.smallText)
+            @include font-size('large')
+            @include font-weight('medium')
+
+        &.prominent, &.selected
+            background-color: color('primary')
+            color: color('background')
+            border: none
+            width: calc(100% - 20px)
+
+        &.lowProminent:not(.prominent):not(.selected)
+            color: color('primary')
+
+        &.disabled
+            cursor: wait
+
+            &::not(.prominent):not(.selected)
+                color: color('secondaryText')
+
+        &.unchangeable
+            cursor: not-allowed
+
+        &:hover:not(.disabled):not(.unchangeable)
+            &:not(.prominent):not(.selected)
+                background-color: color('hoveredBackground')
+
+            &.prominent, &.selected
+                color: color('text')

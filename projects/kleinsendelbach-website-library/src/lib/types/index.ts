@@ -21,6 +21,6 @@ export * from './event';
 export * from './event-group';
 export * from './report';
 export * from './report-group';
-export * from './markdown-parser';
 export * from './regex-iterator';
 export * from './user';
+export * from './style-type';

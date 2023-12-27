@@ -19,11 +19,9 @@ export class CalendarLocalizedDateFormatter extends CalendarDateFormatter {
     providedIn: 'root'
 })
 export class CalendarEventTitleWithDateFormatter extends CalendarEventTitleFormatter {
-    public get locale(): string {
-        return this._locale;
-    }
+
     constructor(
-        @Inject(LOCALE_ID) private readonly _locale: string
+        @Inject(LOCALE_ID) private readonly locale: string
     ) {
         super();
     }

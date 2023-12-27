@@ -8,14 +8,14 @@
     >
         <img
             *ngIf="contact.profileImageSrc !== null"
-            class="image"
+            class="profile-image"
             [src]="contact.profileImageSrc"
             [alt]="contact.name"
             [title]="contact.name"
         >
         <p
             *ngIf="someHaveImages && contact.profileImageSrc === null"
-            class="image"
+            class="profile-image"
         ></p>
         <p
             class="function"

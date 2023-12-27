@@ -1,0 +1,19 @@
+<div
+    *ngFor="let button of buttons"
+    class="container"
+>
+    <button
+        class="button"
+        [borderless]="button.includes('borderless')"
+        [smallText]="button.includes('smallText')"
+        [largeText]="button.includes('largeText')"
+        [prominent]="button.includes('prominent') ? 'high' : button.includes('lowPorminent') ? 'low' : false"
+        [selected]="button.includes('selected')"
+        [disabled]="button.includes('disabled')"
+        [unchangeable]="button.includes('unchangeable')"
+        [style]="button.includes('plain-style') ? 'plain' : 'rounded'"
+    >Click Me!</button>
+    <p
+        class="text"
+    >{{ button.join(', ') }}</p>
+</div>

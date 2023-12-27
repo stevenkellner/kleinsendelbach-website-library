@@ -2,7 +2,7 @@ import { LinkService } from './../../../kleinsendelbach-website-library/src/lib/
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { AppearanceColor, Color, StyleConfigService } from 'kleinsendelbach-website-library';
+import { AppearanceColor, Color, DeviceTypeService, StyleConfigService } from 'kleinsendelbach-website-library';
 
 @Component({
     selector: 'app-root',
@@ -14,7 +14,7 @@ import { AppearanceColor, Color, StyleConfigService } from 'kleinsendelbach-webs
 export class AppComponent {
     constructor(
         public readonly styleConfig: StyleConfigService,
-        public readonly linkService: LinkService<never>
+        public readonly deviceType: DeviceTypeService
     ){
         this.styleConfig.setup({
             primary: new AppearanceColor(Color.hex('#C90024')),
@@ -29,6 +29,6 @@ export class AppComponent {
             formStatusInfo: new AppearanceColor(Color.hex('#868E90')),
             pageBackground: new AppearanceColor(Color.hex('#F0F0F0'))
         });
-        this.linkService.setup({}, 'https://asdf.com');
+        this.deviceType.setup();
     }
 }

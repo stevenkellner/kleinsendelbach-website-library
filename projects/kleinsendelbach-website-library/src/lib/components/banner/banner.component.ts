@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BannerData, BannerItem, TrackBy } from '../../types';
-import { DeviceTypeService, LinkService } from '../../services';
+import { DeviceTypeService, LinkService, WindowService } from '../../services';
 import { CommonModule } from '@angular/common';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -29,7 +29,8 @@ export class BannerComponent<InternalPathKey extends string> {
     constructor(
         public readonly deviceType: DeviceTypeService,
         private readonly linkService: LinkService<InternalPathKey>,
-        private readonly faIconLibrary: FaIconLibrary
+        private readonly faIconLibrary: FaIconLibrary,
+        private readonly windowService: WindowService
     ) {
         this.faIconLibrary.addIconPacks(fas, far, fab);
         this.setPage(1);
@@ -41,7 +42,7 @@ export class BannerComponent<InternalPathKey extends string> {
 
     public openCurrentLink() {
         const link = this.linkService.link(this.current.link);
-        window.open(link.link, link.target);
+        this.windowService.open(link.link, link.target);
     }
 
     public handleNavBarClick(page: number) {
@@ -119,7 +120,7 @@ export class BannerComponent<InternalPathKey extends string> {
         if (this.nextPageTimeout !== null)
             clearTimeout(this.nextPageTimeout);
         this.currentPage = page;
-        this.nextPageTimeout = window.setTimeout(() => {
+        this.nextPageTimeout = this.windowService.setTimeout(() => {
             if (this.currentPage < this.bannerData.length)
                 this.setPage(this.currentPage + 1);
             else
@@ -130,8 +131,8 @@ export class BannerComponent<InternalPathKey extends string> {
     private isClickOnNavContainer(event: MouseEvent | TouchEvent): boolean {
         if (event.target === null)
             return false;
-        if (!('id' in event.target) || typeof event.target.id !== 'string')
+        if (!('classList' in event.target) || !(event.target.classList instanceof DOMTokenList))
             return false;
-        return event.target.id === 'nav-bar-container' || event.target.id === 'nav-button-container';
+        return event.target.classList.contains('nav-bar-container') || event.target.classList.contains('nav-button-container');
     }
 }

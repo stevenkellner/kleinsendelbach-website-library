@@ -1,6 +1,6 @@
 {
     "name": "kleinsendelbach-website-library",
-    "version": "0.0.86",
+    "version": "0.0.100",
     "peerDependencies": {
         "@angular/cdk": "^17.0.3",
         "@angular/common": "^17.0.0",

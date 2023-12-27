@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DeviceType, EventListener } from '../types';
+import { WindowService } from './window.service';
 
 @Injectable({
     providedIn: 'root'
@@ -8,10 +9,14 @@ export class DeviceTypeService {
 
     public listener = new EventListener<DeviceType>();
 
-    private deviceType: DeviceType;
+    private deviceType: DeviceType = 'desktop';
 
-    constructor() {
-        this.deviceType = DeviceTypeService.computeDeviceType();
+    constructor(
+        private readonly windowService: WindowService
+    ) {}
+
+    public setup() {
+        this.deviceType = this.computeDeviceType();
     }
 
     public get current(): DeviceType {
@@ -30,8 +35,8 @@ export class DeviceTypeService {
         return this.deviceType === 'desktop';
     }
 
-    private static computeDeviceType(): DeviceType {
-        const width = window.innerWidth;
+    private computeDeviceType(): DeviceType {
+        const width = this.windowService.innerWidth;
         if (width <= 480)
             return 'mobile';
         if (width <= 1366)
@@ -40,7 +45,7 @@ export class DeviceTypeService {
     }
 
     public windowResized() {
-        const newDeviceType = DeviceTypeService.computeDeviceType();
+        const newDeviceType = this.computeDeviceType();
         if (this.deviceType !== newDeviceType) {
             this.deviceType = newDeviceType;
             this.listener.emitValue(newDeviceType);

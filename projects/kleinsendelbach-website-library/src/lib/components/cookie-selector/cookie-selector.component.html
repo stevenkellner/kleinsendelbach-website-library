@@ -13,10 +13,13 @@
         class="text"
         *ngIf="selectionShown"
     >Mit der Nutzung unserer Webseite stimmen Sie der Verwendung von Cookies zu. Weitere Informationen über die Verwendung von Cookies und wie Sie Ihre Einwilligung für die Zukunft widerrufen können, finden Sie in unseren Datenschutzhinweisen.</p>
-    <a
-        link="datenschutz"
+    <button
         class="privacy"
-    >Datenschutz</a>
+        [actionLink]="privacyLink"
+        [smallText]="true"
+        [borderless]="true"
+        [prominent]="true"
+    >Datenschutz</button>
     <p
         class="extra-text"
         *ngIf="selectionShown"
@@ -25,31 +28,43 @@
         class="selection-buttons"
         *ngIf="selectionShown"
     >
-        <p
-            class="button unchangable"
-            [class.selected]="cookieSelection['necessary'] === 'selected'"
-        >Notwendig</p>
-        <p
-            class="button"
-            [class.selected]="cookieSelection['functionality'] === 'selected'"
-            (click)="toggleCookieSelection('functionality')"
-        >Funktionalität</p>
-        <p
-            class="button"
-            [class.selected]="cookieSelection['statistics'] === 'selected'"
-            (click)="toggleCookieSelection('statistics')"
-        >Statistik</p>
+        <button
+            class=" button"
+            [selected]="cookieSelection['necessary'] === 'selected'"
+            [unchangeable]="true"
+            [smallText]="true"
+            [style]="'plain'"
+        >Notwending</button>
+        <button
+            class=" button"
+            [selected]="cookieSelection['functionality'] === 'selected'"
+            [smallText]="true"
+            [style]="'plain'"
+            (action)="toggleCookieSelection('functionality')"
+        >Notwending</button>
+        <button
+            class=" button"
+            [selected]="cookieSelection['statistics'] === 'selected'"
+            [smallText]="true"
+            [style]="'plain'"
+            (action)="toggleCookieSelection('statistics')"
+        >Funktionalität</button>
     </div>
-    <p
+    <button
         class="details-button"
-        *ngIf="selectionShown"
-        (click)="toggleDetailsShown()"
-    >{{ detailsShown ? "Details ausblenden" : "Details zeigen" }}</p>
-    <p
+        (action)="toggleDetailsShown()"
+        [smallText]="true"
+        [borderless]="true"
+        [prominent]="true"
+    >{{ detailsShown ? "Details ausblenden" : "Details zeigen" }}</button>
+    <button
         class="show-selection-button"
         *ngIf="deviceType.current === 'mobile'"
-        (click)="toggleSelectionShown()"
-    >{{ selectionShown ? "Auswahl ausblenden" : "Auswahl zeigen" }}</p>
+        (action)="toggleSelectionShown()"
+        [smallText]="true"
+        [borderless]="true"
+        [prominent]="true"
+    >{{ selectionShown ? "Auswahl ausblenden" : "Auswahl zeigen" }}</button>
     <p
         class="details-topic"
         *ngIf="detailsShown && selectionShown"
@@ -77,13 +92,18 @@
     <div
         class="confirm-buttons"
     >
-        <p
-            class="confirm-selected"
-            (click)="handleConfirmSelected()"
-        >Auswahl akzeptieren</p>
-        <p
-            class="confirm-all"
-            (click)="handleConfirmAll()"
-        >Alle akzeptieren</p>
+        <button
+            class="button"
+            (action)="handleConfirmSelected()"
+            [smallText]="true"
+            [style]="'plain'"
+        >Auswahl akzeptieren</button>
+        <button
+            class="button"
+            (action)="handleConfirmAll()"
+            [prominent]="true"
+            [smallText]="true"
+            [style]="'plain'"
+        >Alle akzeptieren</button>
     </div>
 </div>

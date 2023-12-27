@@ -1,4 +1,6 @@
-import { RegexIterable } from "./regex-iterator";
+import { Injectable } from "@angular/core";
+import { RegexIterable } from "../types/regex-iterator";
+import { WindowService } from "./window.service";
 
 class Elements implements Iterable<HTMLElement | string> {
     constructor(
@@ -26,8 +28,35 @@ class Elements implements Iterable<HTMLElement | string> {
     }
 }
 
-export class MarkdownParser {
-    private static parseImages(elements: Elements): Elements {
+@Injectable({
+    providedIn: 'root'
+})
+export class MarkdownParserService {
+
+    constructor(
+        private readonly windowService: WindowService
+    ) {}
+
+    public parse(message: string): Elements {
+        const parsers: ((elements: Elements) => Elements)[] = [
+            elements => this.parseImages(elements),
+            elements => this.parseLinks(elements),
+            elements => this.parseFormatting(elements),
+            elements => this.parseNewLines(elements),
+            elements => this.parseHorizonalLine(elements)
+        ];
+        let elements: Elements = Elements.fromContent(message);
+        try {
+            for (const parser of parsers) {
+                elements = parser(elements);
+            }
+            return elements;
+        } catch {
+            return new Elements();
+        }
+    }
+
+    private parseImages(elements: Elements): Elements {
         return elements.flatMap(value => {
             const result: (HTMLElement | string)[] = [];
             let lastIndex = 0;
@@ -36,7 +65,7 @@ export class MarkdownParser {
                 result.push(value.slice(lastIndex, match.startIndex));
                 if (!match.groups)
                     continue;
-                const image = document.createElement('img');
+                const image = this.createElement('img');
                 image.src = match.groups['link'];
                 image.title = match.groups['title'];
                 image.alt = match.groups['title'];
@@ -50,7 +79,7 @@ export class MarkdownParser {
         });
     }
 
-    private static parseLinks(elements: Elements): Elements {
+    private parseLinks(elements: Elements): Elements {
         return elements.flatMap(value => {
             const result: (HTMLElement | string)[] = [];
             let lastIndex = 0;
@@ -59,10 +88,10 @@ export class MarkdownParser {
                 result.push(value.slice(lastIndex, match.startIndex));
                 if (!match.groups)
                     continue;
-                const link = document.createElement('a');
+                const link = this.createElement('a');
                 link.href = match.groups['link'];
                 link.target = '_blank';
-                link.append(...MarkdownParser.parse(match.groups['content']));
+                link.append(...this.parse(match.groups['content']));
                 link.title = link.innerText;
                 result.push(link);
                 lastIndex = match.endIndex + 1;
@@ -72,14 +101,14 @@ export class MarkdownParser {
         });
     }
 
-    private static parseNewLines(elements: Elements): Elements {
+    private parseNewLines(elements: Elements): Elements {
         return elements.flatMap(value => {
             const result: (HTMLElement | string)[] = [];
             const regexIt = new RegexIterable(/\n/gu, value);
             let lastIndex = 0;
             for (const match of regexIt) {
                 result.push(value.slice(lastIndex, match.startIndex));
-                result.push(document.createElement('br'));
+                result.push(this.createElement('br'));
                 lastIndex = match.endIndex + 1;
             }
             result.push(value.slice(lastIndex));
@@ -87,14 +116,14 @@ export class MarkdownParser {
         });
     }
 
-    private static parseHorizonalLine(elements: Elements): Elements {
+    private parseHorizonalLine(elements: Elements): Elements {
         return elements.flatMap(value => {
             const result: (HTMLElement | string)[] = [];
             const match = (/^\s*---\s*$/gu).exec(value);
             if (match) {
-                const line = document.createElement('div');
+                const line = this.createElement('div');
                 line.classList.add('horizontal-line');
-                line.append(document.createElement('div'));
+                line.append(this.createElement('div'));
                 result.push(line);
             } else
                 result.push(value);
@@ -102,7 +131,7 @@ export class MarkdownParser {
         });
     }
 
-    private static parseFormatting(elements: Elements): Elements {
+    private parseFormatting(elements: Elements): Elements {
         return elements.flatMap(value => {
             const result: (HTMLElement | string)[] = [];
             let components: ['*' | '**' | '***', (HTMLElement | string)[]][] = [];
@@ -131,7 +160,7 @@ export class MarkdownParser {
                     components = [['***', []]];
                     break;
                 case '*|*':
-                    result.push(MarkdownParser.createElement('italic', [...components[0][1], currentValue]));
+                    result.push(this.createElement('italic', [...components[0][1], currentValue]));
                     components = [];
                     break;
                 case '*|**':
@@ -139,7 +168,7 @@ export class MarkdownParser {
                     components.push(['**', []]);
                     break;
                 case '*|***':
-                    result.push(MarkdownParser.createElement('italic', [...components[0][1], currentValue]));
+                    result.push(this.createElement('italic', [...components[0][1], currentValue]));
                     components = [['**', []]];
                     break;
                 case '**|*':
@@ -147,35 +176,35 @@ export class MarkdownParser {
                     components.push(['*', []]);
                     break;
                 case '**|**':
-                    result.push(MarkdownParser.createElement('strong', [...components[0][1], currentValue]));
+                    result.push(this.createElement('strong', [...components[0][1], currentValue]));
                     components = [];
                     break;
                 case '**|***':
-                    result.push(MarkdownParser.createElement('strong', [...components[0][1], currentValue]));
+                    result.push(this.createElement('strong', [...components[0][1], currentValue]));
                     components = [['*', []]];
                     break;
                 case '***|*':
-                    components = [['**', [MarkdownParser.createElement('italic', [...components[0][1], currentValue])]]];
+                    components = [['**', [this.createElement('italic', [...components[0][1], currentValue])]]];
                     break;
                 case '***|**':
-                    components = [['*', [MarkdownParser.createElement('strong', [...components[0][1], currentValue])]]];
+                    components = [['*', [this.createElement('strong', [...components[0][1], currentValue])]]];
                     break;
                 case '***|***':
-                    result.push(MarkdownParser.createElement('italic', MarkdownParser.createElement('strong', [...components[0][1], currentValue])));
+                    result.push(this.createElement('italic', this.createElement('strong', [...components[0][1], currentValue])));
                     components = [];
                     break;
                 case '*|**|**':
-                    components = [['*', [...components[0][1], MarkdownParser.createElement('strong', [...components[1][1], currentValue])]]];
+                    components = [['*', [...components[0][1], this.createElement('strong', [...components[1][1], currentValue])]]];
                     break;
                 case '*|**|***':
-                    result.push(MarkdownParser.createElement('italic', [...components[0][1], MarkdownParser.createElement('strong', [...components[1][1], currentValue])]));
+                    result.push(this.createElement('italic', [...components[0][1], this.createElement('strong', [...components[1][1], currentValue])]));
                     components = [];
                     break;
                 case '**|*|*':
-                    components = [['**', [...components[0][1], MarkdownParser.createElement('italic', [...components[1][1], currentValue])]]];
+                    components = [['**', [...components[0][1], this.createElement('italic', [...components[1][1], currentValue])]]];
                     break;
                 case '**|*|***':
-                    result.push(MarkdownParser.createElement('strong', [...components[0][1], MarkdownParser.createElement('italic', [...components[1][1], currentValue])]));
+                    result.push(this.createElement('strong', [...components[0][1], this.createElement('italic', [...components[1][1], currentValue])]));
                     components = [];
                     break;
                 default:
@@ -191,30 +220,22 @@ export class MarkdownParser {
         });
     }
 
-    private static createElement(type: 'italic' | 'strong', elements: (HTMLElement | string)[] | HTMLElement | string): HTMLElement {
-        const element = document.createElement('div');
-        element.classList.add(type);
+    private createElement(type: 'a'): HTMLAnchorElement;
+    private createElement(type: 'img'): HTMLImageElement;
+    private createElement(type: 'br'): HTMLBRElement;
+    private createElement(type: 'div'): HTMLDivElement;
+    private createElement(type: 'italic' | 'strong', elements: (HTMLElement | string)[] | HTMLElement | string): HTMLDivElement;
+    private createElement(type: 'a' | 'img' | 'br' | 'div' | 'italic' | 'strong', elements?: (HTMLElement | string)[] | HTMLElement | string): HTMLElement {
+        const element = this.windowService.createElement(type === 'italic' || type === 'strong' ? 'div' : type);
+        if (!element)
+            throw new Error('Could\'t create element.')
+        if (type === 'italic' || type === 'strong')
+            element.classList.add(type);
         if (Array.isArray(elements)) {
             for (const child of elements)
                 element.append(child);
-        } else
+        } else if (elements !== undefined)
             element.append(elements);
-
         return element;
-    }
-
-    public static parse(message: string): Elements {
-        const parsers: ((elements: Elements) => Elements)[] = [
-            MarkdownParser.parseImages,
-            MarkdownParser.parseLinks,
-            MarkdownParser.parseFormatting,
-            MarkdownParser.parseNewLines,
-            MarkdownParser.parseHorizonalLine
-        ];
-        let elements: Elements = Elements.fromContent(message);
-        for (const parser of parsers) {
-            elements = parser(elements);
-        }
-        return elements;
     }
 }

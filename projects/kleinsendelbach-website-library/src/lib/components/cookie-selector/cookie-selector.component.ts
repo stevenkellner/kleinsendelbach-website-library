@@ -1,5 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
-import { CookieSelection } from '../../types';
+import { Component, Input, OnDestroy } from '@angular/core';
+import { CookieSelection, Link } from '../../types';
 import { CookieSelectionService, DeviceTypeService } from '../../services';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
@@ -11,7 +11,9 @@ import { ButtonComponent } from '../button/button.component';
     templateUrl: './cookie-selector.component.html',
     styleUrl: './cookie-selector.component.sass'
 })
-export class CookieSelectorComponent implements OnDestroy {
+export class CookieSelectorComponent<InternalPathKey extends string> implements OnDestroy {
+
+    @Input({ required: true }) public privacyLink!: Link | InternalPathKey;
 
     public cookieSelection: CookieSelection;
 

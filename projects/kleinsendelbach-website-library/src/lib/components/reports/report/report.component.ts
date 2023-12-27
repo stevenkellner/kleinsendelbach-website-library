@@ -1,7 +1,8 @@
+import { MarkdownParserService } from './../../../services/markdown-parser.service';
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { DeviceTypeService, StyleConfigService } from '../../../services';
-import { UtcDate, Report, MarkdownParser } from '../../../types';
+import { UtcDate, Report } from '../../../types';
 import { ButtonComponent } from '../../button/button.component';
 
 @Component({
@@ -25,13 +26,14 @@ export class ReportComponent implements AfterViewInit {
 
     constructor(
         public readonly deviceType: DeviceTypeService,
-        public readonly styleConfig: StyleConfigService
+        public readonly styleConfig: StyleConfigService,
+        private readonly markdownParser: MarkdownParserService
     ) {}
 
     public ngAfterViewInit() {
         if (!this.messageElement)
             return;
-        const elements = MarkdownParser.parse(this.report.message);
+        const elements = this.markdownParser.parse(this.report.message);
         if (elements === null) {
             this.messageElement.nativeElement.style.color = this.styleConfig.css('primary');
             this.messageElement.nativeElement.append('Es gab ein Fehler bei der Nachricht.');

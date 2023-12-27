@@ -21,6 +21,7 @@
 </div>
 <div
     class="text-container"
+    [ngClass]="deviceType.current"
 >
     <ng-content
         *ngIf="!collapsed"

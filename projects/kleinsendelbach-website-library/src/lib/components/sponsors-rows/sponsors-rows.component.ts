@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { SponsorsRowComponent } from './sponsors-row/sponsors-row.component';
 import { SponsorsData, SponsorsType, TrackBy, compactMap, keys } from '../../types';
-import { DeviceTypeService } from '../../services';
+import { DeviceTypeService, WindowService } from '../../services';
 
 @Component({
     selector: 'sponsors-rows',
@@ -22,7 +22,8 @@ export class SponsorsRowsComponent {
     public readonly sponsorElementWidth: Record<SponsorsType, number> = { main: 700, normal: 300, small: 200 };
 
     constructor(
-        public readonly deviceType: DeviceTypeService
+        public readonly deviceType: DeviceTypeService,
+        private readonly windowService: WindowService
     ) {}
 
     public get sponsorsTypes(): SponsorsType[] {
@@ -44,6 +45,6 @@ export class SponsorsRowsComponent {
         const sponsors = this.sponsorsData[type];
         if (!sponsors)
             return [];
-        return new Array<null>(Math.ceil(document.body.offsetWidth / (this.sponsorElementWidth[type] * sponsors.length)) + 1);
+        return new Array<null>(Math.ceil(this.windowService.innerWidth / (this.sponsorElementWidth[type] * sponsors.length)) + 1);
     }
 }

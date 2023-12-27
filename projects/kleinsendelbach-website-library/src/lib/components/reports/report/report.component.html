@@ -10,7 +10,7 @@
         class="content"
     >
         <img
-            class="image"
+            class="report-image"
             *ngIf="report.imageUrl !== null && deviceType.isMobile"
             [src]="report.imageUrl"
             [title]="report.title"
@@ -31,7 +31,7 @@
         >{{ isExpanded ? 'Einklappen' : 'Kompletten Bericht lesen' }}</button>
     </div>
     <img
-        class="image"
+        class="report-image"
         *ngIf="report.imageUrl !== null && !deviceType.isMobile"
         [src]="report.imageUrl"
         [title]="report.title"

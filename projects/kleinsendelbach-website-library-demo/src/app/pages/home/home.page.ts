@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { routes } from '../../app.routes';
-import { ButtonComponent, Link, compactMap } from '../../../../../kleinsendelbach-website-library/src/public-api';
+import { ButtonComponent, Link, LinkService, compactMap } from 'kleinsendelbach-website-library';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,6 +11,12 @@ import { CommonModule } from '@angular/common';
     styleUrl: './home.page.sass'
 })
 export class HomePage {
+
+    constructor(
+        public readonly linkService: LinkService<never>
+    ) {
+        this.linkService.setup({}, 'https://asdf.com');
+    }
 
     public routes = compactMap(routes, route => {
         if (!route.component || !route.path || route.path === '*' || route.path === '**')

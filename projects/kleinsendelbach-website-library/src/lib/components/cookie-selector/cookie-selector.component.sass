@@ -13,6 +13,7 @@
     right: 32px
     width: 25vw
     z-index: 1100
+    border-radius: 10px 10px 0 0
 
     .header
         @include font($size: 'medium', $weight: 'medium')
@@ -27,11 +28,7 @@
         text-align: justify
 
     .privacy
-        @include font($size: 'small', $weight: 'light')
-        color: color('primary')
-        cursor: pointer
         padding-bottom: 16px
-        text-decoration: none
 
     .extra-text
         @include font($size: 'small', $weight: 'medium')
@@ -44,30 +41,11 @@
         width: 100%
 
         .button
-            @include font($size: 'small', $weight: 'light')
-            background-color: color('background')
-            border-color: color('text')
-            color: color('text')
-            border: 1px solid
-            cursor: pointer
-            padding: 6px 0
-            text-align: center
-            width: calc(30% - 2px)
-
-            &.selected
-                background-color: color('primary')
-                border-color: color('primary')
-                color: color('background')
-
-            &.unchangable
-                cursor: not-allowed
+            width: calc(33% - 4px)
+            margin: 0 2px
 
     .details-button, .show-selection-button
-        @include font($size: 'small', $weight: 'light')
-        color: color('primary')
-        cursor: pointer
         padding-bottom: 12px
-        text-decoration: none
 
     .details-topic
         @include font($weight: 'medium')
@@ -86,22 +64,9 @@
         padding-top: 12px
         width: 100%
 
-        .confirm-selected, .confirm-all
-            @include font($size: 'small', $weight: 'light')
-            cursor: pointer
-            padding: 6px 0
-            text-align: center
-            width: 45%
-
-        .confirm-selected
-            background-color: color('background')
-            border: 1px solid color('text')
-            color: color('text')
-
-        .confirm-all
-            background-color: color('primary')
-            border: 1px solid color('primary')
-            color: color('background')
+        .button
+            width: calc(50% - 4px)
+            margin: 0 2px
 
     &.tablet
         width: 40vw
@@ -114,12 +79,14 @@
             @include flex-column(flex-start, center)
 
             .button
-                margin-bottom: 12px
                 width: 100%
+                margin: 0
+                margin-bottom: 12px
 
         .confirm-buttons
             @include flex-column(flex-start, center)
 
-            .confirm-selected, .confirm-all
-                margin-bottom: 12px
+            .button
                 width: 100%
+                margin: 0
+                margin-bottom: 12px

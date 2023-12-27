@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { AppearanceService, CookieSelectionService, StyleConfigService } from '../../services';
+import { AppearanceService, CookieSelectionService, StyleConfigService, WindowService } from '../../services';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 
@@ -21,7 +21,8 @@ export class BfvWidgetComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(
         public readonly appearanceService: AppearanceService,
         public readonly cookieSelectionService: CookieSelectionService,
-        public readonly styleConfig: StyleConfigService
+        public readonly styleConfig: StyleConfigService,
+        private readonly windowService: WindowService
     ) {}
 
     public ngOnInit() {
@@ -49,7 +50,7 @@ export class BfvWidgetComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private appendBfvWidgetChild() {
-        if (!this.bfvWidget || !this.functionalityCookiesSelected)
+        if (!this.bfvWidget || !this.functionalityCookiesSelected || !this.windowService.location)
             return;
         this.bfvWidget.nativeElement.innerHTML = '';
         const options = {
@@ -58,14 +59,16 @@ export class BfvWidgetComponent implements OnInit, AfterViewInit, OnDestroy {
             selectedTab: 'teammatches',
             width: '100%'
         };
-        const iFrame = document.createElement('iframe');
+        const iFrame = this.windowService.createElement('iframe');
+        if (!iFrame)
+            return;
         iFrame.setAttribute('allowFullScreen', 'true');
         iFrame.width = '100%';
         iFrame.height = '100%';
         iFrame.style.border = 'none';
         const bfvHost = `https://widget-prod.bfv.de`;
-        const appPath = `widget/widgetresource/iframe${document.location.protocol === 'https:' ? '/ssl' : ''}?url=${window.location.hostname}`;
-        iFrame.src = `${bfvHost}/${appPath}&widget=${encodeURIComponent(`widget/team/complete/team${this.teamId}/${options.selectedTab}?css=${encodeURIComponent(JSON.stringify(options))}&referrer=${window.location.hostname}`)}`;
+        const appPath = `widget/widgetresource/iframe${this.windowService.location.protocol === 'https:' ? '/ssl' : ''}?url=${this.windowService.location.hostname}`;
+        iFrame.src = `${bfvHost}/${appPath}&widget=${encodeURIComponent(`widget/team/complete/team${this.teamId}/${options.selectedTab}?css=${encodeURIComponent(JSON.stringify(options))}&referrer=${this.windowService.location.hostname}`)}`;
         this.bfvWidget.nativeElement.appendChild(iFrame);
     }
 }

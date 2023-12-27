@@ -3,8 +3,9 @@ import { CBCDecryptor, CBCEncryptor } from 'aes-ts';
 import { Base64 } from 'js-base64';
 import { sha512 as cryptSha512 } from 'sha512-crypt-ts';
 import { EnvironmentService } from "./environment.service";
-import { BytesToBitIterator, CombineIterator, RandomBitIterator, addPadding, bitIteratorToBytes, randomBytes, removePadding, unishortBytes, unishortString, xor } from "../types/crypter-utils";
+import { BytesToBitIterator, CombineIterator, RandomBitIterator, addPadding, bitIteratorToBytes, removePadding, unishortBytes, unishortString, xor } from "../types/crypter-utils";
 import { CryptionKeys } from "../types";
+import { WindowService } from "./window.service";
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,8 @@ import { CryptionKeys } from "../types";
 export class CrypterService {
 
     constructor(
-        private readonly environmentService: EnvironmentService<{ cryptionKeys: CryptionKeys }>
+        private readonly environmentService: EnvironmentService<{ cryptionKeys: CryptionKeys }>,
+        private readonly windowService: WindowService
     ) {}
 
     public encryptAes(bytes: Uint8Array): Uint8Array {
@@ -26,7 +28,7 @@ export class CrypterService {
     }
 
     public encryptVernamCipher(bytes: Uint8Array): Uint8Array {
-        const key = randomBytes(32);
+        const key = this.windowService.getRandomValues(new Uint8Array(32));
         const randomBitIterator = new RandomBitIterator(Uint8Array.from([...key, ...this.environmentService.value('cryptionKeys').vernamKey]));
         const bytesToBitIterator = new BytesToBitIterator(bytes);
         const combineIterator = new CombineIterator(randomBitIterator, bytesToBitIterator, xor);

@@ -5,6 +5,7 @@ Setup the following services, e.g. in the `AppComponent` constructor:
 - `EnvironmentService`
 - `FirebaseApiService`
 - `LinkService`
+- `DeviceTypeService`
 - `StyleConfigService`
 - `RecaptchaVerificationService`
 
@@ -48,3 +49,8 @@ importProvidersFrom(
 { provide: RECAPTCHA_V3_SITE_KEY, useValue: '<YOUR_RECAPTCHA_SITE_KEY>' }
 ```
 
+Add the following to your `app.config.server.ts` providers array:
+
+````typescript
+{ provide: WindowService, userClass: ServerWindowService }
+``

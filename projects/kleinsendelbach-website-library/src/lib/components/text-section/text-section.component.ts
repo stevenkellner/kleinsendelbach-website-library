@@ -4,6 +4,7 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import { DeviceTypeService } from '../../services';
 
 @Component({
     selector: 'text-section',
@@ -21,7 +22,8 @@ export class TextSectionComponent {
     @Output() public collapsedChanged = new EventEmitter<boolean>();
 
     constructor(
-        private readonly faIconLibrary: FaIconLibrary
+        private readonly faIconLibrary: FaIconLibrary,
+        public readonly deviceType: DeviceTypeService
     ) {
         this.faIconLibrary.addIconPacks(fas, far, fab);
     }

@@ -3,14 +3,14 @@
 >
     <img
         *ngIf="person.imageSrc !== null"
-        class="image"
+        class="profile-image"
         [src]="person.imageSrc"
         [title]="person.name"
         [alt]="person.name"
     >
     <p
         *ngIf="person.imageSrc === null"
-        class="image"
+        class="profile-image"
     >
     <p
         class="name"

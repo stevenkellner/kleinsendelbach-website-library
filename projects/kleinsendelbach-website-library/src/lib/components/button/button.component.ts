@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Link } from '../../types';
+import { Link, StyleType } from '../../types';
 import { CommonModule } from '@angular/common';
 import { LinkDirective } from '../../directives';
 
@@ -14,20 +14,26 @@ export class ButtonComponent<InternalPathKey extends string> {
 
     @Input() public borderless: boolean = false;
 
+    @Input() public smallText: boolean = false;
+
     @Input() public largeText: boolean = false;
 
-    @Input() public prominent: boolean = false;
+    @Input() public prominent: boolean | 'high' | 'low' = false;
 
     @Input() public selected: boolean = false;
 
     @Input() public disabled: boolean = false;
+
+    @Input() public unchangeable: boolean = false;
+
+    @Input() public style: StyleType = 'rounded';
 
     @Input() public actionLink: Link | InternalPathKey | null = null;
 
     @Output() public action = new EventEmitter<void>();
 
     public clicked() {
-        if (!this.disabled)
+        if (!this.disabled && !this.unchangeable)
             this.action.emit();
     }
 }

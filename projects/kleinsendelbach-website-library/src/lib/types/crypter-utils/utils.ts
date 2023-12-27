@@ -34,12 +34,6 @@ export function bitIteratorToBytes(iterator: Iterator<0 | 1>): Uint8Array {
     return Uint8Array.from(bytes);
 }
 
-export function randomBytes(length: number): Uint8Array {
-    const bytes = new Uint8Array(length);
-    window.crypto.getRandomValues(bytes);
-    return bytes;
-}
-
 export function unishortString(bytes: Uint8Array): string {
     const decoder = new TextDecoder();
     return decoder.decode(bytes);
