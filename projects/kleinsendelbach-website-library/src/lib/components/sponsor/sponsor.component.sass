@@ -10,7 +10,7 @@
     .logo
         height: 100px
 
-    .container
+    .sponsor-container
         @include flex-column(center, flex-start)
 
         .name
@@ -36,13 +36,13 @@
     &.row
         @include flex-row(center, center)
 
-        .container
+        .sponsor-container
             margin-left: 10px
 
     &.column
         @include flex-column(center, center)
 
-        .container
+        .sponsor-container
             margin-top: 10px
 
     &.complete
@@ -53,7 +53,7 @@
             height: auto
             margin-left: calc(50% - 350px - 15px)
 
-        .container
+        .sponsor-container
             width: calc(50% - 15px)
             margin-left: 30px
 

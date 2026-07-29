@@ -12,4 +12,5 @@ export * from './recaptcha-verification.service';
 export * from './recaptcha.service';
 export * from './window.service';
 export * from './server-window.service';
+export * from './analytics.service';
 export * from './markdown-parser.service';

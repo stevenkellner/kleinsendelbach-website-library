@@ -8,6 +8,7 @@ Setup the following services, e.g. in the `AppComponent` constructor:
 - `DeviceTypeService`
 - `StyleConfigService`
 - `RecaptchaVerificationService`
+- `AnalyticsService`
 
 and
 ```typescript
